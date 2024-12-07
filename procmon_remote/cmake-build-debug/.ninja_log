@@ -1,0 +1,17 @@
+# ninja log v6
+37	2348	7553093123852929	CMakeFiles/procmon_remote.dir/Client.cpp.obj	d89897f73af84c34
+39	2539	7553092779621805	CMakeFiles/procmon_remote.dir/Server.cpp.obj	cdb37f025eb92d26
+3	537	7553111810266639	build.ninja	f8815b9743747bfd
+7	2622	7553104102945263	CMakeFiles/procmon_remote.dir/main.cpp.obj	544534d9182670c9
+2623	2965	7553104129103383	procmon_remote.exe	ee7d307471c99f20
+39	2411	7553087137521744	CMakeFiles/procmon_remote.dir/ProcessInfo.cpp.obj	2864ee2660ba5a88
+8	2210	7553113085177282	CMakeFiles/procmon_remote.dir/main.cpp.obj	544534d9182670c9
+40	2213	7553113085507299	CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj	8bd5c0301dadd3cd
+2213	2500	7553113107240789	procmon_remote.exe	61b5d9a654aa33e1
+8	2395	7553116211130769	CMakeFiles/procmon_remote.dir/main.cpp.obj	544534d9182670c9
+38	2425	7553116211440792	CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj	8bd5c0301dadd3cd
+2425	2727	7553116235306022	procmon_remote.exe	61b5d9a654aa33e1
+44	2362	7553122068433831	CMakeFiles/procmon_remote.dir/ProcessInfo.cpp.obj	2864ee2660ba5a88
+9	2381	7553122068093805	CMakeFiles/procmon_remote.dir/main.cpp.obj	544534d9182670c9
+54	2400	7553122068533811	CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj	8bd5c0301dadd3cd
+2400	2709	7553122091996391	procmon_remote.exe	61b5d9a654aa33e1
