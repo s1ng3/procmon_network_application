@@ -4,20 +4,17 @@
 #ifndef PROCESSINFO_HPP
 #define PROCESSINFO_HPP
 
-#include <sys/types.h>
+#include <bits/stdc++.h>
 #include <sys/stat.h>
-#include <iostream>
 #include <string.h>
+#include <winsock2.h>
 #include <windows.h>
 #include <tlhelp32.h>
 #include <stdio.h>
 #include <io.h>
 #include <psapi.h>
-#include <thread>
-#include <winsock2.h>
 #include <ws2tcpip.h>
-#include <sstream>
-#include <atomic>
+
 
 using namespace std;
 
@@ -61,10 +58,11 @@ private:
     PROCESSENTRY32 pe32;
 public:
     ProcessInfo();
-    BOOL ProcessDisplay(char*, char*);
+    BOOL ProcessDisplay();
     BOOL ProcessLog(char*);
     BOOL ProcessSearch(char*);
     BOOL KillProcess(char*);
+    BOOL OpenGivenProcess();
     BOOL DisplayHardwareInfo();
     BOOL GetProcessMemoryUsage(char*);
     BOOL GetProcessUserName(char*);

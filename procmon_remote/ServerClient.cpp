@@ -85,13 +85,15 @@ void ProcessClient(SOCKET ClientSocket) {
             ostringstream response;
 
             if (method == "ProcessDisplay") {
-                response << (processInfo.ProcessDisplay(const_cast<char*>(param.c_str()), nullptr) ? "Success" : "Failure");
+                response << (processInfo.ProcessDisplay() ? "Success" : "Failure");
             } else if (method == "ProcessLog") {
                 response << (processInfo.ProcessLog(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
             } else if (method == "ProcessSearch") {
                 response << (processInfo.ProcessSearch(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
             } else if (method == "KillProcess") {
                 response << (processInfo.KillProcess(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
+            } else if (method == "OpenGivenProcess") {
+                response << (processInfo.OpenGivenProcess() ? "Success" : "Failure");
             } else if (method == "DisplayHardwareInfo") {
                 response << (processInfo.DisplayHardwareInfo() ? "Success" : "Failure");
             } else if (method == "GetProcessMemoryUsage") {
@@ -125,9 +127,9 @@ void ProcessClient(SOCKET ClientSocket) {
                 WSACleanup();
                 exit(1);
             }
-            cout << "Command processed and response sent: " << responseStr << endl;
+            cout << "\n Command processed and response sent: " << responseStr << endl;
         } else if (iResult == 0) {
-            cout << "Connection closing..." << endl;
+            // cout << "Connection closing..." << endl; //TODO fix in console
         } else {
             cerr << "recv failed: " << WSAGetLastError() << endl;
             closesocket(ClientSocket);
@@ -248,7 +250,7 @@ void Cleanup(SOCKET ConnectSocket) {
 void ClientThread(const string& command) {
     InitializeWinsock();
 
-    const char* serverName = "192.168.100.7";
+    const char* serverName = "192.168.5.94";
     SOCKET ConnectSocket = CreateSocket(serverName);
 
     SendCommand(ConnectSocket, command.c_str());
@@ -282,6 +284,7 @@ void DisplayMenu() {
     cout << "12. GetProcessCPUUsage\n";
     cout << "13. GetProcessPath\n";
     cout << "14. DisplayHelp\n";
+    cout << "15. OpenGivenProcess\n";
     cout << "0. Exit\n";
 }
 
@@ -292,8 +295,6 @@ string GetCommand(int choice) {
     switch (choice) {
     case 1:
         command = "ProcessDisplay";
-        cout << "Enter process name: ";
-        cin >> processName;
         command += " " + processName;
         break;
     case 2:
@@ -367,6 +368,9 @@ string GetCommand(int choice) {
         break;
     case 14:
         command = "DisplayHelp";
+        break;
+    case 15:
+        command = "OpenGivenProcess";
         break;
     default:
         command = "";

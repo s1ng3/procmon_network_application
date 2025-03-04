@@ -33,7 +33,7 @@ BOOL ThreadInfo::ThreadsDisplay()
     {
         if (te32.th32OwnerProcessID == PID)
         {
-            cout << "\tTHREAD ID : " << te32.th32ThreadID << endl;
+            cout << "THREAD ID : " << te32.th32ThreadID << endl;
         }
     } while (Thread32Next(hThreadSnap, &te32));
     CloseHandle(hThreadSnap);
@@ -81,10 +81,6 @@ void ProcessInfo::DisplayHelp()
     cout << "Commands:" << endl;
     cout << "  - ProcessDisplay <processName> <option>" << endl;
     cout << "    Display information about a process." << endl;
-    cout << "    Options:" << endl;
-    cout << "      -a: Display all information (threads and DLLs)." << endl;
-    cout << "      -t: Display thread information." << endl;
-    cout << "      -d: Display DLL information." << endl;
     cout << "------------------------------------------" << endl;
     cout << "  - ProcessLog <processName>" << endl;
     cout << "    Log process information to a file." << endl;
@@ -147,7 +143,7 @@ BOOL ProcessInfo::ProcessLog(char* processName)
 
     GetLocalTime(&It);
 
-    sprintf_s(FileName, "F:\\logs_proj\\log_%02d_%02d_%02d_%s.txt", It.wHour, It.wMinute, It.wDay, month[It.wMonth - 1]);
+    sprintf_s(FileName, "D:\\logs_proj\\log_%02d_%02d_%02d_%s.txt", It.wHour, It.wMinute, It.wDay, month[It.wMonth - 1]);
     fp = fopen(FileName, "w");
     if (fp == NULL)
     {
@@ -198,7 +194,7 @@ BOOL ProcessInfo::ProcessLog(char* processName)
     return true;
 }
 
-BOOL ProcessInfo::ProcessDisplay(char* processName, char* option)
+BOOL ProcessInfo::ProcessDisplay()
 {
     char arr[200];
     if (!Process32First(hProcessSnap, &pe32))
@@ -213,36 +209,24 @@ BOOL ProcessInfo::ProcessDisplay(char* processName, char* option)
         mbstowcs_s(NULL, wExeFile, pe32.szExeFile, 200);
         wcstombs_s(NULL, arr, 200, wExeFile, 200);
 
-        if (strlen(processName) == 0 || _stricmp(arr, processName) == 0)
-        {
-            cout << endl << "--------------------------------------";
-            cout << endl << "PROCESS NAME: " << arr;
-            cout << endl << "PID: " << pe32.th32ProcessID;
-            cout << endl << "Parent ID: " << pe32.th32ParentProcessID;
-            cout << endl << "No of Thread: " << pe32.cntThreads;
+        cout << endl << "--------------------------------------";
+        cout << endl << "PROCESS NAME: " << arr;
+        cout << endl << "PID: " << pe32.th32ProcessID;
+        cout << endl << "Parent ID: " << pe32.th32ParentProcessID;
+        cout << endl << "No of Thread: " << pe32.cntThreads;
 
-            if ((_stricmp(option, "-a") == 0) || (_stricmp(option, "-d") == 0) || (_stricmp(option, "-t") == 0))
-            {
-                if ((_stricmp(option, "-t") == 0) || (_stricmp(option, "-a") == 0))
-                {
-                    ptobj = new ThreadInfo(pe32.th32ProcessID);
-                    ptobj->ThreadsDisplay();
-                    delete ptobj;
-                }
-                if ((_stricmp(option, "-d") == 0) || (_stricmp(option, "-a") == 0))
-                {
-                    pdobj = new DLLInfo(pe32.th32ProcessID);
-                    pdobj->DependentDLLDisplay();
-                    delete pdobj;
-                }
-            }
-            cout << endl << "--------------------------------------";
+        // Display thread information
+        // ptobj = new ThreadInfo(pe32.th32ProcessID);
+        // ptobj->ThreadsDisplay(); ///TODO Uncomment this lines to display thread information
+        // delete ptobj;
 
-            if (strlen(processName) != 0)
-            {
-                break;
-            }
-        }
+        // // Display DLL information
+        // pdobj = new DLLInfo(pe32.th32ProcessID);
+        // pdobj->DependentDLLDisplay(); ///TODO Uncomment this lines to display DLL information
+        // delete pdobj;
+
+        cout << endl << "--------------------------------------";
+
     } while (Process32Next(hProcessSnap, &pe32));
     CloseHandle(hProcessSnap);
     return true;
@@ -326,6 +310,25 @@ BOOL ProcessInfo::KillProcess(char* processName)
     cout << "Process not found" << endl;
     CloseHandle(hProcessSnap);
     return false;
+}
+
+BOOL ProcessInfo::OpenGivenProcess()
+{
+    string processPath;
+    cout << "Enter the name of the process to open: ";
+    cin.ignore(); // Ignore any leftover newline character in the input buffer
+    getline(cin, processPath);
+
+    HINSTANCE result = ShellExecute(NULL, "open", processPath.c_str(), NULL, NULL, SW_SHOWNORMAL);
+    if (reinterpret_cast<INT_PTR>(result) <= 32)
+    {
+        DWORD error = GetLastError();
+        cout << "Failed to open process: " << processPath << endl;
+        cout << "Error code: " << error << endl;
+        return false;
+    }
+    cout << "Process opened successfully: " << processPath << endl;
+    return true;
 }
 
 BOOL ProcessInfo::DisplayHardwareInfo()
