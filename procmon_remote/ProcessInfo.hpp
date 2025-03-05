@@ -72,6 +72,9 @@ public:
     BOOL GetProcessStartTime(char*);
     BOOL GetProcessCPUUsage(char*);
     BOOL GetProcessPath(char*);
+    BOOL FastLimitRAM();
+    BOOL LimitRAMWithJobObjects();
+    BOOL LimitCORE();
     void DisplayHelp();
 
 };

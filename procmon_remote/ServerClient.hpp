@@ -4,13 +4,9 @@
 #ifndef SERVER_CLIENT_HPP
 #define SERVER_CLIENT_HPP
 
-#include <iostream>
-#include <thread>
 #include <atomic>
 #include <winsock2.h>
-#include <ws2tcpip.h>
 #include <string>
-#include <sstream>
 #include "ProcessInfo.hpp"
 
 #pragma comment(lib, "Ws2_32.lib")

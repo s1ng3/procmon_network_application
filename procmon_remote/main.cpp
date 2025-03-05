@@ -12,12 +12,12 @@ int main() {
 
     do {
         DisplayMenu();
-        cout << "Enter your choice: ";
-        cin >> choice;
+        cout<<"Enter your choice: ";
+        cin>>choice;
 
-        if (choice == 0) break;
+        if (choice==0) break;
 
-        command = GetCommand(choice);
+        command=GetCommand(choice);
         if (!command.empty()) {
             thread client(ClientThread, command);
             client.join();
@@ -25,7 +25,7 @@ int main() {
 
     } while (choice != 0);
 
-    serverRunning = false;
+    serverRunning=false;
     server.join();
 
     return 0;
