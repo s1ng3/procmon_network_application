@@ -57,26 +57,28 @@ private:
     HANDLE hProcessSnap;
     PROCESSENTRY32 pe32;
 public:
-    ProcessInfo();
-    BOOL ProcessDisplay();
-    BOOL ProcessLog(char*);
-    BOOL ProcessSearch(char*);
-    BOOL KillProcess(char*);
-    BOOL OpenGivenProcess();
-    BOOL DisplayHardwareInfo();
-    BOOL GetProcessMemoryUsage(char*);
-    BOOL GetProcessUserName(char*);
-    BOOL GetProcessStatus(char*);
-    BOOL GetProcessDescription(char*);
-    BOOL GetProcessPriority(char*);
-    BOOL GetProcessStartTime(char*);
-    BOOL GetProcessCPUUsage(char*);
-    BOOL GetProcessPath(char*);
-    BOOL FastLimitRAM();
-    BOOL LimitRAMWithJobObjects();
-    BOOL LimitCORE();
+    bool ProcessLog(const char *processName);
+    bool ProcessSearch(const char *processName);
+    bool KillProcess(const char *processName);
+    bool GetProcessMemoryUsage(const char *processName);
+    bool GetProcessUserName(const char *processName);
+    bool GetProcessStatus(const char *processName);
+    bool GetProcessDescription(const char *processName);
+    bool GetProcessPriority(const char *processName);
+    bool GetProcessStartTime(const char *processName);
+    bool GetProcessCPUUsage(const char *processName);
+    bool GetProcessPath(const char *processName);
+
     void DisplayHelp();
 
+    ProcessInfo();
+
+    bool ProcessDisplay();
+    bool DisplayHardwareInfo();
+    bool FastLimitRAM();
+    bool LimitRAMWithJobObjects();
+    bool LimitLogicalProcessors();
+    bool OpenGivenProcess();
 };
 
 #endif // PROCESSINFO_HPP

@@ -7,6 +7,7 @@
 // The main function displays a menu of available commands and allows the user to choose a command to execute.
 
 #include "ServerClient.hpp"
+#include "ProcessInfo.hpp"
 
 atomic<bool> serverRunning(true);
 
@@ -71,73 +72,66 @@ void ProcessClient(SOCKET ClientSocket) {
     int iResult, iSendResult;
     ProcessInfo processInfo;
 
+    unordered_map<string, bool (ProcessInfo::*)(const char*)> commandMap = {
+        {"ProcessLog", &ProcessInfo::ProcessLog},
+        {"ProcessSearch", &ProcessInfo::ProcessSearch},
+        {"KillProcess", &ProcessInfo::KillProcess},
+        {"GetProcessMemoryUsage", &ProcessInfo::GetProcessMemoryUsage},
+        {"GetProcessUserName", &ProcessInfo::GetProcessUserName},
+        {"GetProcessStatus", &ProcessInfo::GetProcessStatus},
+        {"GetProcessDescription", &ProcessInfo::GetProcessDescription},
+        {"GetProcessPriority", &ProcessInfo::GetProcessPriority},
+        {"GetProcessStartTime", &ProcessInfo::GetProcessStartTime},
+        {"GetProcessCPUUsage", &ProcessInfo::GetProcessCPUUsage},
+        {"GetProcessPath", &ProcessInfo::GetProcessPath}
+    };
+
+    unordered_map<string, bool (ProcessInfo::*)()> commandMapNoParam = {
+        pair<string, bool (ProcessInfo::*)()>("ProcessDisplay", &ProcessInfo::ProcessDisplay),
+        pair<string, bool (ProcessInfo::*)()>("DisplayHardwareInfo", &ProcessInfo::DisplayHardwareInfo),
+        pair<string, bool (ProcessInfo::*)()>("FastLimitRAM", &ProcessInfo::FastLimitRAM),
+        pair<string, bool (ProcessInfo::*)()>("LimitRAMWithJobObjects", &ProcessInfo::LimitRAMWithJobObjects),
+        pair<string, bool (ProcessInfo::*)()>("LimitLogicalProcessors", &ProcessInfo::LimitLogicalProcessors),
+        pair<string, bool (ProcessInfo::*)()>("OpenGivenProcess", &ProcessInfo::OpenGivenProcess)
+    };
+
     do {
-        iResult=recv(ClientSocket, recvbuf, DEFAULT_BUFLEN, 0);
+        iResult = recv(ClientSocket, recvbuf, DEFAULT_BUFLEN, 0);
         if (iResult > 0) {
             string command(recvbuf, iResult);
-            cout<<"Received command: "<<command<<endl;
+            cout << "Received command: " << command << endl;
 
             istringstream iss(command);
             string method;
             string param;
-            iss>>method>>param;
+            iss >> method >> param;
 
             ostringstream response;
 
-            if (method=="ProcessDisplay") {
-                response<<(processInfo.ProcessDisplay() ? "Success" : "Failure");
-            } else if (method=="ProcessLog") {
-                response<<(processInfo.ProcessLog(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
-            } else if (method=="ProcessSearch") {
-                response<<(processInfo.ProcessSearch(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
-            } else if (method=="KillProcess") {
-                response<<(processInfo.KillProcess(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
-            } else if (method=="OpenGivenProcess") {
-                response<<(processInfo.OpenGivenProcess() ? "Success" : "Failure");
-            } else if (method=="DisplayHardwareInfo") {
-                response<<(processInfo.DisplayHardwareInfo() ? "Success" : "Failure");
-            } else if (method=="GetProcessMemoryUsage") {
-                response<<(processInfo.GetProcessMemoryUsage(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
-            } else if (method=="GetProcessUserName") {
-                response<<(processInfo.GetProcessUserName(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
-            } else if (method=="GetProcessStatus") {
-                response<<(processInfo.GetProcessStatus(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
-            } else if (method=="GetProcessDescription") {
-                response<<(processInfo.GetProcessDescription(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
-            } else if (method=="GetProcessPriority") {
-                response<<(processInfo.GetProcessPriority(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
-            } else if (method=="GetProcessStartTime") {
-                response<<(processInfo.GetProcessStartTime(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
-            } else if (method=="GetProcessCPUUsage") {
-                response<<(processInfo.GetProcessCPUUsage(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
-            } else if (method=="FastLimitRAM") {
-                response<<(processInfo.FastLimitRAM() ? "Success" : "Failure");
-            } else if (method=="LimitRAMWithJobObjects") {
-                response<<(processInfo.LimitRAMWithJobObjects() ? "Success" : "Failure");
-            } else if (method=="LimitCORE") {
-                response<<(processInfo.LimitCORE() ? "Success" : "Failure");
-            } else if (method=="GetProcessPath") {
-                response<<(processInfo.GetProcessPath(const_cast<char*>(param.c_str())) ? "Success" : "Failure");
-            } else if (method=="DisplayHelp") {
+            if (commandMap.find(method) != commandMap.end()) {
+                response << ((processInfo.*commandMap[method])(param.c_str()) ? "Success" : "Failure");
+            } else if (commandMapNoParam.find(method) != commandMapNoParam.end()) {
+                response << ((processInfo.*commandMapNoParam[method])() ? "Success" : "Failure");
+            } else if (method == "DisplayHelp") {
                 processInfo.DisplayHelp();
-                response<<"Help displayed";
+                response << "Help displayed";
             } else {
-                response<<"Unknown command";
+                response << "Unknown command";
             }
 
-            string responseStr=response.str();
-            iSendResult=send(ClientSocket, responseStr.c_str(), responseStr.length(), 0);
-            if (iSendResult==SOCKET_ERROR) {
-                cerr<<"send failed: "<<WSAGetLastError()<<endl;
+            string responseStr = response.str();
+            iSendResult = send(ClientSocket, responseStr.c_str(), responseStr.length(), 0);
+            if (iSendResult == SOCKET_ERROR) {
+                cerr << "send failed: " << WSAGetLastError() << endl;
                 closesocket(ClientSocket);
                 WSACleanup();
                 exit(1);
             }
-            cout<<"\n Command processed and response sent: "<<responseStr<<endl;
-        } else if (iResult==0) {
-            // cout<<"Connection closing..."<<endl; //TODO fix in console
+            cout << "\nCommand processed and response sent: " << responseStr << endl;
+        } else if (iResult == 0) {
+            // Connection closing
         } else {
-            cerr<<"recv failed: "<<WSAGetLastError()<<endl;
+            cerr << "recv failed: " << WSAGetLastError() << endl;
             closesocket(ClientSocket);
             WSACleanup();
             exit(1);
@@ -152,7 +146,7 @@ void ServerThread() {
 
     SOCKET ListenSocket=CreateListenSocket();
 
-    cout<<"Waiting for client to connect..."<<endl;
+    cout<<"Waiting for client to connect...\n\n";
 
     while (serverRunning) {
         fd_set readfds;
@@ -256,7 +250,7 @@ void Cleanup(SOCKET ConnectSocket) {
 void ClientThread(const string& command) {
     InitializeWinsock();
 
-    const char* serverName="192.168.100.8"; //192.168.100.8 for home
+    const char* serverName="192.168.100.7"; //192.168.100.8 for home
     SOCKET ConnectSocket=CreateSocket(serverName);
 
     SendCommand(ConnectSocket, command.c_str());
@@ -264,7 +258,7 @@ void ClientThread(const string& command) {
     char recvbuf[DEFAULT_BUFLEN];
     int iResult=recv(ConnectSocket, recvbuf, DEFAULT_BUFLEN, 0);
     if (iResult > 0) {
-        cout<<"Received response from server: "<<string(recvbuf, iResult)<<endl;
+        cout<<"Received response from server: "<<string(recvbuf, iResult)<<endl<<endl;
     } else if (iResult==0) {
         cout<<"Connection closed by server."<<endl;
     } else {
@@ -293,106 +287,41 @@ void DisplayMenu() {
     cout<<"15. OpenGivenProcess\n";
     cout<<"16. FastLimitRAM\n"; // Added option to limit RAM
     cout<<"17. LimitRAMWithJobObjects\n"; // Added option to limit RAM with Job Objects
-    cout<<"18. LimitCORE\n";
+    cout<<"18. LimitLogicalProcessors\n";
     cout<<"0. Exit\n";
 }
 
 string GetCommand(int choice) {
-    string command;
-    string processName;
+    unordered_map<int, pair<string, bool>> commandMap = {
+        {1, {"ProcessDisplay", false}},
+        {2, {"ProcessLog", true}},
+        {3, {"ProcessSearch", true}},
+        {4, {"KillProcess", true}},
+        {5, {"DisplayHardwareInfo", false}},
+        {6, {"GetProcessMemoryUsage", true}},
+        {7, {"GetProcessUserName", true}},
+        {8, {"GetProcessStatus", true}},
+        {9, {"GetProcessDescription", true}},
+        {10, {"GetProcessPriority", true}},
+        {11, {"GetProcessStartTime", true}},
+        {12, {"GetProcessCPUUsage", true}},
+        {13, {"GetProcessPath", true}},
+        {14, {"DisplayHelp", false}},
+        {15, {"OpenGivenProcess", false}},
+        {16, {"FastLimitRAM", false}},
+        {17, {"LimitRAMWithJobObjects", false}},
+        {18, {"LimitLogicalProcessors", false}}
+    };
 
-    switch (choice) {
-    case 1:
-        command="ProcessDisplay";
-        command += " " + processName;
-        break;
-    case 2:
-        command="ProcessLog";
-        cout<<"Enter log file name: ";
-        cin>>processName;
-        command += " " + processName;
-        break;
-    case 3:
-        command="ProcessSearch";
-        cout<<"Enter search term: ";
-        cin>>processName;
-        command += " " + processName;
-        break;
-    case 4:
-        command="KillProcess";
-        cout<<"Enter process name: ";
-        cin>>processName;
-        command += " " + processName;
-        break;
-    case 5:
-        command="DisplayHardwareInfo";
-        break;
-    case 6:
-        command="GetProcessMemoryUsage";
-        cout<<"Enter process name: ";
-        cin>>processName;
-        command += " " + processName;
-        break;
-    case 7:
-        command="GetProcessUserName";
-        cout<<"Enter process name: ";
-        cin>>processName;
-        command += " " + processName;
-        break;
-    case 8:
-        command="GetProcessStatus";
-        cout<<"Enter process name: ";
-        cin>>processName;
-        command += " " + processName;
-        break;
-    case 9:
-        command="GetProcessDescription";
-        cout<<"Enter process name: ";
-        cin>>processName;
-        command += " " + processName;
-        break;
-    case 10:
-        command="GetProcessPriority";
-        cout<<"Enter process name: ";
-        cin>>processName;
-        command += " " + processName;
-        break;
-    case 11:
-        command="GetProcessStartTime";
-        cout<<"Enter process name: ";
-        cin>>processName;
-        command += " " + processName;
-        break;
-    case 12:
-        command="GetProcessCPUUsage";
-        cout<<"Enter process name: ";
-        cin>>processName;
-        command += " " + processName;
-        break;
-    case 13:
-        command="GetProcessPath";
-        cout<<"Enter process name: ";
-        cin>>processName;
-        command += " " + processName;
-        break;
-    case 14:
-        command="DisplayHelp";
-        break;
-    case 15:
-        command="OpenGivenProcess";
-        break;
-    case 16:
-        command="FastLimitRAM";
-        break;
-    case 17:
-        command="LimitRAMWithJobObjects";
-        break;
-    case 18:
-        command="LimitCORE";
-        break;
-    default:
-        command="";
-        break;
+    string command;
+    if (commandMap.find(choice) != commandMap.end()) {
+        command = commandMap[choice].first;
+        if (commandMap[choice].second) {
+            string processName;
+            cout << "Enter process name: ";
+            cin >> processName;
+            command += " " + processName;
+        }
     }
 
     return command;

@@ -4,7 +4,8 @@
 #include "ServerClient.hpp"
 
 int main() {
-    thread server(ServerThread);
+
+    thread serverThread(ServerThread);
     this_thread::sleep_for(chrono::seconds(2));
 
     int choice;
@@ -12,21 +13,23 @@ int main() {
 
     do {
         DisplayMenu();
-        cout<<"Enter your choice: ";
-        cin>>choice;
+        cout << "\nEnter your choice: ";
+        cin >> choice;
 
-        if (choice==0) break;
+        if (choice == 0) break;
 
-        command=GetCommand(choice);
+        command = GetCommand(choice);
         if (!command.empty()) {
             thread client(ClientThread, command);
             client.join();
+        } else {
+            cout << "Invalid choice. Please try again." << endl;
         }
 
     } while (choice != 0);
 
-    serverRunning=false;
-    server.join();
+    serverRunning = false;
+    serverThread.join();
 
     return 0;
 }

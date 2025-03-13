@@ -118,6 +118,21 @@ void ProcessInfo::DisplayHelp()
     cout<<"  - GetProcessPath <processName>"<<endl;
     cout<<"    Display the path of a process."<<endl;
     cout<<"=========================================="<<endl;
+    cout<<"  - DisplayHelp"<<endl;
+    cout<<"    Display this help message."<<endl;
+    cout<<"=========================================="<<endl;
+    cout<<"  - FastLimitRAM"<<endl;
+    cout<<"    Limit RAM usage using SetProcessWorkingSetSize."<<endl;
+    cout<<"------------------------------------------"<<endl;
+    cout<<"  - LimitRAMWithJobObjects"<<endl;
+    cout<<"    Limit RAM usage using Job Objects."<<endl;
+    cout<<"------------------------------------------"<<endl;
+    cout<<"  - LimitLogicalProcessors"<<endl;
+    cout<<"    Limit the number of logical processors."<<endl;
+    cout<<"------------------------------------------"<<endl;
+    cout<<"  - OpenGivenProcess"<<endl;
+    cout<<"    Open a given process."<<endl;
+    cout<<"=========================================="<<endl;
 }
 
 ProcessInfo::ProcessInfo()
@@ -134,7 +149,7 @@ ProcessInfo::ProcessInfo()
     pe32.dwSize=sizeof(PROCESSENTRY32);
 }
 
-BOOL ProcessInfo::ProcessLog(char* processName)
+bool ProcessInfo::ProcessLog(const char* processName)
 {
     const char* month[]={ "JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC" };
     char FileName[50], arr[512];
@@ -194,7 +209,7 @@ BOOL ProcessInfo::ProcessLog(char* processName)
     return true;
 }
 
-BOOL ProcessInfo::ProcessDisplay()
+bool ProcessInfo::ProcessDisplay()
 {
     char arr[200];
     if (!Process32First(hProcessSnap, &pe32))
@@ -259,14 +274,14 @@ BOOL ProcessInfo::ProcessDisplay()
             cout<<endl<<"Failed to open process.";
         }
 
-        cout<<endl<<"--------------------------------------";
+        cout<<endl<<"--------------------------------------\n\n";
 
     } while (Process32Next(hProcessSnap, &pe32));
     CloseHandle(hProcessSnap);
     return true;
 }
 
-BOOL ProcessInfo::ProcessSearch(char* processName)
+bool ProcessInfo::ProcessSearch(const char* processName)
 {
     DWORD processID=0;
     HANDLE hProcessSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -305,7 +320,7 @@ BOOL ProcessInfo::ProcessSearch(char* processName)
     return TRUE;
 }
 
-BOOL ProcessInfo::KillProcess(char* processName)
+bool ProcessInfo::KillProcess(const char* processName)
 {
     HANDLE hProcess;
     char arr[200];
@@ -357,7 +372,7 @@ BOOL ProcessInfo::KillProcess(char* processName)
     return false;
 }
 
-BOOL ProcessInfo::OpenGivenProcess()
+bool ProcessInfo::OpenGivenProcess()
 {
     string processPath;
     cout<<"Enter the name of the process to open: ";
@@ -376,12 +391,12 @@ BOOL ProcessInfo::OpenGivenProcess()
     return true;
 }
 
-BOOL ProcessInfo::DisplayHardwareInfo()
+bool ProcessInfo::DisplayHardwareInfo()
 {
     SYSTEM_INFO siSysInfo;
     GetSystemInfo(&siSysInfo);
 
-    // Get the number of cores
+    // Get the number of logical processors
     DWORD length=0;
     GetLogicalProcessorInformation(NULL, &length);
     PSYSTEM_LOGICAL_PROCESSOR_INFORMATION buffer=(PSYSTEM_LOGICAL_PROCESSOR_INFORMATION)malloc(length);
@@ -399,7 +414,7 @@ BOOL ProcessInfo::DisplayHardwareInfo()
     free(buffer);
 
     cout<<"Hardware information: "<<endl;
-    cout<<"  Number of cores: "<<coreCount<<endl;
+    cout<<"  Number of logical processors: "<<coreCount<<endl;
     cout<<"  Number of processors: "<<siSysInfo.dwNumberOfProcessors<<endl;
     cout<<"  OEM ID: "<<siSysInfo.dwOemId<<endl;
     cout<<"  Page size: "<<siSysInfo.dwPageSize<<endl;
@@ -419,7 +434,7 @@ BOOL ProcessInfo::DisplayHardwareInfo()
     return TRUE;
 }
 
-BOOL ProcessInfo::GetProcessMemoryUsage(char* processName)
+bool ProcessInfo::GetProcessMemoryUsage(const char* processName)
 {
     DWORD processID=0;
     HANDLE hProcessSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -458,7 +473,7 @@ BOOL ProcessInfo::GetProcessMemoryUsage(char* processName)
     return TRUE;
 }
 
-BOOL ProcessInfo::GetProcessUserName(char* processName)
+bool ProcessInfo::GetProcessUserName(const char* processName)
 {
     DWORD processID=0;
     HANDLE hProcessSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -512,7 +527,7 @@ BOOL ProcessInfo::GetProcessUserName(char* processName)
     return TRUE;
 }
 
-BOOL ProcessInfo::GetProcessStatus(char* processName)
+bool ProcessInfo::GetProcessStatus(const char* processName)
 {
     DWORD processID=0;
     HANDLE hProcessSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -554,7 +569,7 @@ BOOL ProcessInfo::GetProcessStatus(char* processName)
     return TRUE;
 }
 
-BOOL ProcessInfo::GetProcessDescription(char* processName)
+bool ProcessInfo::GetProcessDescription(const char* processName)
 {
     DWORD processID=0;
     HANDLE hProcessSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -598,7 +613,7 @@ BOOL ProcessInfo::GetProcessDescription(char* processName)
     return TRUE;
 }
 
-BOOL ProcessInfo::GetProcessPriority(char* processName)
+bool ProcessInfo::GetProcessPriority(const char* processName)
 {
     DWORD processID=0;
     HANDLE hProcessSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -637,7 +652,7 @@ BOOL ProcessInfo::GetProcessPriority(char* processName)
     return TRUE;
 }
 
-BOOL ProcessInfo::GetProcessStartTime(char* processName)
+bool ProcessInfo::GetProcessStartTime(const char* processName)
 {
     DWORD processID=0;
     HANDLE hProcessSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -678,7 +693,7 @@ BOOL ProcessInfo::GetProcessStartTime(char* processName)
     return TRUE;
 }
 
-BOOL ProcessInfo::GetProcessCPUUsage(char* processName)
+bool ProcessInfo::GetProcessCPUUsage(const char* processName)
 {
     DWORD processID=0;
     HANDLE hProcessSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -757,7 +772,7 @@ BOOL ProcessInfo::GetProcessCPUUsage(char* processName)
     return TRUE;
 }
 
-BOOL ProcessInfo::GetProcessPath(char* processName)
+bool ProcessInfo::GetProcessPath(const char* processName)
 {
     DWORD processID=0;
     HANDLE hProcessSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -796,7 +811,7 @@ BOOL ProcessInfo::GetProcessPath(char* processName)
     return TRUE;
 }
 
-BOOL ProcessInfo::FastLimitRAM()
+bool ProcessInfo::FastLimitRAM()
 {
     char processName[200];
     SIZE_T memoryLimit;
@@ -855,7 +870,7 @@ BOOL ProcessInfo::FastLimitRAM()
 
 /// LIMIT RAM WITH JOBS
 
-BOOL ProcessInfo::LimitRAMWithJobObjects()
+bool ProcessInfo::LimitRAMWithJobObjects()
 {
     char processName[200];
     SIZE_T memoryLimit;
@@ -936,7 +951,7 @@ BOOL ProcessInfo::LimitRAMWithJobObjects()
     return TRUE;
 }
 
-BOOL ProcessInfo::LimitCORE()
+bool ProcessInfo::LimitLogicalProcessors()
 {
     string processName;
     DWORD_PTR coreMask;

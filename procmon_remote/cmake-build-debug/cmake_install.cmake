@@ -1,4 +1,4 @@
-# Install script for directory: D:/procmon_network_application-main/procmon_network_application-main/procmon_remote
+# Install script for directory: F:/JetBrains Projects/CLion Projects/procmon_remote
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "D:/CLion 2023.1/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "F:/JetBrains/CLion/bin/mingw/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/procmon_network_application-main/procmon_network_application-main/procmon_remote/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "F:/JetBrains Projects/CLion Projects/procmon_remote/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
