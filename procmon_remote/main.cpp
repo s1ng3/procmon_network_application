@@ -13,22 +13,22 @@ int main() {
 
     do {
         DisplayMenu();
-        cout << "\nEnter your choice: ";
-        cin >> choice;
+        cout<<"\nEnter your choice: ";
+        cin>>choice;
 
-        if (choice == 0) break;
+        if (choice==0) break;
 
-        command = GetCommand(choice);
+        command=GetCommand(choice);
         if (!command.empty()) {
-            thread client(ClientThread, command);
+            thread client(ClientThread,command);
             client.join();
         } else {
-            cout << "Invalid choice. Please try again." << endl;
+            cout<<"Invalid choice. Please try again."<<endl;
         }
 
     } while (choice != 0);
 
-    serverRunning = false;
+    serverRunning=false;
     serverThread.join();
 
     return 0;

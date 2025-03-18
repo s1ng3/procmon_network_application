@@ -15,6 +15,8 @@
 #include <psapi.h>
 #include <ws2tcpip.h>
 
+#include "RaspberryProcesses.hpp"
+
 
 using namespace std;
 
@@ -79,6 +81,8 @@ public:
     bool LimitRAMWithJobObjects();
     bool LimitLogicalProcessors();
     bool OpenGivenProcess();
+    bool DisplayRaspberryProcesses();
+    bool LimitArduinoPowerForAnalogAndDigital();
 };
 
 #endif // PROCESSINFO_HPP

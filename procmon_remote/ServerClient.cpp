@@ -13,7 +13,7 @@ atomic<bool> serverRunning(true);
 
 void InitializeWinsock() {
     WSADATA wsaData;
-    int iResult=WSAStartup(MAKEWORD(2, 2), &wsaData);
+    int iResult=WSAStartup(MAKEWORD(2,2),&wsaData);
     if (iResult != 0) {
         cerr<<"WSAStartup failed: "<<iResult<<endl;
         exit(1);
@@ -21,21 +21,21 @@ void InitializeWinsock() {
 }
 
 SOCKET CreateListenSocket() {
-    struct addrinfo* result=NULL, hints;
-    ZeroMemory(&hints, sizeof(hints));
+    struct addrinfo* result=NULL,hints;
+    ZeroMemory(&hints,sizeof(hints));
     hints.ai_family=AF_INET;
     hints.ai_socktype=SOCK_STREAM;
     hints.ai_protocol=IPPROTO_TCP;
     hints.ai_flags=AI_PASSIVE;
 
-    int iResult=getaddrinfo(NULL, DEFAULT_PORT, &hints, &result);
+    int iResult=getaddrinfo(NULL,DEFAULT_PORT,&hints,&result);
     if (iResult != 0) {
         cerr<<"getaddrinfo failed: "<<iResult<<endl;
         WSACleanup();
         exit(1);
     }
 
-    SOCKET ListenSocket=socket(result->ai_family, result->ai_socktype, result->ai_protocol);
+    SOCKET ListenSocket=socket(result->ai_family,result->ai_socktype,result->ai_protocol);
     if (ListenSocket==INVALID_SOCKET) {
         cerr<<"Error at socket(): "<<WSAGetLastError()<<endl;
         freeaddrinfo(result);
@@ -43,7 +43,7 @@ SOCKET CreateListenSocket() {
         exit(1);
     }
 
-    iResult=bind(ListenSocket, result->ai_addr, (int)result->ai_addrlen);
+    iResult=bind(ListenSocket,result->ai_addr,(int)result->ai_addrlen);
     if (iResult==SOCKET_ERROR) {
         cerr<<"bind failed: "<<WSAGetLastError()<<endl;
         freeaddrinfo(result);
@@ -54,7 +54,7 @@ SOCKET CreateListenSocket() {
 
     freeaddrinfo(result);
 
-    iResult=listen(ListenSocket, SOMAXCONN);
+    iResult=listen(ListenSocket,SOMAXCONN);
     if (iResult==SOCKET_ERROR) {
         cerr<<"listen failed: "<<WSAGetLastError()<<endl;
         closesocket(ListenSocket);
@@ -69,69 +69,71 @@ SOCKET CreateListenSocket() {
 
 void ProcessClient(SOCKET ClientSocket) {
     char recvbuf[DEFAULT_BUFLEN];
-    int iResult, iSendResult;
+    int iResult,iSendResult;
     ProcessInfo processInfo;
 
-    unordered_map<string, bool (ProcessInfo::*)(const char*)> commandMap = {
-        {"ProcessLog", &ProcessInfo::ProcessLog},
-        {"ProcessSearch", &ProcessInfo::ProcessSearch},
-        {"KillProcess", &ProcessInfo::KillProcess},
-        {"GetProcessMemoryUsage", &ProcessInfo::GetProcessMemoryUsage},
-        {"GetProcessUserName", &ProcessInfo::GetProcessUserName},
-        {"GetProcessStatus", &ProcessInfo::GetProcessStatus},
-        {"GetProcessDescription", &ProcessInfo::GetProcessDescription},
-        {"GetProcessPriority", &ProcessInfo::GetProcessPriority},
-        {"GetProcessStartTime", &ProcessInfo::GetProcessStartTime},
-        {"GetProcessCPUUsage", &ProcessInfo::GetProcessCPUUsage},
-        {"GetProcessPath", &ProcessInfo::GetProcessPath}
+    unordered_map<string,bool (ProcessInfo::*)(const char*)> commandMap={
+        {"ProcessLog",&ProcessInfo::ProcessLog},
+        {"ProcessSearch",&ProcessInfo::ProcessSearch},
+        {"KillProcess",&ProcessInfo::KillProcess},
+        {"GetProcessMemoryUsage",&ProcessInfo::GetProcessMemoryUsage},
+        {"GetProcessUserName",&ProcessInfo::GetProcessUserName},
+        {"GetProcessStatus",&ProcessInfo::GetProcessStatus},
+        {"GetProcessDescription",&ProcessInfo::GetProcessDescription},
+        {"GetProcessPriority",&ProcessInfo::GetProcessPriority},
+        {"GetProcessStartTime",&ProcessInfo::GetProcessStartTime},
+        {"GetProcessCPUUsage",&ProcessInfo::GetProcessCPUUsage},
+        {"GetProcessPath",&ProcessInfo::GetProcessPath},
     };
 
-    unordered_map<string, bool (ProcessInfo::*)()> commandMapNoParam = {
-        pair<string, bool (ProcessInfo::*)()>("ProcessDisplay", &ProcessInfo::ProcessDisplay),
-        pair<string, bool (ProcessInfo::*)()>("DisplayHardwareInfo", &ProcessInfo::DisplayHardwareInfo),
-        pair<string, bool (ProcessInfo::*)()>("FastLimitRAM", &ProcessInfo::FastLimitRAM),
-        pair<string, bool (ProcessInfo::*)()>("LimitRAMWithJobObjects", &ProcessInfo::LimitRAMWithJobObjects),
-        pair<string, bool (ProcessInfo::*)()>("LimitLogicalProcessors", &ProcessInfo::LimitLogicalProcessors),
-        pair<string, bool (ProcessInfo::*)()>("OpenGivenProcess", &ProcessInfo::OpenGivenProcess)
+    unordered_map<string,bool (ProcessInfo::*)()> commandMapNoParam={
+        {"ProcessDisplay",&ProcessInfo::ProcessDisplay},
+        {"DisplayHardwareInfo",&ProcessInfo::DisplayHardwareInfo},
+        {"FastLimitRAM",&ProcessInfo::FastLimitRAM},
+        {"LimitRAMWithJobObjects",&ProcessInfo::LimitRAMWithJobObjects},
+        {"LimitLogicalProcessors",&ProcessInfo::LimitLogicalProcessors},
+        {"OpenGivenProcess",&ProcessInfo::OpenGivenProcess},
+        {"DisplayRaspberryProcesses",&ProcessInfo::DisplayRaspberryProcesses},
+        {"LimitArduinoPowerForAnalogAndDigital",&ProcessInfo::LimitArduinoPowerForAnalogAndDigital}
     };
 
     do {
-        iResult = recv(ClientSocket, recvbuf, DEFAULT_BUFLEN, 0);
+        iResult=recv(ClientSocket,recvbuf,DEFAULT_BUFLEN,0);
         if (iResult > 0) {
-            string command(recvbuf, iResult);
-            cout << "Received command: " << command << endl;
+            string command(recvbuf,iResult);
+            cout<<"Received command: "<<command<<endl;
 
             istringstream iss(command);
             string method;
             string param;
-            iss >> method >> param;
+            iss>>method>>param;
 
             ostringstream response;
 
             if (commandMap.find(method) != commandMap.end()) {
-                response << ((processInfo.*commandMap[method])(param.c_str()) ? "Success" : "Failure");
+                response<<((processInfo.*commandMap[method])(param.c_str()) ? "Success" : "Failure");
             } else if (commandMapNoParam.find(method) != commandMapNoParam.end()) {
-                response << ((processInfo.*commandMapNoParam[method])() ? "Success" : "Failure");
-            } else if (method == "DisplayHelp") {
+                response<<((processInfo.*commandMapNoParam[method])() ? "Success" : "Failure");
+            } else if (method=="DisplayHelp") {
                 processInfo.DisplayHelp();
-                response << "Help displayed";
+                response<<"Help displayed";
             } else {
-                response << "Unknown command";
+                response<<"Unknown command";
             }
 
-            string responseStr = response.str();
-            iSendResult = send(ClientSocket, responseStr.c_str(), responseStr.length(), 0);
-            if (iSendResult == SOCKET_ERROR) {
-                cerr << "send failed: " << WSAGetLastError() << endl;
+            string responseStr=response.str();
+            iSendResult=send(ClientSocket,responseStr.c_str(),responseStr.length(),0);
+            if (iSendResult==SOCKET_ERROR) {
+                cerr<<"send failed: "<<WSAGetLastError()<<endl;
                 closesocket(ClientSocket);
                 WSACleanup();
                 exit(1);
             }
-            cout << "\nCommand processed and response sent: " << responseStr << endl;
-        } else if (iResult == 0) {
+            cout<<"\nCommand processed and response sent: "<<responseStr<<endl;
+        } else if (iResult==0) {
             // Connection closing
         } else {
-            cerr << "recv failed: " << WSAGetLastError() << endl;
+            cerr<<"recv failed: "<<WSAGetLastError()<<endl;
             closesocket(ClientSocket);
             WSACleanup();
             exit(1);
@@ -151,23 +153,23 @@ void ServerThread() {
     while (serverRunning) {
         fd_set readfds;
         FD_ZERO(&readfds);
-        FD_SET(ListenSocket, &readfds);
+        FD_SET(ListenSocket,&readfds);
 
         timeval timeout;
         timeout.tv_sec=1;
         timeout.tv_usec=0;
 
-        int selectResult=select(0, &readfds, NULL, NULL, &timeout);
+        int selectResult=select(0,&readfds,NULL,NULL,&timeout);
         if (selectResult==SOCKET_ERROR) {
             cerr<<"select failed: "<<WSAGetLastError()<<endl;
             break;
         }
 
         if (selectResult==0) {
-            continue; // Timeout, check serverRunning flag again
+            continue; // Timeout,check serverRunning flag again
         }
 
-        SOCKET ClientSocket=accept(ListenSocket, NULL, NULL);
+        SOCKET ClientSocket=accept(ListenSocket,NULL,NULL);
         if (ClientSocket==INVALID_SOCKET) {
             if (serverRunning) {
                 cerr<<"accept failed: "<<WSAGetLastError()<<endl;
@@ -177,7 +179,7 @@ void ServerThread() {
 
         cout<<"Client connected."<<endl;
 
-        thread clientThread(ProcessClient, ClientSocket);
+        thread clientThread(ProcessClient,ClientSocket);
         clientThread.detach(); // Detach the thread to handle multiple clients
     }
 
@@ -186,13 +188,13 @@ void ServerThread() {
 }
 
 SOCKET CreateSocket(const char* serverName) {
-    struct addrinfo* result=NULL, * ptr=NULL, hints;
-    ZeroMemory(&hints, sizeof(hints));
+    struct addrinfo* result=NULL,* ptr=NULL,hints;
+    ZeroMemory(&hints,sizeof(hints));
     hints.ai_family=AF_UNSPEC;
     hints.ai_socktype=SOCK_STREAM;
     hints.ai_protocol=IPPROTO_TCP;
 
-    int iResult=getaddrinfo(serverName, DEFAULT_PORT, &hints, &result);
+    int iResult=getaddrinfo(serverName,DEFAULT_PORT,&hints,&result);
     if (iResult != 0) {
         cerr<<"getaddrinfo failed: "<<iResult<<endl;
         WSACleanup();
@@ -201,7 +203,7 @@ SOCKET CreateSocket(const char* serverName) {
 
     SOCKET ConnectSocket=INVALID_SOCKET;
     for (ptr=result; ptr != NULL; ptr=ptr->ai_next) {
-        ConnectSocket=socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol);
+        ConnectSocket=socket(ptr->ai_family,ptr->ai_socktype,ptr->ai_protocol);
         if (ConnectSocket==INVALID_SOCKET) {
             cerr<<"Error at socket(): "<<WSAGetLastError()<<endl;
             freeaddrinfo(result);
@@ -209,7 +211,7 @@ SOCKET CreateSocket(const char* serverName) {
             exit(1);
         }
 
-        iResult=connect(ConnectSocket, ptr->ai_addr, (int)ptr->ai_addrlen);
+        iResult=connect(ConnectSocket,ptr->ai_addr,(int)ptr->ai_addrlen);
         if (iResult==SOCKET_ERROR) {
             closesocket(ConnectSocket);
             ConnectSocket=INVALID_SOCKET;
@@ -229,8 +231,8 @@ SOCKET CreateSocket(const char* serverName) {
     return ConnectSocket;
 }
 
-void SendCommand(SOCKET ConnectSocket, const char* command) {
-    int iResult=send(ConnectSocket, command, (int)strlen(command), 0);
+void SendCommand(SOCKET ConnectSocket,const char* command) {
+    int iResult=send(ConnectSocket,command,(int)strlen(command),0);
     if (iResult==SOCKET_ERROR) {
         cerr<<"send failed: "<<WSAGetLastError()<<endl;
         closesocket(ConnectSocket);
@@ -240,7 +242,7 @@ void SendCommand(SOCKET ConnectSocket, const char* command) {
 }
 
 void Cleanup(SOCKET ConnectSocket) {
-    int iResult=shutdown(ConnectSocket, SD_SEND);
+    int iResult=shutdown(ConnectSocket,SD_SEND);
     if (iResult==SOCKET_ERROR) {
         cerr<<"shutdown failed: "<<WSAGetLastError()<<endl;
     }
@@ -250,15 +252,15 @@ void Cleanup(SOCKET ConnectSocket) {
 void ClientThread(const string& command) {
     InitializeWinsock();
 
-    const char* serverName="192.168.100.7"; //192.168.100.8 for home
+    const char* serverName="192.168.100.53"; //192.168.100.8 for home
     SOCKET ConnectSocket=CreateSocket(serverName);
 
-    SendCommand(ConnectSocket, command.c_str());
+    SendCommand(ConnectSocket,command.c_str());
 
     char recvbuf[DEFAULT_BUFLEN];
-    int iResult=recv(ConnectSocket, recvbuf, DEFAULT_BUFLEN, 0);
+    int iResult=recv(ConnectSocket,recvbuf,DEFAULT_BUFLEN,0);
     if (iResult > 0) {
-        cout<<"Received response from server: "<<string(recvbuf, iResult)<<endl<<endl;
+        cout<<"Received response from server: "<<string(recvbuf,iResult)<<endl<<endl;
     } else if (iResult==0) {
         cout<<"Connection closed by server."<<endl;
     } else {
@@ -288,39 +290,43 @@ void DisplayMenu() {
     cout<<"16. FastLimitRAM\n"; // Added option to limit RAM
     cout<<"17. LimitRAMWithJobObjects\n"; // Added option to limit RAM with Job Objects
     cout<<"18. LimitLogicalProcessors\n";
-    cout<<"0. Exit\n";
+    cout<<"19. DisplayRaspberryProcesses\n";
+    cout<<"20. LimitArduinoPowerForAnalogAndDigital\n";
+    cout<<"\n0. Exit\n";
 }
 
 string GetCommand(int choice) {
-    unordered_map<int, pair<string, bool>> commandMap = {
-        {1, {"ProcessDisplay", false}},
-        {2, {"ProcessLog", true}},
-        {3, {"ProcessSearch", true}},
-        {4, {"KillProcess", true}},
-        {5, {"DisplayHardwareInfo", false}},
-        {6, {"GetProcessMemoryUsage", true}},
-        {7, {"GetProcessUserName", true}},
-        {8, {"GetProcessStatus", true}},
-        {9, {"GetProcessDescription", true}},
-        {10, {"GetProcessPriority", true}},
-        {11, {"GetProcessStartTime", true}},
-        {12, {"GetProcessCPUUsage", true}},
-        {13, {"GetProcessPath", true}},
-        {14, {"DisplayHelp", false}},
-        {15, {"OpenGivenProcess", false}},
-        {16, {"FastLimitRAM", false}},
-        {17, {"LimitRAMWithJobObjects", false}},
-        {18, {"LimitLogicalProcessors", false}}
+    unordered_map<int,pair<string,bool>> commandMap={
+        {1,{"ProcessDisplay",false}},
+        {2,{"ProcessLog",true}},
+        {3,{"ProcessSearch",true}},
+        {4,{"KillProcess",true}},
+        {5,{"DisplayHardwareInfo",false}},
+        {6,{"GetProcessMemoryUsage",true}},
+        {7,{"GetProcessUserName",true}},
+        {8,{"GetProcessStatus",true}},
+        {9,{"GetProcessDescription",true}},
+        {10,{"GetProcessPriority",true}},
+        {11,{"GetProcessStartTime",true}},
+        {12,{"GetProcessCPUUsage",true}},
+        {13,{"GetProcessPath",true}},
+        {14,{"DisplayHelp",false}},
+        {15,{"OpenGivenProcess",false}},
+        {16,{"FastLimitRAM",false}},
+        {17,{"LimitRAMWithJobObjects",false}},
+        {18,{"LimitLogicalProcessors",false}},
+        {19,{"DisplayRaspberryProcesses",false}},
+        {20,{"LimitArduinoPowerForAnalogAndDigital",false}}
     };
 
     string command;
     if (commandMap.find(choice) != commandMap.end()) {
-        command = commandMap[choice].first;
+        command=commandMap[choice].first;
         if (commandMap[choice].second) {
             string processName;
-            cout << "Enter process name: ";
-            cin >> processName;
-            command += " " + processName;
+            cout<<"Enter process name: ";
+            cin>>processName;
+            command += " "+processName;
         }
     }
 

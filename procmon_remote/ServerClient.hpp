@@ -9,7 +9,7 @@
 #include <string>
 #include "ProcessInfo.hpp"
 
-#pragma comment(lib, "Ws2_32.lib")
+#pragma comment(lib,"Ws2_32.lib")
 
 #define DEFAULT_PORT "27015"
 #define DEFAULT_BUFLEN 512
@@ -19,7 +19,7 @@ SOCKET CreateListenSocket();
 void ProcessClient(SOCKET ClientSocket);
 void ServerThread();
 SOCKET CreateSocket(const char* serverName);
-void SendCommand(SOCKET ConnectSocket, const char* command);
+void SendCommand(SOCKET ConnectSocket,const char* command);
 void Cleanup(SOCKET ConnectSocket);
 void ClientThread(const string& command);
 void DisplayMenu();

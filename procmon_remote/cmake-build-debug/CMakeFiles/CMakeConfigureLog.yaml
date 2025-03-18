@@ -579,3 +579,37 @@ events:
       Running the CXX compiler's linker: "F:/JetBrains/CLion/bin/mingw/bin/ld.exe" "-v"
       GNU ld (GNU Binutils) 2.40
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "F:/VCPKG/vcpkg/installed/x64-windows/share/libssh/libssh-config.cmake:4 (find_dependency)"
+      - "CMakeLists.txt:13 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "F:/JetBrains Projects/CLion Projects/procmon_remote/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1neupl"
+      binary: "F:/JetBrains Projects/CLion Projects/procmon_remote/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1neupl"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'F:/JetBrains Projects/CLion Projects/procmon_remote/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1neupl'
+        
+        Run Build Command(s): F:/JetBrains/CLion/bin/ninja/win/x64/ninja.exe -v cmTC_5bb6c
+        [1/2] F:\\JetBrains\\CLion\\bin\\mingw\\bin\\gcc.exe -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_5bb6c.dir/src.c.obj -c "F:/JetBrains Projects/CLion Projects/procmon_remote/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-1neupl/src.c"
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && F:\\JetBrains\\CLion\\bin\\mingw\\bin\\gcc.exe   CMakeFiles/cmTC_5bb6c.dir/src.c.obj -o cmTC_5bb6c.exe -Wl,--out-implib,libcmTC_5bb6c.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+...
