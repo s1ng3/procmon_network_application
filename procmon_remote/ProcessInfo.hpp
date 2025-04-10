@@ -83,6 +83,7 @@ public:
     bool OpenGivenProcess();
     bool DisplayRaspberryProcesses();
     bool LimitArduinoPowerForAnalogAndDigital();
+    bool OptimizeProcessPerformance();
 };
 
 #endif // PROCESSINFO_HPP

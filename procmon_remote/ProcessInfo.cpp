@@ -1164,3 +1164,54 @@ bool ProcessInfo::LimitArduinoPowerForAnalogAndDigital() {
 
     return true;
 }
+
+bool ProcessInfo::OptimizeProcessPerformance() {
+    // Retrieve the number of logical processors
+    SYSTEM_INFO sysInfo;
+    GetSystemInfo(&sysInfo);
+    DWORD numLogicalProcessors = sysInfo.dwNumberOfProcessors;
+
+    // Create a snapshot of all processes
+    HANDLE hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (hProcessSnap == INVALID_HANDLE_VALUE) {
+        std::cerr << "Unable to create the snapshot of the current running processes" << std::endl;
+        return false;
+    }
+
+    PROCESSENTRY32 pe32;
+    pe32.dwSize = sizeof(PROCESSENTRY32);
+
+    if (!Process32First(hProcessSnap, &pe32)) {
+        std::cerr << "Error in finding the first process" << std::endl;
+        CloseHandle(hProcessSnap);
+        return false;
+    }
+
+    DWORD_PTR coreMask = 0x01; // Start with the first core
+    do {
+        // Open the process with the required permissions
+        HANDLE hProcess = OpenProcess(PROCESS_SET_INFORMATION, FALSE, pe32.th32ProcessID);
+        if (hProcess != NULL) {
+            // Set the affinity mask for the process
+            if (!SetProcessAffinityMask(hProcess, coreMask)) {
+                std::cerr << "Failed to set process affinity mask for: " << pe32.szExeFile << std::endl;
+            } else {
+                std::cout << "Set affinity mask for process: " << pe32.szExeFile
+                          << " to core mask: " << std::hex << coreMask << std::endl;
+            }
+            CloseHandle(hProcess);
+        } else {
+            std::cerr << "Unable to open process: " << pe32.szExeFile << std::endl;
+        }
+
+        // Update the core mask for the next process
+        coreMask <<= 1; // Shift to the next core
+        if (coreMask >= (1ULL << numLogicalProcessors)) {
+            coreMask = 0x01; // Reset to the first core if all cores are used
+        }
+
+    } while (Process32Next(hProcessSnap, &pe32));
+
+    CloseHandle(hProcessSnap);
+    return true;
+}

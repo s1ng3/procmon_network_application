@@ -94,7 +94,8 @@ void ProcessClient(SOCKET ClientSocket) {
         {"LimitLogicalProcessors",&ProcessInfo::LimitLogicalProcessors},
         {"OpenGivenProcess",&ProcessInfo::OpenGivenProcess},
         {"DisplayRaspberryProcesses",&ProcessInfo::DisplayRaspberryProcesses},
-        {"LimitArduinoPowerForAnalogAndDigital",&ProcessInfo::LimitArduinoPowerForAnalogAndDigital}
+        {"LimitArduinoPowerForAnalogAndDigital",&ProcessInfo::LimitArduinoPowerForAnalogAndDigital},
+        {"OptimizeProcessPerformance",&ProcessInfo::OptimizeProcessPerformance},
     };
 
     do {
@@ -252,7 +253,7 @@ void Cleanup(SOCKET ConnectSocket) {
 void ClientThread(const string& command) {
     InitializeWinsock();
 
-    const char* serverName="192.168.100.53"; //192.168.100.8 for home
+    const char* serverName="192.168.100.7"; //192.168.100.8 for home
     SOCKET ConnectSocket=CreateSocket(serverName);
 
     SendCommand(ConnectSocket,command.c_str());
@@ -292,6 +293,7 @@ void DisplayMenu() {
     cout<<"18. LimitLogicalProcessors\n";
     cout<<"19. DisplayRaspberryProcesses\n";
     cout<<"20. LimitArduinoPowerForAnalogAndDigital\n";
+    cout<<"21. OptimizeProcessPerformance\n";
     cout<<"\n0. Exit\n";
 }
 
@@ -316,7 +318,8 @@ string GetCommand(int choice) {
         {17,{"LimitRAMWithJobObjects",false}},
         {18,{"LimitLogicalProcessors",false}},
         {19,{"DisplayRaspberryProcesses",false}},
-        {20,{"LimitArduinoPowerForAnalogAndDigital",false}}
+        {20,{"LimitArduinoPowerForAnalogAndDigital",false}},
+        {21,{"OptimizeProcessPerformance",false}}
     };
 
     string command;
