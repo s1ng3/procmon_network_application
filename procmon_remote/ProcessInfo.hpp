@@ -70,6 +70,7 @@ public:
     bool GetProcessStartTime(const char *processName);
     bool GetProcessCPUUsage(const char *processName);
     bool GetProcessPath(const char *processName);
+    bool VerifyProcessIntegrity(const char *processName);
 
     void DisplayHelp();
 

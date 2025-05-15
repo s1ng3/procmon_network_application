@@ -1,10 +1,10 @@
 // Author: Tudor-Cristian Sîngerean
 // Date: 07.12.2024
 
-// This file contains the implementation of certain classes,which
+// This file contains the implementation of certain classes, which
 // provides various functions to interact with processes on the system.
 
-// The ProcessInfo class uses the Windows API to retrieve information about processes,threads,and DLLs.
+// The ProcessInfo class uses the Windows API to retrieve information about processes, threads, and DLLs.
 
 #include "ProcessInfo.hpp"
 #include "RaspberryProcesses.hpp"
@@ -66,8 +66,8 @@ BOOL DLLInfo::DependentDLLDisplay()
     do
     {
         wchar_t wModule[200];
-        mbstowcs_s(NULL,wModule,me32.szModule,200);
-        wcstombs_s(NULL,arr,200,wModule,200);
+        mbstowcs_s(nullptr,wModule,me32.szModule,200);
+        wcstombs_s(nullptr,arr,200,wModule,200);
         cout<<arr<<endl;
     } while (Module32Next(hProcessSnap,&me32));
     CloseHandle(hProcessSnap);
@@ -134,12 +134,27 @@ void ProcessInfo::DisplayHelp()
     cout<<"  - OpenGivenProcess"<<endl;
     cout<<"    Open a given process."<<endl;
     cout<<"=========================================="<<endl;
+    cout<<"  - DisplayRaspberryProcesses"<<endl;
+    cout<<"    Display processes on a Raspberry Pi."<<endl;
+    cout<<"------------------------------------------"<<endl;
+    cout<<"  - LimitArduinoPowerForAnalogAndDigital"<<endl;
+    cout<<"    Limit Arduino power for analog and digital."<<endl;
+    cout<<"------------------------------------------"<<endl;
+    cout<<"  - OptimizeProcessPerformance"<<endl;
+    cout<<"    Optimize process performance."<<endl;
+    cout<<"------------------------------------------"<<endl;
+    cout<<"  - VerifyProcessIntegrity <processName>"<<endl;
+    cout<<"    Verify the integrity of a process."<<endl;
+    cout<<"------------------------------------------"<<endl;
+    cout<<"  - Exit"<<endl;
+    cout<<"    Exit the program."<<endl;
+    cout<<"=========================================="<<endl;
 }
 
 ProcessInfo::ProcessInfo()
 {
-    ptobj=NULL;
-    pdobj=NULL;
+    ptobj=nullptr;
+    pdobj=nullptr;
 
     hProcessSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
     if (hProcessSnap==INVALID_HANDLE_VALUE)
@@ -150,63 +165,115 @@ ProcessInfo::ProcessInfo()
     pe32.dwSize=sizeof(PROCESSENTRY32);
 }
 
-bool ProcessInfo::ProcessLog(const char* processName)
-{
-    const char* month[]={ "JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC" };
-    char FileName[50],arr[512];
+void encryptAndLog(const string& logData, const string& filePath) {
+    HCRYPTPROV hProv;
+    HCRYPTKEY hKey;
+    HCRYPTHASH hHash;
+
+    // Acquire a cryptographic context
+    if (!CryptAcquireContext(&hProv, nullptr, nullptr, PROV_RSA_AES, CRYPT_VERIFYCONTEXT)) {
+        throw runtime_error("Failed to acquire cryptographic context");
+    }
+
+    // Create a hash object
+    if (!CryptCreateHash(hProv, CALG_SHA_256, 0, 0, &hHash)) {
+        CryptReleaseContext(hProv, 0);
+        throw runtime_error("Failed to create hash object");
+    }
+
+    // Hash a password or key (for simplicity, using a hardcoded key here)
+    const string key = "secure_key";
+    if (!CryptHashData(hHash, reinterpret_cast<const BYTE*>(key.c_str()), key.size(), 0)) {
+        CryptDestroyHash(hHash);
+        CryptReleaseContext(hProv, 0);
+        throw runtime_error("Failed to hash key");
+    }
+
+    // Generate an AES key from the hash
+    if (!CryptDeriveKey(hProv, CALG_AES_256, hHash, 0, &hKey)) {
+        CryptDestroyHash(hHash);
+        CryptReleaseContext(hProv, 0);
+        throw runtime_error("Failed to derive AES key");
+    }
+
+    CryptDestroyHash(hHash);
+
+    // Encrypt the data
+    vector<BYTE> buffer(logData.begin(), logData.end());
+    DWORD bufferSize = buffer.size();
+    DWORD bufferCapacity = bufferSize + 16; // Add padding for encryption
+    buffer.resize(bufferCapacity);
+
+    if (!CryptEncrypt(hKey, 0, TRUE, 0, buffer.data(), &bufferSize, bufferCapacity)) {
+        CryptDestroyKey(hKey);
+        CryptReleaseContext(hProv, 0);
+        throw runtime_error("Failed to encrypt data");
+    }
+
+    // Write the encrypted data to a file
+    ofstream outFile(filePath, ios::binary);
+    if (!outFile) {
+        CryptDestroyKey(hKey);
+        CryptReleaseContext(hProv, 0);
+        throw runtime_error("Failed to open log file for writing");
+    }
+    outFile.write(reinterpret_cast<const char*>(buffer.data()), bufferSize);
+    outFile.close();
+
+    // Clean up
+    CryptDestroyKey(hKey);
+    CryptReleaseContext(hProv, 0);
+}
+
+bool ProcessInfo::ProcessLog(const char* processName) {
+    const char* month[] = { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" };
+    char FileName[50];
     SYSTEMTIME It;
-    FILE* fp;
 
     GetLocalTime(&It);
 
-    sprintf_s(FileName,"D:\\logs_proj\\log_%02d_%02d_%02d_%s.txt",It.wHour,It.wMinute,It.wDay,month[It.wMonth - 1]);
-    fp=fopen(FileName,"w");
-    if (fp==NULL)
-    {
-        cout<<"Unable to create a Log File"<<endl;
-        return false;
-    }
-    else
-    {
-        cout<<"Log File successfully created as "<<FileName<<endl;
-        cout<<"Time of Log File creation: "<<It.wHour<<"."<<It.wMinute<<"."<<It.wDay<<"th "<<month[It.wMonth - 1]<<endl;
-    }
+    sprintf_s(FileName, "F:\\logs_proj\\log_%02d_%02d_%02d_%s.enc", It.wHour, It.wMinute, It.wDay, month[It.wMonth - 1]);
 
-    hProcessSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
-    if (hProcessSnap==INVALID_HANDLE_VALUE)
-    {
-        cout<<"Unable to create the snapshot of the current running process"<<endl;
-        fclose(fp);
+    ostringstream logData;
+
+    hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (hProcessSnap == INVALID_HANDLE_VALUE) {
+        cerr << "Unable to create the snapshot of the current running process" << endl;
         return false;
     }
 
-    if (!Process32First(hProcessSnap,&pe32))
-    {
-        cout<<"Error in finding the first process"<<endl;
+    if (!Process32First(hProcessSnap, &pe32)) {
+        cerr << "Error in finding the first process" << endl;
         CloseHandle(hProcessSnap);
-        fclose(fp);
         return false;
     }
 
-    do
-    {
+    do {
         wchar_t wExeFile[200];
-        mbstowcs_s(NULL,wExeFile,pe32.szExeFile,200);
-        wcstombs_s(NULL,arr,200,wExeFile,200);
-        if (_stricmp(arr,processName)==0)
-        {
-            fprintf(fp,"Process Name: %s\n",arr);
-            fprintf(fp,"PID: %u\n",pe32.th32ProcessID);
-            fprintf(fp,"PPID: %u\n",pe32.th32ParentProcessID);
-            fprintf(fp,"Thread Count: %u\n",pe32.cntThreads);
-            fprintf(fp,"Priority Base: %d\n",pe32.pcPriClassBase);
-            fprintf(fp,"Executable Path: %s\n",arr); // Assuming arr contains the executable path
+        char arr[200];
+        mbstowcs_s(nullptr, wExeFile, pe32.szExeFile, 200);
+        wcstombs_s(nullptr, arr, 200, wExeFile, 200);
+        if (_stricmp(arr, processName) == 0) {
+            logData << "Process Name: " << arr << "\n";
+            logData << "PID: " << pe32.th32ProcessID << "\n";
+            logData << "PPID: " << pe32.th32ParentProcessID << "\n";
+            logData << "Thread Count: " << pe32.cntThreads << "\n";
+            logData << "Priority Base: " << pe32.pcPriClassBase << "\n";
+            logData << "Executable Path: " << arr << "\n";
             break;
         }
-    } while (Process32Next(hProcessSnap,&pe32));
+    } while (Process32Next(hProcessSnap, &pe32));
 
     CloseHandle(hProcessSnap);
-    fclose(fp);
+
+    try {
+        encryptAndLog(logData.str(), FileName);
+        cout << "Log data encrypted and saved to " << FileName << endl;
+    } catch (const exception& e) {
+        cerr << "Error: " << e.what() << endl;
+        return false;
+    }
+
     return true;
 }
 
@@ -222,8 +289,8 @@ bool ProcessInfo::ProcessDisplay()
     do
     {
         wchar_t wExeFile[200];
-        mbstowcs_s(NULL,wExeFile,pe32.szExeFile,200);
-        wcstombs_s(NULL,arr,200,wExeFile,200);
+        mbstowcs_s(nullptr,wExeFile,pe32.szExeFile,200);
+        wcstombs_s(nullptr,arr,200,wExeFile,200);
 
         cout<<endl<<"--------------------------------------";
         cout<<endl<<"PROCESS NAME: "<<arr;
@@ -243,7 +310,7 @@ bool ProcessInfo::ProcessDisplay()
 
         // Get memory usage information
         HANDLE hProcess=OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ,FALSE,pe32.th32ProcessID);
-        if (hProcess != NULL)
+        if (hProcess != nullptr)
         {
             PROCESS_MEMORY_COUNTERS pmc;
             if (GetProcessMemoryInfo(hProcess,&pmc,sizeof(pmc)))
@@ -289,7 +356,6 @@ bool ProcessInfo::ProcessSearch(const char* processName)
     if (hProcessSnap==INVALID_HANDLE_VALUE)
         return FALSE;
 
-    PROCESSENTRY32 pe32;
     pe32.dwSize=sizeof(PROCESSENTRY32);
     if (Process32First(hProcessSnap,&pe32))
     {
@@ -308,7 +374,7 @@ bool ProcessInfo::ProcessSearch(const char* processName)
         return FALSE;
 
     HANDLE hProcess=OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ,FALSE,processID);
-    if (NULL==hProcess)
+    if (nullptr==hProcess)
         return FALSE;
 
     PROCESS_MEMORY_COUNTERS_EX pmc;
@@ -343,12 +409,12 @@ bool ProcessInfo::KillProcess(const char* processName)
     do
     {
         wchar_t wExeFile[200];
-        mbstowcs_s(NULL,wExeFile,pe32.szExeFile,200);
-        wcstombs_s(NULL,arr,200,wExeFile,200);
+        mbstowcs_s(nullptr,wExeFile,pe32.szExeFile,200);
+        wcstombs_s(nullptr,arr,200,wExeFile,200);
         if (_stricmp(arr,processName)==0)
         {
             hProcess=OpenProcess(PROCESS_TERMINATE,FALSE,pe32.th32ProcessID);
-            if (hProcess==NULL)
+            if (hProcess==nullptr)
             {
                 cout<<"Unable to open process for termination"<<endl;
                 CloseHandle(hProcessSnap);
@@ -380,7 +446,7 @@ bool ProcessInfo::OpenGivenProcess()
     cin.ignore(); // Ignore any leftover newline character in the input buffer
     getline(cin,processPath);
 
-    HINSTANCE result=ShellExecute(NULL,"open",processPath.c_str(),NULL,NULL,SW_SHOWNORMAL);
+    HINSTANCE result=ShellExecute(nullptr,"open",processPath.c_str(),nullptr,nullptr,SW_SHOWNORMAL);
     if (reinterpret_cast<INT_PTR>(result) <= 32)
     {
         DWORD error=GetLastError();
@@ -399,7 +465,7 @@ bool ProcessInfo::DisplayHardwareInfo()
 
     // Get the number of logical processors
     DWORD length=0;
-    GetLogicalProcessorInformation(NULL,&length);
+    GetLogicalProcessorInformation(nullptr,&length);
     PSYSTEM_LOGICAL_PROCESSOR_INFORMATION buffer=(PSYSTEM_LOGICAL_PROCESSOR_INFORMATION)malloc(length);
     GetLogicalProcessorInformation(buffer,&length);
 
@@ -461,7 +527,7 @@ bool ProcessInfo::GetProcessMemoryUsage(const char* processName)
         return FALSE;
 
     HANDLE hProcess=OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ,FALSE,processID);
-    if (NULL==hProcess)
+    if (nullptr==hProcess)
         return FALSE;
 
     PROCESS_MEMORY_COUNTERS_EX pmc;
@@ -500,14 +566,14 @@ bool ProcessInfo::GetProcessUserName(const char* processName)
         return FALSE;
 
     HANDLE hProcess=OpenProcess(PROCESS_QUERY_INFORMATION,FALSE,processID);
-    if (NULL==hProcess)
+    if (nullptr==hProcess)
         return FALSE;
 
     HANDLE hToken;
     if (OpenProcessToken(hProcess,TOKEN_QUERY,&hToken))
     {
         DWORD dwSize=0;
-        GetTokenInformation(hToken,TokenUser,NULL,0,&dwSize);
+        GetTokenInformation(hToken,TokenUser,nullptr,0,&dwSize);
         PTOKEN_USER pTokenUser=(PTOKEN_USER)malloc(dwSize);
 
         if (GetTokenInformation(hToken,TokenUser,pTokenUser,dwSize,&dwSize))
@@ -516,7 +582,7 @@ bool ProcessInfo::GetProcessUserName(const char* processName)
             char lpName[256],lpDomain[256];
             DWORD dwNameSize=sizeof(lpName),dwDomainSize=sizeof(lpDomain);
 
-            if (LookupAccountSid(NULL,pTokenUser->User.Sid,lpName,&dwNameSize,lpDomain,&dwDomainSize,&SidType))
+            if (LookupAccountSid(nullptr,pTokenUser->User.Sid,lpName,&dwNameSize,lpDomain,&dwDomainSize,&SidType))
             {
                 cout<<"User Name: "<<lpDomain<<"\\"<<lpName<<endl;
             }
@@ -554,7 +620,7 @@ bool ProcessInfo::GetProcessStatus(const char* processName)
         return FALSE;
 
     HANDLE hProcess=OpenProcess(PROCESS_QUERY_INFORMATION,FALSE,processID);
-    if (NULL==hProcess)
+    if (nullptr==hProcess)
         return FALSE;
 
     DWORD exitCode;
@@ -596,7 +662,7 @@ bool ProcessInfo::GetProcessDescription(const char* processName)
         return FALSE;
 
     HANDLE hProcess=OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ,FALSE,processID);
-    if (NULL==hProcess)
+    if (nullptr==hProcess)
         return FALSE;
 
     TCHAR szProcessName[MAX_PATH]=TEXT("<unknown>");
@@ -640,7 +706,7 @@ bool ProcessInfo::GetProcessPriority(const char* processName)
         return FALSE;
 
     HANDLE hProcess=OpenProcess(PROCESS_QUERY_INFORMATION,FALSE,processID);
-    if (NULL==hProcess)
+    if (nullptr==hProcess)
         return FALSE;
 
     DWORD priority=GetPriorityClass(hProcess);
@@ -679,7 +745,7 @@ bool ProcessInfo::GetProcessStartTime(const char* processName)
         return FALSE;
 
     HANDLE hProcess=OpenProcess(PROCESS_QUERY_INFORMATION,FALSE,processID);
-    if (NULL==hProcess)
+    if (nullptr==hProcess)
         return FALSE;
 
     FILETIME creationTime,exitTime,kernelTime,userTime;
@@ -720,7 +786,7 @@ bool ProcessInfo::GetProcessCPUUsage(const char* processName)
         return FALSE;
 
     HANDLE hProcess=OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ,FALSE,processID);
-    if (NULL==hProcess)
+    if (nullptr==hProcess)
         return FALSE;
 
     FILETIME ftCreation,ftExit,ftKernel,ftUser;
@@ -799,11 +865,11 @@ bool ProcessInfo::GetProcessPath(const char* processName)
         return FALSE;
 
     HANDLE hProcess=OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ,FALSE,processID);
-    if (NULL==hProcess)
+    if (nullptr==hProcess)
         return FALSE;
 
     char processPath[MAX_PATH];
-    if (GetModuleFileNameEx(hProcess,NULL,processPath,MAX_PATH))
+    if (GetModuleFileNameEx(hProcess,nullptr,processPath,MAX_PATH))
     {
         cout<<"Process Path: "<<processPath<<endl;
     }
@@ -851,7 +917,7 @@ bool ProcessInfo::FastLimitRAM()
     }
 
     HANDLE hProcess=OpenProcess(PROCESS_SET_QUOTA,FALSE,processID);
-    if (hProcess==NULL)
+    if (hProcess==nullptr)
     {
         cout<<"Unable to open process"<<endl;
         return FALSE;
@@ -910,14 +976,14 @@ bool ProcessInfo::LimitRAMWithJobObjects()
     }
 
     HANDLE hProcess=OpenProcess(PROCESS_SET_QUOTA | PROCESS_TERMINATE,FALSE,processID);
-    if (hProcess==NULL)
+    if (hProcess==nullptr)
     {
         cout<<"Unable to open process"<<endl;
         return FALSE;
     }
 
-    HANDLE hJob=CreateJobObject(NULL,NULL);
-    if (hJob==NULL)
+    HANDLE hJob=CreateJobObject(nullptr,nullptr);
+    if (hJob==nullptr)
     {
         cout<<"Failed to create job object"<<endl;
         CloseHandle(hProcess);
@@ -952,62 +1018,75 @@ bool ProcessInfo::LimitRAMWithJobObjects()
     return TRUE;
 }
 
-bool ProcessInfo::LimitLogicalProcessors()
-{
+bool isBlackListed(const string& processName) {
+    static const set<string> blackListedProcesses = {
+            "System", "smss.exe", "csrss.exe", "wininit.exe", "services.exe",
+            "lsass.exe", "svchost.exe", "explorer.exe", "winlogon.exe"
+    };
+
+    string lowerProcessName = processName;
+    transform(lowerProcessName.begin(), lowerProcessName.end(), lowerProcessName.begin(), ::tolower);
+
+    return blackListedProcesses.find(lowerProcessName) != blackListedProcesses.end();
+}
+
+
+bool ProcessInfo::LimitLogicalProcessors() {
     string processName;
     DWORD_PTR coreMask;
 
-    cout<<"Enter process name: ";
-    cin>>processName;
-    cout<<"Enter core mask (in hexadecimal,e.g.,0xA9): ";
-    cin>>hex>>coreMask;
+    cout << "Enter process name: ";
+    cin >> processName;
+    cout << "Enter core mask (in hexadecimal, e.g., 0xA9): ";
+    cin >> hex >> coreMask;
 
     cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    DWORD processID=0;
-    HANDLE hProcessSnap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
-    if (hProcessSnap==INVALID_HANDLE_VALUE)
+    DWORD processID = 0;
+    HANDLE hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (hProcessSnap == INVALID_HANDLE_VALUE)
         return FALSE;
 
     PROCESSENTRY32 pe32;
-    pe32.dwSize=sizeof(PROCESSENTRY32);
-    if (Process32First(hProcessSnap,&pe32))
-    {
-        do
-        {
+    pe32.dwSize = sizeof(PROCESSENTRY32);
+    if (Process32First(hProcessSnap, &pe32)) {
+        do {
             string exeFile(pe32.szExeFile);
-            transform(exeFile.begin(),exeFile.end(),exeFile.begin(),::tolower);
-            if (exeFile==processName)
-            {
-                processID=pe32.th32ProcessID;
+            transform(exeFile.begin(), exeFile.end(), exeFile.begin(), ::tolower);
+
+            // Skip blacklisted processes
+            if (isBlackListed(exeFile)) {
+                cout << "Skipping blacklisted process: " << exeFile << endl;
+                continue;
+            }
+
+            if (exeFile == processName) {
+                processID = pe32.th32ProcessID;
                 break;
             }
-        } while (Process32Next(hProcessSnap,&pe32));
+        } while (Process32Next(hProcessSnap, &pe32));
     }
-    CloseHandle(hProcessSnap); // Ensure the snapshot handle is closed
+    CloseHandle(hProcessSnap);
 
-    if (processID==0)
-    {
-        cout<<"Process not found"<<endl;
+    if (processID == 0) {
+        cout << "Process not found" << endl;
         return FALSE;
     }
 
-    HANDLE hProcess=OpenProcess(PROCESS_SET_INFORMATION,FALSE,processID);
-    if (hProcess==NULL)
-    {
-        cout<<"Unable to open process"<<endl;
+    HANDLE hProcess = OpenProcess(PROCESS_SET_INFORMATION, FALSE, processID);
+    if (hProcess == nullptr) {
+        cout << "Unable to open process" << endl;
         return FALSE;
     }
 
-    if (!SetProcessAffinityMask(hProcess,coreMask))
-    {
-        cout<<"Failed to set process affinity mask"<<endl;
+    if (!SetProcessAffinityMask(hProcess, coreMask)) {
+        cout << "Failed to set process affinity mask" << endl;
         CloseHandle(hProcess);
         return FALSE;
     }
 
-    cout<<"Successfully set process affinity mask"<<endl;
+    cout << "Successfully set process affinity mask" << endl;
     CloseHandle(hProcess);
     return TRUE;
 }
@@ -1061,7 +1140,7 @@ bool ProcessInfo::LimitArduinoPowerForAnalogAndDigital() {
 
     // Initialize SSH session
     my_ssh_session=ssh_new();
-    if (my_ssh_session==NULL) {
+    if (my_ssh_session==nullptr) {
         cerr<<"Error: Unable to create SSH session."<<endl;
         return false;
     }
@@ -1079,7 +1158,7 @@ bool ProcessInfo::LimitArduinoPowerForAnalogAndDigital() {
     }
 
     // Authenticate with password
-    rc=ssh_userauth_password(my_ssh_session,NULL,password.c_str());
+    rc=ssh_userauth_password(my_ssh_session,nullptr,password.c_str());
     if (rc != SSH_AUTH_SUCCESS) {
         cerr<<"Error: Authentication failed: "<<ssh_get_error(my_ssh_session)<<endl;
         ssh_disconnect(my_ssh_session);
@@ -1120,7 +1199,7 @@ bool ProcessInfo::LimitArduinoPowerForAnalogAndDigital() {
 
     // Execute the command
     ssh_channel channel=ssh_channel_new(my_ssh_session);
-    if (channel==NULL) {
+    if (channel==nullptr) {
         cerr<<"Error: Unable to create SSH channel."<<endl;
         ssh_disconnect(my_ssh_session);
         ssh_free(my_ssh_session);
@@ -1166,15 +1245,13 @@ bool ProcessInfo::LimitArduinoPowerForAnalogAndDigital() {
 }
 
 bool ProcessInfo::OptimizeProcessPerformance() {
-    // Retrieve the number of logical processors
     SYSTEM_INFO sysInfo;
     GetSystemInfo(&sysInfo);
     DWORD numLogicalProcessors = sysInfo.dwNumberOfProcessors;
 
-    // Create a snapshot of all processes
     HANDLE hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (hProcessSnap == INVALID_HANDLE_VALUE) {
-        std::cerr << "Unable to create the snapshot of the current running processes" << std::endl;
+        cerr << "Unable to create the snapshot of the current running processes" << endl;
         return false;
     }
 
@@ -1182,29 +1259,34 @@ bool ProcessInfo::OptimizeProcessPerformance() {
     pe32.dwSize = sizeof(PROCESSENTRY32);
 
     if (!Process32First(hProcessSnap, &pe32)) {
-        std::cerr << "Error in finding the first process" << std::endl;
+        cerr << "Error in finding the first process" << endl;
         CloseHandle(hProcessSnap);
         return false;
     }
 
     DWORD_PTR coreMask = 0x01; // Start with the first core
     do {
-        // Open the process with the required permissions
+        string processName(pe32.szExeFile);
+
+        // Skip blacklisted processes
+        if (isBlackListed(processName)) {
+            cout << "Skipping blacklisted process: " << processName << endl;
+            continue;
+        }
+
         HANDLE hProcess = OpenProcess(PROCESS_SET_INFORMATION, FALSE, pe32.th32ProcessID);
-        if (hProcess != NULL) {
-            // Set the affinity mask for the process
+        if (hProcess != nullptr) {
             if (!SetProcessAffinityMask(hProcess, coreMask)) {
-                std::cerr << "Failed to set process affinity mask for: " << pe32.szExeFile << std::endl;
+                cerr << "Failed to set process affinity mask for: " << processName << endl;
             } else {
-                std::cout << "Set affinity mask for process: " << pe32.szExeFile
-                          << " to core mask: " << std::hex << coreMask << std::endl;
+                cout << "Set affinity mask for process: " << processName
+                     << " to core mask: " << hex << coreMask << endl;
             }
             CloseHandle(hProcess);
         } else {
-            std::cerr << "Unable to open process: " << pe32.szExeFile << std::endl;
+            cerr << "Unable to open process: " << processName << endl;
         }
 
-        // Update the core mask for the next process
         coreMask <<= 1; // Shift to the next core
         if (coreMask >= (1ULL << numLogicalProcessors)) {
             coreMask = 0x01; // Reset to the first core if all cores are used
@@ -1215,3 +1297,124 @@ bool ProcessInfo::OptimizeProcessPerformance() {
     CloseHandle(hProcessSnap);
     return true;
 }
+
+string GenerateFileHash(const char* filePath) {
+    HCRYPTPROV hProv;
+    HCRYPTHASH hHash;
+    BYTE hash[32];
+    DWORD hashSize = sizeof(hash);
+
+    // Acquire a cryptographic context
+    if (!CryptAcquireContext(&hProv, nullptr, nullptr, PROV_RSA_AES, CRYPT_VERIFYCONTEXT)) {
+        throw runtime_error("Failed to acquire cryptographic context");
+    }
+
+    // Create a hash object
+    if (!CryptCreateHash(hProv, CALG_SHA_256, 0, 0, &hHash)) {
+        CryptReleaseContext(hProv, 0);
+        throw runtime_error("Failed to create hash object");
+    }
+
+    // Open the file
+    ifstream file(filePath, ios::binary);
+    if (!file) {
+        CryptDestroyHash(hHash);
+        CryptReleaseContext(hProv, 0);
+        throw runtime_error("Failed to open file");
+    }
+
+    // Read and hash the file data
+    vector<char> buffer(4096);
+    while (file.read(buffer.data(), buffer.size()) || file.gcount() > 0) {
+        if (!CryptHashData(hHash, reinterpret_cast<BYTE*>(buffer.data()), file.gcount(), 0)) {
+            CryptDestroyHash(hHash);
+            CryptReleaseContext(hProv, 0);
+            throw runtime_error("Failed to hash file data");
+        }
+    }
+
+    // Get the hash value
+    if (!CryptGetHashParam(hHash, HP_HASHVAL, hash, &hashSize, 0)) {
+        CryptDestroyHash(hHash);
+        CryptReleaseContext(hProv, 0);
+        throw runtime_error("Failed to get hash value");
+    }
+
+    CryptDestroyHash(hHash);
+    CryptReleaseContext(hProv, 0);
+
+    // Convert hash to a string
+    ostringstream hashString;
+    for (DWORD i = 0; i < hashSize; ++i) {
+        hashString << hex << setw(2) << setfill('0') << (int)hash[i];
+    }
+
+    return hashString.str();
+}
+
+
+bool ProcessInfo::VerifyProcessIntegrity(const char* processName) {
+    static unordered_map<string, string> processHashes;
+
+    DWORD processID = 0;
+    HANDLE hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (hProcessSnap == INVALID_HANDLE_VALUE)
+        return false;
+
+    PROCESSENTRY32 pe32;
+    pe32.dwSize = sizeof(PROCESSENTRY32);
+    if (Process32First(hProcessSnap, &pe32)) {
+        do {
+            if (_stricmp(pe32.szExeFile, processName) == 0) {
+                processID = pe32.th32ProcessID;
+                break;
+            }
+        } while (Process32Next(hProcessSnap, &pe32));
+    }
+    CloseHandle(hProcessSnap);
+
+    if (processID == 0) {
+        cerr << "Process not found" << endl;
+        return false;
+    }
+
+    HANDLE hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, processID);
+    if (hProcess == nullptr) {
+        cerr << "Unable to open process" << endl;
+        return false;
+    }
+
+    char processPath[MAX_PATH];
+    if (!GetModuleFileNameEx(hProcess, nullptr, processPath, MAX_PATH)) {
+        cerr << "Failed to get process path" << endl;
+        CloseHandle(hProcess);
+        return false;
+    }
+    CloseHandle(hProcess);
+
+    try {
+        string computedHash = GenerateFileHash(processPath);
+
+        // Check if the hash is already stored
+        if (processHashes.find(processName) != processHashes.end()) {
+            if (processHashes[processName] == computedHash) {
+                cout << "Process integrity verified successfully" << endl;
+                return true;
+            } else {
+                cerr << "Process integrity check failed (hash mismatch)" << endl;
+                return false;
+            }
+        }
+
+        // Store the hash for future comparisons
+        processHashes[processName] = computedHash;
+        cout << "Generated and stored hash for process: " << processName << endl;
+        return true;
+
+    } catch (const exception& e) {
+        cerr << "Error: " << e.what() << endl;
+        return false;
+    }
+}
+
+// added prometheus and node exporter

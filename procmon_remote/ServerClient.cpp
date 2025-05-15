@@ -21,14 +21,14 @@ void InitializeWinsock() {
 }
 
 SOCKET CreateListenSocket() {
-    struct addrinfo* result=NULL,hints;
+    struct addrinfo* result=nullptr,hints{};
     ZeroMemory(&hints,sizeof(hints));
     hints.ai_family=AF_INET;
     hints.ai_socktype=SOCK_STREAM;
     hints.ai_protocol=IPPROTO_TCP;
     hints.ai_flags=AI_PASSIVE;
 
-    int iResult=getaddrinfo(NULL,DEFAULT_PORT,&hints,&result);
+    int iResult=getaddrinfo(nullptr,DEFAULT_PORT,&hints,&result);
     if (iResult != 0) {
         cerr<<"getaddrinfo failed: "<<iResult<<endl;
         WSACleanup();
@@ -72,18 +72,19 @@ void ProcessClient(SOCKET ClientSocket) {
     int iResult,iSendResult;
     ProcessInfo processInfo;
 
-    unordered_map<string,bool (ProcessInfo::*)(const char*)> commandMap={
-        {"ProcessLog",&ProcessInfo::ProcessLog},
-        {"ProcessSearch",&ProcessInfo::ProcessSearch},
-        {"KillProcess",&ProcessInfo::KillProcess},
-        {"GetProcessMemoryUsage",&ProcessInfo::GetProcessMemoryUsage},
-        {"GetProcessUserName",&ProcessInfo::GetProcessUserName},
-        {"GetProcessStatus",&ProcessInfo::GetProcessStatus},
-        {"GetProcessDescription",&ProcessInfo::GetProcessDescription},
-        {"GetProcessPriority",&ProcessInfo::GetProcessPriority},
-        {"GetProcessStartTime",&ProcessInfo::GetProcessStartTime},
-        {"GetProcessCPUUsage",&ProcessInfo::GetProcessCPUUsage},
-        {"GetProcessPath",&ProcessInfo::GetProcessPath},
+    unordered_map<string,bool (ProcessInfo::*)(const char*)> commandMap= {
+            {"ProcessLog",            &ProcessInfo::ProcessLog},
+            {"ProcessSearch",         &ProcessInfo::ProcessSearch},
+            {"KillProcess",           &ProcessInfo::KillProcess},
+            {"GetProcessMemoryUsage", &ProcessInfo::GetProcessMemoryUsage},
+            {"GetProcessUserName",    &ProcessInfo::GetProcessUserName},
+            {"GetProcessStatus",      &ProcessInfo::GetProcessStatus},
+            {"GetProcessDescription", &ProcessInfo::GetProcessDescription},
+            {"GetProcessPriority",    &ProcessInfo::GetProcessPriority},
+            {"GetProcessStartTime",   &ProcessInfo::GetProcessStartTime},
+            {"GetProcessCPUUsage",    &ProcessInfo::GetProcessCPUUsage},
+            {"GetProcessPath",        &ProcessInfo::GetProcessPath},
+            {"VerifyProcessIntegrity", &ProcessInfo::VerifyProcessIntegrity},
     };
 
     unordered_map<string,bool (ProcessInfo::*)()> commandMapNoParam={
@@ -156,21 +157,21 @@ void ServerThread() {
         FD_ZERO(&readfds);
         FD_SET(ListenSocket,&readfds);
 
-        timeval timeout;
+        timeval timeout{};
         timeout.tv_sec=1;
         timeout.tv_usec=0;
 
-        int selectResult=select(0,&readfds,NULL,NULL,&timeout);
+        int selectResult=select(0,&readfds,nullptr,nullptr,&timeout);
         if (selectResult==SOCKET_ERROR) {
             cerr<<"select failed: "<<WSAGetLastError()<<endl;
             break;
         }
 
         if (selectResult==0) {
-            continue; // Timeout,check serverRunning flag again
+            continue; // Timeout, check serverRunning a flag again
         }
 
-        SOCKET ClientSocket=accept(ListenSocket,NULL,NULL);
+        SOCKET ClientSocket=accept(ListenSocket,nullptr,nullptr);
         if (ClientSocket==INVALID_SOCKET) {
             if (serverRunning) {
                 cerr<<"accept failed: "<<WSAGetLastError()<<endl;
@@ -189,7 +190,7 @@ void ServerThread() {
 }
 
 SOCKET CreateSocket(const char* serverName) {
-    struct addrinfo* result=NULL,* ptr=NULL,hints;
+    struct addrinfo* result=nullptr,* ptr=nullptr,hints{};
     ZeroMemory(&hints,sizeof(hints));
     hints.ai_family=AF_UNSPEC;
     hints.ai_socktype=SOCK_STREAM;
@@ -202,8 +203,8 @@ SOCKET CreateSocket(const char* serverName) {
         exit(1);
     }
 
-    SOCKET ConnectSocket=INVALID_SOCKET;
-    for (ptr=result; ptr != NULL; ptr=ptr->ai_next) {
+    auto ConnectSocket=INVALID_SOCKET;
+    for (ptr=result; ptr != nullptr; ptr=ptr->ai_next) {
         ConnectSocket=socket(ptr->ai_family,ptr->ai_socktype,ptr->ai_protocol);
         if (ConnectSocket==INVALID_SOCKET) {
             cerr<<"Error at socket(): "<<WSAGetLastError()<<endl;
@@ -294,6 +295,7 @@ void DisplayMenu() {
     cout<<"19. DisplayRaspberryProcesses\n";
     cout<<"20. LimitArduinoPowerForAnalogAndDigital\n";
     cout<<"21. OptimizeProcessPerformance\n";
+    cout<<"22. VerifyProcessIntegrity\n";
     cout<<"\n0. Exit\n";
 }
 
@@ -319,7 +321,9 @@ string GetCommand(int choice) {
         {18,{"LimitLogicalProcessors",false}},
         {19,{"DisplayRaspberryProcesses",false}},
         {20,{"LimitArduinoPowerForAnalogAndDigital",false}},
-        {21,{"OptimizeProcessPerformance",false}}
+        {21,{"OptimizeProcessPerformance",false}},
+        {22,{"VerifyProcessIntegrity",true}},
+
     };
 
     string command;
