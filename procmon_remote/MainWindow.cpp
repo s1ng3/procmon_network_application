@@ -57,6 +57,30 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tabWidget->setMinimumHeight(0);
     ui->tabWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored);
 
+    // THEME DROPDOWN SETUP (top-left corner)
+    themeSelector = new QComboBox(this);
+    themeSelector->setFixedWidth(180);
+    themeSelector->setToolTip("Switch color theme");
+    // Theme names and palettes
+    themes["Dark Purple"]      = {"#4B0082", "#6A0DAD", "#E040FB", "#1A0026", "#F0E6FF"};
+    themes["Ocean Blue"]       = {"#006994", "#009DDC", "#FFD166", "#EAF6FF", "#023047"};
+    themes["Sunset Orange"]    = {"#FF4500", "#FF8C42", "#FFD700", "#FFF5E6", "#330000"};
+    themes["Forest Green"]     = {"#228B22", "#32CD32", "#ADFF2F", "#F0FFF0", "#0B3D0B"};
+    themes["Pastel Mint"]      = {"#AAF0D1", "#90EE90", "#FFB6C1", "#FFFFFF", "#064E3B"};
+    themes["Cherry Blossom"]   = {"#FFB7C5", "#FF69B4", "#DB7093", "#FFF0F5", "#4B0029"};
+    themes["Neon Tech"]        = {"#0FF0FC", "#39FF14", "#FF073A", "#000010", "#E0E0E0"};
+    themes["Desert Sunset"]    = {"#D2691E", "#FF8C00", "#FF4500", "#FFF8F0", "#3D1F00"};
+    themes["Candy Pink"]       = {"#FF69B4", "#FF1493", "#FFB347", "#FFF5F8", "#550032"};
+    themes["Stormy Teal"]      = {"#008080", "#20B2AA", "#FF6347", "#E0F7F7", "#003333"};
+    themes["Ultra Violet"]     = {"#5F4B8B", "#7C3F98", "#B57EDC", "#1C0A28", "#EDE3F9"};
+    themes["Cyberpunk Neon"]   = {"#FF006E", "#00F0FF", "#FFEA00", "#0D0015", "#EEEEEE"};
+    themes["Coral Reef"]       = {"#FF6F61", "#FFA077", "#FFD38C", "#FFF8F2", "#3E1F0D"};
+    themes["Lavender Fields"]  = {"#B57EDC", "#D3BFF9", "#F2E7FE", "#FCFBFF", "#4A2A6A"};
+    themes["Golden Sunrise"]   = {"#FFB300", "#FFD54F", "#FFE082", "#FFF9E6", "#4A3000"};
+    themeSelector->addItems(themes.keys());
+    connect(themeSelector, &QComboBox::currentTextChanged, this, &MainWindow::onThemeChanged);
+    menuBar()->setCornerWidget(themeSelector, Qt::TopLeftCorner);
+
     // UI styling enhancements for a modern dark theme
     this->setStyleSheet(
         "QMainWindow { background-color: #2e3440; color: #d8dee9; }"
@@ -840,3 +864,100 @@ void MainWindow::updateCpuUsage()
         }
     }
 }
+
+// Apply theme colors to the UI using palette and stylesheet
+void MainWindow::applyTheme(const QStringList &colors) {
+    // colors: [primary, secondary, accent, background, surface]
+    QString primary   = colors.value(0, "#222");
+    QString secondary = colors.value(1, "#444");
+    QString accent    = colors.value(2, "#888");
+    QString bg        = colors.value(3, "#fff");
+    QString surface   = colors.value(4, "#eee");
+
+    // Determine if background is dark or light for contrast
+    auto luminance = [](const QString &hex) {
+        QColor c(hex); double r=c.redF(),g=c.greenF(),b=c.blueF();
+        return 0.2126*r + 0.7152*g + 0.0722*b;
+    };
+    bool darkBg = luminance(bg) < 0.5;
+    QString textColor = darkBg ? "#fff" : "#111";
+    QString iconColor = textColor;
+
+    // Accent color luminance for buttons/tables
+    bool darkAccent = luminance(accent) < 0.5;
+    QString accentTextColor = darkAccent ? "#fff" : "#111";
+
+    // Use the stats panel color for buttons and table
+    QString statsBg = accent;
+    QString statsText = accentTextColor;
+
+    // Clear the main window's own stylesheet to prevent conflicts
+    // with the application-wide stylesheet.
+    this->setStyleSheet("");
+
+    // Set palette for all widgets
+    QPalette pal;
+    pal.setColor(QPalette::Window, QColor(bg));
+    pal.setColor(QPalette::WindowText, QColor(textColor));
+    pal.setColor(QPalette::Base, QColor(surface));
+    pal.setColor(QPalette::AlternateBase, QColor(bg));
+    pal.setColor(QPalette::ToolTipBase, QColor(surface));
+    pal.setColor(QPalette::ToolTipText, QColor(textColor));
+    pal.setColor(QPalette::Text, QColor(textColor));
+    pal.setColor(QPalette::Button, QColor(statsBg)); // stats panel color for buttons
+    pal.setColor(QPalette::ButtonText, QColor(statsText));
+    pal.setColor(QPalette::BrightText, QColor(darkBg ? "#fff" : "#000"));
+    pal.setColor(QPalette::Highlight, QColor(accent));
+    pal.setColor(QPalette::HighlightedText, QColor(darkAccent ? "#fff" : "#000"));
+    qApp->setPalette(pal);
+
+    // Set stylesheet for fine-grained control
+    QString style = QString(R"(
+        QMainWindow { background-color: %1; color: %2; }
+        QWidget { background-color: %4; color: %2; }
+        QPushButton, QToolButton {
+            background-color: %6; color: %7; border-radius: 4px; border: none; padding: 6px 12px;
+        }
+        QPushButton:hover, QToolButton:hover { background-color: %5; color: %7; }
+        QPushButton:pressed, QToolButton:pressed { background-color: %1; color: %2; }
+        QTableWidget {
+            background-color: %6; color: %7; selection-background-color: %5; selection-color: %7; gridline-color: %1;
+        }
+        QHeaderView::section { background-color: %6; color: %7; }
+        QComboBox, QComboBox QAbstractItemView { background-color: %4; color: %2; selection-background-color: %5; }
+        QToolTip { background-color: %5; color: %2; border: 1px solid %3; }
+        QLabel { color: %2; background-color: transparent; } /* Ensure QLabel background is transparent */
+    )")
+        .arg(primary, textColor, accent, bg, secondary, statsBg, statsText);
+    qApp->setStyleSheet(style);
+
+    // CPU chart theme
+    if (cpuChart) {
+        cpuChart->setBackgroundBrush(QBrush(QColor(bg)));
+        cpuChart->setTitleBrush(QBrush(QColor(textColor)));
+        for (auto axis : cpuChart->axes()) {
+            axis->setLabelsBrush(QBrush(QColor(textColor)));
+            axis->setLinePen(QPen(QColor(accent)));
+            axis->setGridLinePen(QPen(QColor(surface)));
+        }
+        // Fix: set color for QLineSeries only
+        for (auto s : cpuChart->series()) {
+            if (auto line = qobject_cast<QLineSeries*>(s)) {
+                line->setColor(QColor(accent));
+            }
+        }
+    }
+    // Stats panel
+    if (statsWidget) {
+        // Use accent as background, and accentTextColor for text
+        statsWidget->setStyleSheet(QString("background-color:%1;color:%2;border-radius:4px;padding:4px;")
+                                  .arg(statsBg, statsText));
+    }
+}
+
+void MainWindow::onThemeChanged(const QString &themeName) {
+    if (themes.contains(themeName)) {
+        applyTheme(themes[themeName]);
+    }
+}
+

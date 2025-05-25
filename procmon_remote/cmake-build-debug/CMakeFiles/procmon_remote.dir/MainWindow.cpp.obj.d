@@ -1,6 +1,6 @@
 CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\MainWindow.cpp \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\MainWindow.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\MainWindow.cpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\MainWindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -496,7 +496,11 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/qpicture.h \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextdocument.h \
- C:/Users/Tudor/ONEDRI~1/Desktop/PROCMO~2/PROCMO~1/CMAKE-~1/PROCMO~1/include/ui_MainWindow.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QComboBox \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QMap \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qmap.h \
+ C:/Users/Tudor/ONEDRI~1/Desktop/clonix/PROCMO~1/PROCMO~1/CMAKE-~1/PROCMO~1/include/ui_MainWindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QApplication \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qapplication.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
@@ -523,7 +527,7 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QWidget \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qwidget.h \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\ProcessInfo.hpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\ProcessInfo.hpp \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sys/stat.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/io.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winsock2.h \
@@ -775,7 +779,7 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/in6addr.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mstcpip.h \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\RaspberryProcesses.hpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\RaspberryProcesses.hpp \
  F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/libssh.h \
  F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/libssh_version.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/unistd.h \
@@ -852,7 +856,5 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QCryptographicHash \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qcryptographichash.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QMap \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qmap.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QByteArray \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qbytearray.h

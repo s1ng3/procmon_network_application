@@ -1,47 +1,128 @@
 procmon_remote_autogen/timestamp: \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/CMakeLists.txt \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/MainWindow.cpp \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/MainWindow.h \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/ProcessInfo.cpp \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/ProcessInfo.hpp \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/RaspberryProcesses.cpp \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/RaspberryProcesses.hpp \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/ServerClient.cpp \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/ServerClient.hpp \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeRCCompiler.cmake \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/cmake-build-debug/procmon_remote_autogen/moc_predefs.h \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/main.cpp \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/CMakeLists.txt \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/MainWindow.cpp \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/MainWindow.h \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/ProcessInfo.cpp \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/ProcessInfo.hpp \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/RaspberryProcesses.cpp \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/RaspberryProcesses.hpp \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/ServerClient.cpp \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/ServerClient.hpp \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeRCCompiler.cmake \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/moc_predefs.h \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/main.cpp \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCCompiler.cmake.in \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCCompilerABI.c \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCInformation.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXCompiler.cmake.in \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXInformation.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCompilerIdDetection.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCXXCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompileFeatures.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineRCCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeFindBinUtils.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeMinGWFindMake.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseImplicitIncludeInfo.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseImplicitLinkInfo.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseLibraryArchitecture.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCCompiler.cmake.in \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystem.cmake.in \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCompilerCommon.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestRCCompiler.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckCSourceCompiles.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckCXXCompilerFlag.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckCXXSourceCompiles.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFile.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckLibraryExists.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ADSP-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Borland-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Bruce-C-DetermineCompiler.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Compaq-C-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Cray-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GHS-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C-DetermineCompiler.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-CXX.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-FindBinUtils.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/HP-C-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IAR-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Intel-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/LCC-C-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/MSVC-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/PGI-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/PathScale-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SCO-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SDCC-C-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SunPro-C-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TI-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TIClang-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Tasking-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Watcom-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XL-C-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XLClang-C-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/zOS-C-DetermineCompiler.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/FindPackageMessage.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/FindThreads.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/FindVulkan.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/GNUInstallDirs.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckCompilerFlag.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckFlagCommonConfig.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckSourceCompiles.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/FeatureTesting.cmake \
+	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Determine-CXX.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake \
 	F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-CXX-ABI.cmake \
@@ -260,6 +341,7 @@ procmon_remote_autogen/timestamp: \
 	F:/Qt3/6.9.0/mingw_64/include/QtCharts/qtchartsexports.h \
 	F:/Qt3/6.9.0/mingw_64/include/QtCharts/qxyseries.h \
 	F:/Qt3/6.9.0/mingw_64/include/QtCore/QList \
+	F:/Qt3/6.9.0/mingw_64/include/QtCore/QMap \
 	F:/Qt3/6.9.0/mingw_64/include/QtCore/QMargins \
 	F:/Qt3/6.9.0/mingw_64/include/QtCore/QObject \
 	F:/Qt3/6.9.0/mingw_64/include/QtCore/QRect \
@@ -457,6 +539,7 @@ procmon_remote_autogen/timestamp: \
 	F:/Qt3/6.9.0/mingw_64/include/QtGui/qvectornd.h \
 	F:/Qt3/6.9.0/mingw_64/include/QtGui/qwindowdefs.h \
 	F:/Qt3/6.9.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+	F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QComboBox \
 	F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QFormLayout \
 	F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsView \
 	F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsWidget \
@@ -473,6 +556,7 @@ procmon_remote_autogen/timestamp: \
 	F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractslider.h \
 	F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
 	F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
+	F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
 	F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qformlayout.h \
 	F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qframe.h \
 	F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
@@ -721,5 +805,5 @@ procmon_remote_autogen/timestamp: \
 	F:/VCPKG/vcpkg/installed/x64-windows/share/libssh/libssh-config-release.cmake \
 	F:/VCPKG/vcpkg/installed/x64-windows/share/libssh/libssh-config-version.cmake \
 	F:/VCPKG/vcpkg/installed/x64-windows/share/libssh/libssh-config.cmake \
-	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/MainWindow.ui \
+	C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/MainWindow.ui \
 	F:/JetBrains/CLion/bin/cmake/win/x64/bin/cmake.exe

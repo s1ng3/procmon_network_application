@@ -1,5 +1,5 @@
 CMakeFiles/procmon_remote.dir/main.cpp.obj: \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\main.cpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\main.cpp \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QApplication \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qapplication.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -382,7 +382,7 @@ CMakeFiles/procmon_remote.dir/main.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qhash.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qvarlengtharray.h \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/qguiapplication_platform.h \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\MainWindow.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\MainWindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qwidget.h \
@@ -497,4 +497,8 @@ CMakeFiles/procmon_remote.dir/main.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLabel \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/qpicture.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextdocument.h
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextdocument.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QComboBox \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QMap \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qmap.h

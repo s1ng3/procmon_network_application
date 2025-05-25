@@ -11,6 +11,8 @@
 #include <QTimer>
 #include <QFormLayout>
 #include <QLabel>
+#include <QComboBox>
+#include <QMap>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -44,8 +46,12 @@ private slots:
     void onHeaderClicked(int column);
     void updateCpuUsage();
     void updateStats();
+    void onThemeChanged(const QString &themeName);
 
 private:
+    void applyTheme(const QStringList &colors);
+    QComboBox *themeSelector;
+    QMap<QString, QStringList> themes;
     QToolButton *btnRefresh;
     bool processesVisible{false};
     Ui::MainWindow *ui;

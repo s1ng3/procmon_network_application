@@ -1,5 +1,5 @@
 CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj: \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\ServerClient.cpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\ServerClient.cpp \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_map \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -163,7 +163,7 @@ CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\ServerClient.hpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\ServerClient.hpp \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_base.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_lockfree_defines.h \
@@ -414,7 +414,7 @@ CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/ws2def.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_wsa_errnos.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/qos.h \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\ProcessInfo.hpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\ProcessInfo.hpp \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sys/stat.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/io.h \
@@ -425,7 +425,7 @@ CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/in6addr.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mstcpip.h \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\RaspberryProcesses.hpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\RaspberryProcesses.hpp \
  F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/libssh.h \
  F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/libssh_version.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/unistd.h \

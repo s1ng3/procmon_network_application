@@ -1,6 +1,6 @@
 CMakeFiles/procmon_remote.dir/RaspberryProcesses.cpp.obj: \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\RaspberryProcesses.cpp \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\RaspberryProcesses.hpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\RaspberryProcesses.cpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\RaspberryProcesses.hpp \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \

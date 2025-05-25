@@ -1,5 +1,5 @@
-C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/cmake-build-debug/procmon_remote_autogen/EWIEGA46WW/moc_MainWindow.cpp: C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/MainWindow.h \
-  C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/cmake-build-debug/procmon_remote_autogen/moc_predefs.h \
+C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/EWIEGA46WW/moc_MainWindow.cpp: C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/MainWindow.h \
+  C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/moc_predefs.h \
   F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm \
   F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
   F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic \
@@ -209,6 +209,7 @@ C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procm
   F:/Qt3/6.9.0/mingw_64/include/QtCharts/qtchartsexports.h \
   F:/Qt3/6.9.0/mingw_64/include/QtCharts/qxyseries.h \
   F:/Qt3/6.9.0/mingw_64/include/QtCore/QList \
+  F:/Qt3/6.9.0/mingw_64/include/QtCore/QMap \
   F:/Qt3/6.9.0/mingw_64/include/QtCore/QMargins \
   F:/Qt3/6.9.0/mingw_64/include/QtCore/QObject \
   F:/Qt3/6.9.0/mingw_64/include/QtCore/QRect \
@@ -406,6 +407,7 @@ C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procm
   F:/Qt3/6.9.0/mingw_64/include/QtGui/qvectornd.h \
   F:/Qt3/6.9.0/mingw_64/include/QtGui/qwindowdefs.h \
   F:/Qt3/6.9.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QComboBox \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QFormLayout \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsView \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsWidget \
@@ -422,6 +424,7 @@ C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/procm
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractslider.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
+  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qformlayout.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qframe.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
