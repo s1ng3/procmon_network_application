@@ -1,5 +1,5 @@
-C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/procmon_remote.dir
-C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/procmon_remote_autogen_timestamp_deps.dir
-C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/procmon_remote_autogen.dir
+C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/procmon_remote.dir
+C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/procmon_remote_autogen_timestamp_deps.dir
+C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/procmon_remote_autogen.dir

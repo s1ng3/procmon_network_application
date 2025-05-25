@@ -1,4 +1,4 @@
-F:\JetBrains\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote" -B "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\cmake-build-debug"
+F:\JetBrains\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote" -B "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\cmake-build-debug"
 -- The C compiler identification is GNU 13.1.0
 -- The CXX compiler identification is GNU 13.1.0
 -- Detecting C compiler ABI info
@@ -19,6 +19,6 @@ F:\JetBrains\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "
 -- Found WrapAtomic: TRUE
 -- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
 -- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
--- Configuring done (5.3s)
--- Generating done (0.1s)
--- Build files have been written to: C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug
+-- Configuring done (35.4s)
+-- Generating done (0.2s)
+-- Build files have been written to: C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug

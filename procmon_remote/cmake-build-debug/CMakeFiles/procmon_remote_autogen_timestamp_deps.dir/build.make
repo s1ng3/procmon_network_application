@@ -52,10 +52,10 @@ RM = F:\JetBrains\CLion\bin\cmake\win\x64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote"
+CMAKE_SOURCE_DIR = "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\cmake-build-debug"
 
 # Utility rule file for procmon_remote_autogen_timestamp_deps.
 
@@ -77,6 +77,6 @@ CMakeFiles/procmon_remote_autogen_timestamp_deps.dir/clean:
 .PHONY : CMakeFiles/procmon_remote_autogen_timestamp_deps.dir/clean
 
 CMakeFiles/procmon_remote_autogen_timestamp_deps.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote" "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote" "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\cmake-build-debug" "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\cmake-build-debug" "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles\procmon_remote_autogen_timestamp_deps.dir\DependInfo.cmake" "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote" "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote" "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\cmake-build-debug" "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\cmake-build-debug" "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles\procmon_remote_autogen_timestamp_deps.dir\DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : CMakeFiles/procmon_remote_autogen_timestamp_deps.dir/depend
 

@@ -1,16 +1,16 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
-	"BUILD_DIR" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen",
-	"CMAKE_BINARY_DIR" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote",
+	"BUILD_DIR" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote",
 	"CMAKE_EXECUTABLE" : "F:/JetBrains/CLion/bin/cmake/win/x64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/CMakeLists.txt",
+		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/CMakeLists.txt",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystem.cmake.in",
-		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake",
+		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeMinGWFindMake.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake",
@@ -66,7 +66,7 @@
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeFindBinUtils.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-FindBinUtils.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCCompiler.cmake.in",
-		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake",
+		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCXXCompiler.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompiler.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Determine-CXX.cmake",
@@ -117,7 +117,7 @@
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeFindBinUtils.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-FindBinUtils.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXCompiler.cmake.in",
-		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake",
+		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake",
@@ -132,7 +132,7 @@
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineRCCompiler.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCCompiler.cmake.in",
-		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeRCCompiler.cmake",
+		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeRCCompiler.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestRCCompiler.cmake",
@@ -149,7 +149,7 @@
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompileFeatures.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/FeatureTesting.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCCompiler.cmake.in",
-		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake",
+		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXInformation.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake",
@@ -170,7 +170,7 @@
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompileFeatures.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/FeatureTesting.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXCompiler.cmake.in",
-		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake",
+		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
 		"F:/Qt3/6.9.0/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake",
 		"F:/Qt3/6.9.0/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake",
@@ -494,40 +494,40 @@
 		"F:/VCPKG/vcpkg/installed/x64-windows/share/libssh/libssh-config-release.cmake",
 		"F:/VCPKG/vcpkg/installed/x64-windows/share/libssh/libssh-config-version.cmake"
 	],
-	"CMAKE_SOURCE_DIR" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote",
+	"CMAKE_SOURCE_DIR" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote",
 	"CROSS_CONFIG" : false,
-	"DEP_FILE" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/deps",
+	"DEP_FILE" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "procmon_remote_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/MainWindow.h",
+			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/MainWindow.h",
 			"MU",
 			"EWIEGA46WW/moc_MainWindow.cpp",
 			null
 		],
 		[
-			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/ProcessInfo.hpp",
+			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/ProcessInfo.hpp",
 			"MU",
 			"EWIEGA46WW/moc_ProcessInfo.cpp",
 			null
 		],
 		[
-			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/RaspberryProcesses.hpp",
+			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/RaspberryProcesses.hpp",
 			"MU",
 			"EWIEGA46WW/moc_RaspberryProcesses.cpp",
 			null
 		],
 		[
-			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/ServerClient.hpp",
+			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/ServerClient.hpp",
 			"MU",
 			"EWIEGA46WW/moc_ServerClient.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/include",
-	"MOC_COMPILATION_FILE" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/include",
+	"MOC_COMPILATION_FILE" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
@@ -553,7 +553,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug",
+		"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug",
 		"F:/Qt3/6.9.0/mingw_64/include/QtCore",
 		"F:/Qt3/6.9.0/mingw_64/include",
 		"F:/Qt3/6.9.0/mingw_64/mkspecs/win32-g++",
@@ -591,41 +591,41 @@
 		"-c",
 		"F:/JetBrains/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 8,
-	"PARSE_CACHE_FILE" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/procmon_remote_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/procmon_remote_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "F:/Qt3/6.9.0/mingw_64/bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "F:/Qt3/6.9.0/mingw_64/bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 9,
-	"SETTINGS_FILE" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/procmon_remote_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/procmon_remote_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/MainWindow.cpp",
+			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/MainWindow.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/ProcessInfo.cpp",
+			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/ProcessInfo.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/RaspberryProcesses.cpp",
+			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/RaspberryProcesses.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/ServerClient.cpp",
+			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/ServerClient.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/main.cpp",
+			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/main.cpp",
 			"MU",
 			null
 		]

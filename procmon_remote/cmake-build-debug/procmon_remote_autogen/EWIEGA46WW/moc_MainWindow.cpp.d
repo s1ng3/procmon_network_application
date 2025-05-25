@@ -1,5 +1,5 @@
-C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/EWIEGA46WW/moc_MainWindow.cpp: C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/MainWindow.h \
-  C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/moc_predefs.h \
+C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/EWIEGA46WW/moc_MainWindow.cpp: C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/MainWindow.h \
+  C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/moc_predefs.h \
   F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm \
   F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
   F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic \

@@ -1,5 +1,5 @@
 CMakeFiles/procmon_remote.dir/ProcessInfo.cpp.obj: \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\ProcessInfo.cpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\ProcessInfo.cpp \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -336,7 +336,7 @@ CMakeFiles/procmon_remote.dir/ProcessInfo.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory_resource \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\ProcessInfo.hpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\ProcessInfo.hpp \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sys/stat.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/io.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winsock2.h \
@@ -583,7 +583,7 @@ CMakeFiles/procmon_remote.dir/ProcessInfo.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/in6addr.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mstcpip.h \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\RaspberryProcesses.hpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\RaspberryProcesses.hpp \
  F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/libssh.h \
  F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/libssh_version.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/unistd.h \

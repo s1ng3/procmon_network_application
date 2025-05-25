@@ -1,7 +1,7 @@
 CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj: \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\cmake-build-debug\procmon_remote_autogen\mocs_compilation.cpp \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\cmake-build-debug\procmon_remote_autogen\EWIEGA46WW/moc_MainWindow.cpp \
- C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/MainWindow.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\cmake-build-debug\procmon_remote_autogen\mocs_compilation.cpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\cmake-build-debug\procmon_remote_autogen\EWIEGA46WW/moc_MainWindow.cpp \
+ C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/MainWindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

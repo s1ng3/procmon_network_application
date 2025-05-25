@@ -7,7 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "MinGW Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/clonix/procmon_network_application/procmon_remote/CMakeLists.txt"
+  "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/CMakeLists.txt"
   "CMakeFiles/3.29.6/CMakeCCompiler.cmake"
   "CMakeFiles/3.29.6/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.29.6/CMakeRCCompiler.cmake"

@@ -1,6 +1,6 @@
 CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\MainWindow.cpp \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\MainWindow.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\MainWindow.cpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\MainWindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -500,7 +500,7 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QMap \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qmap.h \
- C:/Users/Tudor/ONEDRI~1/Desktop/clonix/PROCMO~1/PROCMO~1/CMAKE-~1/PROCMO~1/include/ui_MainWindow.h \
+ C:/Users/Tudor/ONEDRI~1/Desktop/ciclona/PROCMO~1/PROCMO~1/CMAKE-~1/PROCMO~1/include/ui_MainWindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QApplication \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qapplication.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
@@ -527,7 +527,7 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QWidget \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qwidget.h \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\ProcessInfo.hpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\ProcessInfo.hpp \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sys/stat.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/io.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winsock2.h \
@@ -779,7 +779,7 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/in6addr.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mstcpip.h \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\clonix\procmon_network_application\procmon_remote\RaspberryProcesses.hpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\RaspberryProcesses.hpp \
  F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/libssh.h \
  F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/libssh_version.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/unistd.h \
@@ -796,31 +796,12 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qinputdialog.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QPushButton \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMenuBar \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
- F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QStringList \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qstringlist.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QDialog \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QHeaderView \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QVector \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qvector.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QPair \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qpair.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCharts/QChart \
@@ -835,7 +816,6 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/intrin.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/setjmp.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cpuid.h \
- F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/tlhelp32.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QFile \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qfile.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qfiledevice.h \
@@ -843,6 +823,12 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
@@ -851,6 +837,15 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \

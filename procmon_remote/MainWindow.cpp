@@ -6,18 +6,14 @@
 #include <QPushButton>
 #include <QToolButton>
 #include <QStyle>
-#include <QMenuBar>
-#include <sstream>
 #include <windows.h>
 #include <shellapi.h>
 #include <tlhelp32.h>
 #include <QStringList>
 #include <QDialog>
 #include <QTableWidget>
-#include <QVBoxLayout>
 #include <QHeaderView>
 #include <unordered_map>
-#include <QVector>
 #include <QPair>
 #include <QChart>
 #include <QLineSeries>
@@ -28,7 +24,6 @@
 #include <QColor>
 #include <intrin.h>
 #include <psapi.h>
-#include <TlHelp32.h>
 #include <QFile>
 #include <QCryptographicHash>
 #include <QMap>
@@ -125,6 +120,9 @@ MainWindow::MainWindow(QWidget *parent)
     if (!connect(ui->btnDisplayHardwareInfo, &QPushButton::clicked, this, &MainWindow::onDisplayHardwareInfo)) {
         QMessageBox::critical(this, "Error", "Failed to connect btnDisplayHardwareInfo signal.");
     }
+    // initialize hardware info timer for real-time updates
+    hardwareInfoTimer = new QTimer(this);
+    connect(hardwareInfoTimer, &QTimer::timeout, this, &MainWindow::updateHardwareInfo);
     if (!connect(ui->btnGetProcessMemoryUsage, &QPushButton::clicked, this, &MainWindow::onGetProcessMemoryUsage)) {
         QMessageBox::critical(this, "Error", "Failed to connect btnGetProcessMemoryUsage signal.");
     }
@@ -415,30 +413,71 @@ void MainWindow::onKillProcess()
 
 void MainWindow::onDisplayHardwareInfo()
 {
+    // perform immediate update and start periodic refresh
+    updateHardwareInfo();
+    hardwareInfoTimer->start(1000);
+}
+
+// new method for updating hardware info periodically
+void MainWindow::updateHardwareInfo()
+{
     SYSTEM_INFO sysInfo;
     GetNativeSystemInfo(&sysInfo);
     DWORD len = 0;
     GetLogicalProcessorInformation(nullptr, &len);
     auto procInfo = (PSYSTEM_LOGICAL_PROCESSOR_INFORMATION)malloc(len);
     GetLogicalProcessorInformation(procInfo, &len);
-    int physicalCores = 0;
+    int physicalCores = 0, l1=0, l2=0, l3=0;
     DWORD count = len / sizeof(SYSTEM_LOGICAL_PROCESSOR_INFORMATION);
-    for (DWORD i = 0; i < count; ++i)
+    for (DWORD i = 0; i < count; ++i) {
         if (procInfo[i].Relationship == RelationProcessorCore)
             ++physicalCores;
+        if (procInfo[i].Relationship == RelationCache) {
+            auto &c = procInfo[i].Cache;
+            switch (c.Level) {
+                case 1: l1 = c.Size/1024; break;
+                case 2: l2 = c.Size/1024; break;
+                case 3: l3 = c.Size/1024; break;
+            }
+        }
+    }
     free(procInfo);
 
-    MEMORYSTATUSEX mem;
-    mem.dwLength = sizeof(mem);
+    MEMORYSTATUSEX mem{sizeof(mem)};
     GlobalMemoryStatusEx(&mem);
 
-    // Build display string
+    // CPU name via CPUID
+    char cpuName[0x40] = {0};
+    int cpuInfo[4] = {-1};
+    __cpuid(cpuInfo, 0x80000000);
+    if (cpuInfo[0] >= 0x80000004) {
+        __cpuid(cpuInfo, 0x80000002);
+        memcpy(cpuName, cpuInfo, 16);
+        __cpuid(cpuInfo, 0x80000003);
+        memcpy(cpuName+16, cpuInfo, 16);
+        __cpuid(cpuInfo, 0x80000004);
+        memcpy(cpuName+32, cpuInfo, 16);
+    }
+
+    PERFORMANCE_INFORMATION pi{sizeof(pi)};
+    GetPerformanceInfo(&pi, sizeof(pi));
+
     QString info;
+    info += QString("CPU: %1\n").arg(QString::fromLocal8Bit(cpuName).trimmed());
     info += QString("Logical processors: %1\n").arg(sysInfo.dwNumberOfProcessors);
     info += QString("Physical cores: %1\n").arg(physicalCores);
-    info += QString("Total physical memory: %1 MB\n").arg(mem.ullTotalPhys / (1024*1024));
-    info += QString("Available physical memory: %1 MB\n").arg(mem.ullAvailPhys / (1024*1024));
-    info += QString("Memory load: %1%\n").arg(mem.dwMemoryLoad);
+    info += QString("L1 Cache: %1 KB\n").arg(l1);
+    info += QString("L2 Cache: %1 KB\n").arg(l2);
+    info += QString("L3 Cache: %1 KB\n").arg(l3);
+    info += QString("Total Memory: %1 MB\n").arg(mem.ullTotalPhys/(1024*1024));
+    info += QString("Available Memory: %1 MB\n").arg(mem.ullAvailPhys/(1024*1024));
+    info += QString("Memory Load: %1%\n").arg(mem.dwMemoryLoad);
+    info += QString("Page file total: %1 MB\n").arg(pi.CommitLimit*pi.PageSize/(1024*1024));
+    info += QString("Page file used: %1 MB\n").arg(pi.CommitTotal*pi.PageSize/(1024*1024));
+    info += QString("Handles: %1\n").arg(pi.HandleCount);
+    info += QString("Processes: %1\n").arg(pi.ProcessCount);
+    info += QString("Threads: %1\n").arg(pi.ThreadCount);
+    info += QString("System Uptime: %1 sec\n").arg(GetTickCount64()/1000);
 
     ui->textHardwareInfo->setPlainText(info);
 }

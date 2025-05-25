@@ -47,6 +47,7 @@ private slots:
     void updateCpuUsage();
     void updateStats();
     void onThemeChanged(const QString &themeName);
+    void updateHardwareInfo(); // slot for real-time hardware info updates
 
 private:
     void applyTheme(const QStringList &colors);
@@ -90,6 +91,7 @@ private:
     int physicalCores;
     int socketCount;
     bool virtualizationEnabled;
+    QTimer *hardwareInfoTimer; // timer to refresh hardware information
 };
 
 #endif // MAINWINDOW_H
