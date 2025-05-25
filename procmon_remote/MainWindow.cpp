@@ -41,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     // force initial size from UI geometry to be applied at runtime
-    this->resize(800, 800);
+    this->resize(900, 900);
     // allow resizing smaller than default minimum
     this->setMinimumSize(0, 0);
     this->setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
