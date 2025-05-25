@@ -22,19 +22,61 @@
 #include <QChart>
 #include <QLineSeries>
 #include <QChartView>
-#include <QHBoxLayout>  // added for horizontal layout casting
+#include <QHBoxLayout>
 #include <QtCharts/QValueAxis>
 #include <QBrush>
 #include <QColor>
+#include <intrin.h>
+#include <psapi.h>
+#include <TlHelp32.h>
+#include <QFile>
+#include <QCryptographicHash>
+#include <QMap>
+#include <QByteArray>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , processesVisible(false) // Initialize processesVisible
+    , processesVisible(false)
 {
     ui->setupUi(this);
+    // force initial size from UI geometry to be applied at runtime
+    this->resize(800, 800);
+    // allow resizing smaller than default minimum
+    this->setMinimumSize(0, 0);
+    this->setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
+
+    // fix button sizes so text remains visible
+    for (auto btn : ui->centralwidget->findChildren<QPushButton*>()) {
+        auto hint = btn->sizeHint();
+        btn->setMinimumSize(hint.width(), hint.height());
+        btn->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+    }
+    ui->tableProcesses->setMinimumHeight(0);
+    ui->tableProcesses->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored);
+    ui->tabWidget->setMinimumHeight(0);
+    ui->tabWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored);
+
+    // UI styling enhancements for a modern dark theme
+    this->setStyleSheet(
+        "QMainWindow { background-color: #2e3440; color: #d8dee9; }"
+        " QPushButton { background-color: #4c566a; border: none; border-radius: 4px; padding: 6px 12px; }"
+        " QPushButton:hover { background-color: #5e81ac; }"
+        " QPushButton:pressed { background-color: #81a1c1; }"
+        " QTableWidget { background-color: #3b4252; color: #eceff4; gridline-color: #434c5e; }"
+        " QHeaderView::section { background-color: #4c566a; color: #eceff4; }"
+    );
+    // Increase padding and spacing
+    if (auto lay = ui->centralwidget->layout()) {
+        lay->setContentsMargins(10, 10, 10, 10);
+        lay->setSpacing(10);
+        lay->setSizeConstraint(QLayout::SetNoConstraint);
+    }
+
     // auto-stretch columns to fill table width and avoid horizontal scroll
     ui->tableProcesses->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    // restore column header labels
+    ui->tableProcesses->setHorizontalHeaderLabels(QStringList() << "PID" << "Name" << "Memory" << "Threads" << "Status" << "User" << "Priority");
     ui->tableProcesses->hide(); // hide table initially
 
     // Enable sorting and connect the header click signal
@@ -114,7 +156,6 @@ MainWindow::MainWindow(QWidget *parent)
     cpuChart->addSeries(cpuSeries);
     cpuChart->createDefaultAxes();
     cpuChart->setTitle("CPU % Optimization");
-    // replace deprecated axisX()/axisY() with QValueAxis retrieval
     {
         auto axesY = cpuChart->axes(Qt::Vertical);
         if (!axesY.isEmpty()) {
@@ -132,31 +173,99 @@ MainWindow::MainWindow(QWidget *parent)
     }
     cpuChartView = new QChartView(cpuChart, this);
     cpuChartView->setBackgroundBrush(QBrush(QColor(30,30,30)));
-    cpuChartView->setMinimumSize(600, 300); // wider and higher for better visibility
-    cpuChartView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    cpuChartView->show();  // show chart initially when processes are hidden
-    // Insert chart in main horizontal layout, left of buttons, center vertically
-    {
-        QWidget* page = ui->tabWidget->widget(0); // Processes tab
-        if (auto vLayout = qobject_cast<QVBoxLayout*>(page->layout())) {
-            if (auto hLayout = qobject_cast<QHBoxLayout*>(vLayout->itemAt(0)->layout())) {
-                // Wrap chart in a widget with vertical layout to center it
-                QWidget* chartWrapper = new QWidget(this);
-                QVBoxLayout* chartVLayout = new QVBoxLayout(chartWrapper);
-                chartVLayout->addStretch();
-                chartVLayout->addWidget(cpuChartView);
-                chartVLayout->addStretch();
-                chartWrapper->setLayout(chartVLayout);
-                // insert before spacer (index 1) for middle-left positioning
-                hLayout->insertWidget(1, chartWrapper);
+    cpuChartView->setMinimumSize(150, 80);
+    cpuChartView->setMinimumHeight(0); // allow vertical shrink
+    cpuChartView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored); // ignore size hint for height
+    cpuChartView->show();
+
+    // Stats panel setup
+    statsWidget = new QWidget(this);
+    { // style and initial visibility
+        statsWidget->setStyleSheet("background-color: #3b4252; color: #eceff4; padding: 4px; border-radius:4px;");
+        statsWidget->show(); // always visible
+    }
+    statsWidget->setMinimumHeight(0); // allow vertical shrink
+    statsWidget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Ignored); // ignore size hint for height
+    QFormLayout *statLayout = new QFormLayout(statsWidget);
+    statLayout->setContentsMargins(2,2,2,2);
+    statLayout->setSpacing(4);
+    lblUtilization = new QLabel("---", statsWidget);
+    lblProcesses   = new QLabel("---", statsWidget);
+    lblThreads     = new QLabel("---", statsWidget);
+    lblHandles     = new QLabel("---", statsWidget);
+    lblUptime      = new QLabel("---", statsWidget);
+    lblBaseSpeed   = new QLabel("--- MHz", statsWidget);
+    lblSockets     = new QLabel("---", statsWidget);
+    lblCores       = new QLabel("---", statsWidget);
+    lblLogical     = new QLabel("---", statsWidget);
+    lblVirtualization = new QLabel("---", statsWidget);
+    lblL1Cache     = new QLabel("--- KB", statsWidget);
+    lblL2Cache     = new QLabel("--- KB", statsWidget);
+    lblL3Cache     = new QLabel("--- KB", statsWidget);
+    statLayout->addRow("Utilization:", lblUtilization);
+    statLayout->addRow("Processes:", lblProcesses);
+    statLayout->addRow("Threads:", lblThreads);
+    statLayout->addRow("Handles:", lblHandles);
+    statLayout->addRow("Up time:", lblUptime);
+    statLayout->addRow("Base speed:", lblBaseSpeed);
+    statLayout->addRow("Sockets:", lblSockets);
+    statLayout->addRow("Cores:", lblCores);
+    statLayout->addRow("Logical processors:", lblLogical);
+    statLayout->addRow("Virtualization:", lblVirtualization);
+    statLayout->addRow("L1 cache:", lblL1Cache);
+    statLayout->addRow("L2 cache:", lblL2Cache);
+    statLayout->addRow("L3 cache:", lblL3Cache);
+
+    // Wrap CPU chart and stats panel in a horizontal layout at top of main window
+    if (auto mainLay = qobject_cast<QVBoxLayout*>(ui->centralwidget->layout())) {
+        QWidget* chartStatsWrapper = new QWidget(this);
+        QHBoxLayout* csLayout = new QHBoxLayout(chartStatsWrapper);
+        csLayout->setContentsMargins(2,2,2,2);
+        csLayout->setSpacing(4);
+        csLayout->addWidget(cpuChartView);
+        csLayout->addWidget(statsWidget);
+        csLayout->setSizeConstraint(QLayout::SetNoConstraint); // allow layout to shrink
+        chartStatsWrapper->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored); // ignore minimum height
+        mainLay->insertWidget(0, chartStatsWrapper);
+    }
+
+    // Compute static CPU/hardware info
+    int cpuInfo[4] = {0}; __cpuid(cpuInfo, 0x16);
+    baseSpeedMHz = cpuInfo[1]; lblBaseSpeed->setText(QString::number(baseSpeedMHz) + " MHz");
+    SYSTEM_INFO sysInfo; GetSystemInfo(&sysInfo);
+    SYSTEM_LOGICAL_PROCESSOR_INFORMATION *buf = nullptr; DWORD len = 0;
+    GetLogicalProcessorInformation(nullptr, &len);
+    buf = (PSYSTEM_LOGICAL_PROCESSOR_INFORMATION)malloc(len);
+    GetLogicalProcessorInformation(buf, &len);
+    int phys=0, sockets=0;
+    for (DWORD i=0; i < len/sizeof(*buf); ++i) {
+        if (buf[i].Relationship == RelationProcessorCore) phys++;
+        if (buf[i].Relationship == RelationProcessorPackage) sockets++;
+        if (buf[i].Relationship == RelationCache) {
+            auto &c = buf[i].Cache;
+            switch(c.Level) {
+            case 1: l1Size = c.Size/1024; break;
+            case 2: l2Size = c.Size/1024; break;
+            case 3: l3Size = c.Size/1024; break;
             }
         }
     }
+    free(buf);
+    physicalCores = phys; socketCount = sockets;
+    lblCores->setText(QString::number(phys));
+    lblLogical->setText(QString::number(sysInfo.dwNumberOfProcessors));
+    lblSockets->setText(QString::number(sockets));
+    lblL1Cache->setText(QString::number(l1Size) + " KB");
+    lblL2Cache->setText(QString::number(l2Size) + " KB");
+    lblL3Cache->setText(QString::number(l3Size) + " KB");
+    virtualizationEnabled = IsProcessorFeaturePresent(PF_VIRT_FIRMWARE_ENABLED);
+    lblVirtualization->setText(virtualizationEnabled?"Enabled":"Disabled");
+
     // Initialize CPU timer and data
     cpuTimer = new QTimer(this);
     connect(cpuTimer, &QTimer::timeout, this, &MainWindow::updateCpuUsage);
-    cpuTimer->start(1000);  // start updating chart immediately
-    // get initial system times
+    connect(cpuTimer, &QTimer::timeout, this, &MainWindow::updateStats);
+    cpuTimer->start(1000);
     FILETIME ftIdle, ftKernel, ftUser;
     GetSystemTimes(&ftIdle, &ftKernel, &ftUser);
     lastIdleTime = ((quint64)ftIdle.dwHighDateTime << 32) | ftIdle.dwLowDateTime;
@@ -173,75 +282,12 @@ MainWindow::~MainWindow()
 void MainWindow::onProcessDisplay()
 {
     if (!processesVisible) {
-        // hide chart if visible
-        cpuTimer->stop();
-        cpuChartView->hide();
-        ui->tableProcesses->show(); // show table when displaying
-        // Display processes
-        ProcessInfo processInfo;
-        ui->tableProcesses->setRowCount(0);
-        if (!Process32First(processInfo.getProcessSnap(), const_cast<LPPROCESSENTRY32>(&processInfo.getProcessEntry()))) {
-            QMessageBox::critical(this, "Process Display", "Failed to retrieve processes.");
-            return;
-        }
-        int row = 0;
-        do {
-            ui->tableProcesses->insertRow(row);
-            QString pid = QString::number(processInfo.getProcessEntry().th32ProcessID);
-            QString name = QString::fromLocal8Bit(processInfo.getProcessEntry().szExeFile);
-            QString threads = QString::number(processInfo.getProcessEntry().cntThreads);
-            QString memory = "N/A";
-            QString user = "N/A";
-            QString priority = "N/A";
-            QString status = "Running";
-            // Get memory, user and priority
-            HANDLE hProc = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, processInfo.getProcessEntry().th32ProcessID);
-            if (hProc) {
-                PROCESS_MEMORY_COUNTERS pmc;
-                if (GetProcessMemoryInfo(hProc, &pmc, sizeof(pmc))) {
-                    memory = QString::number(pmc.WorkingSetSize / 1024) + " KB";
-                }
-                // User
-                HANDLE hToken;
-                if (OpenProcessToken(hProc, TOKEN_QUERY, &hToken)) {
-                    DWORD userLen = 0, domainLen = 0;
-                    GetTokenInformation(hToken, TokenUser, nullptr, 0, &userLen);
-                    PTOKEN_USER ptu = (PTOKEN_USER)malloc(userLen);
-                    if (GetTokenInformation(hToken, TokenUser, ptu, userLen, &userLen)) {
-                        char userName[256], domainName[256]; DWORD un=256, dn=256; SID_NAME_USE sidType;
-                        if (LookupAccountSid(nullptr, ptu->User.Sid, userName, &un, domainName, &dn, &sidType)) {
-                            user = QString("%1\\%2").arg(domainName).arg(userName);
-                        }
-                    }
-                    free(ptu);
-                    CloseHandle(hToken);
-                }
-                // Priority
-                DWORD pr = GetPriorityClass(hProc);
-                if (pr) priority = QString::number(pr);
-                CloseHandle(hProc);
-            }
-            ui->tableProcesses->setItem(row, 0, new QTableWidgetItem(pid));
-            ui->tableProcesses->setItem(row, 1, new QTableWidgetItem(name));
-            ui->tableProcesses->setItem(row, 2, new QTableWidgetItem(memory));
-            ui->tableProcesses->setItem(row, 3, new QTableWidgetItem(threads));
-            ui->tableProcesses->setItem(row, 4, new QTableWidgetItem(status));
-            ui->tableProcesses->setItem(row, 5, new QTableWidgetItem(user));
-            ui->tableProcesses->setItem(row, 6, new QTableWidgetItem(priority));
-            row++;
-        } while (Process32Next(processInfo.getProcessSnap(), const_cast<LPPROCESSENTRY32>(&processInfo.getProcessEntry())));
-        CloseHandle(processInfo.getProcessSnap());
-        // adjust column widths to contents and stretch last column to fill remaining space
-        ui->tableProcesses->resizeColumnsToContents();
-        ui->tableProcesses->horizontalHeader()->setStretchLastSection(true);
+        ui->tableProcesses->show();
         processesVisible = true;
         ui->btnProcessDisplay->setText("Hide Processes");
+        refreshProcesses();
     } else {
-        ui->tableProcesses->setRowCount(0);
-        ui->tableProcesses->hide(); // hide table when hiding
-        // show CPU chart
-        cpuChartView->show();
-        cpuTimer->start(1000);
+        ui->tableProcesses->hide();
         processesVisible = false;
         ui->btnProcessDisplay->setText("Display Processes");
     }
@@ -250,7 +296,6 @@ void MainWindow::onProcessDisplay()
 void MainWindow::refreshProcesses()
 {
     if (!processesVisible) return;
-    // same logic as onProcessDisplay display branch
     ProcessInfo processInfo;
     ui->tableProcesses->setRowCount(0);
     if (!Process32First(processInfo.getProcessSnap(), const_cast<LPPROCESSENTRY32>(&processInfo.getProcessEntry()))) {
@@ -301,7 +346,6 @@ void MainWindow::refreshProcesses()
         row++;
     } while (Process32Next(processInfo.getProcessSnap(), const_cast<LPPROCESSENTRY32>(&processInfo.getProcessEntry())));
     CloseHandle(processInfo.getProcessSnap());
-    // adjust column widths after refresh
     ui->tableProcesses->resizeColumnsToContents();
     ui->tableProcesses->horizontalHeader()->setStretchLastSection(true);
 }
@@ -347,479 +391,412 @@ void MainWindow::onKillProcess()
 
 void MainWindow::onDisplayHardwareInfo()
 {
-    ProcessInfo processInfo;
-    std::ostringstream hardwareInfo;
+    SYSTEM_INFO sysInfo;
+    GetNativeSystemInfo(&sysInfo);
+    DWORD len = 0;
+    GetLogicalProcessorInformation(nullptr, &len);
+    auto procInfo = (PSYSTEM_LOGICAL_PROCESSOR_INFORMATION)malloc(len);
+    GetLogicalProcessorInformation(procInfo, &len);
+    int physicalCores = 0;
+    DWORD count = len / sizeof(SYSTEM_LOGICAL_PROCESSOR_INFORMATION);
+    for (DWORD i = 0; i < count; ++i)
+        if (procInfo[i].Relationship == RelationProcessorCore)
+            ++physicalCores;
+    free(procInfo);
 
-    SYSTEM_INFO siSysInfo;
-    GetSystemInfo(&siSysInfo);
+    MEMORYSTATUSEX mem;
+    mem.dwLength = sizeof(mem);
+    GlobalMemoryStatusEx(&mem);
 
-    DWORD length = 0;
-    GetLogicalProcessorInformation(nullptr, &length);
-    auto buffer = static_cast<PSYSTEM_LOGICAL_PROCESSOR_INFORMATION>(malloc(length));
-    GetLogicalProcessorInformation(buffer, &length);
+    // Build display string
+    QString info;
+    info += QString("Logical processors: %1\n").arg(sysInfo.dwNumberOfProcessors);
+    info += QString("Physical cores: %1\n").arg(physicalCores);
+    info += QString("Total physical memory: %1 MB\n").arg(mem.ullTotalPhys / (1024*1024));
+    info += QString("Available physical memory: %1 MB\n").arg(mem.ullAvailPhys / (1024*1024));
+    info += QString("Memory load: %1%\n").arg(mem.dwMemoryLoad);
 
-    int coreCount = 0;
-    DWORD count = length / sizeof(SYSTEM_LOGICAL_PROCESSOR_INFORMATION);
-    for (DWORD i = 0; i < count; ++i) {
-        if (buffer[i].Relationship == RelationProcessorCore) {
-            coreCount++;
-        }
+    ui->textHardwareInfo->setPlainText(info);
+}
+
+// Implement stats update slot
+void MainWindow::updateStats()
+{
+    // CPU utilization
+    lblUtilization->setText(QString::number(lastCpuPercent, 'f', 1) + "%");
+
+    // Processes, threads, handles
+    PERFORMANCE_INFORMATION pi;
+    pi.cb = sizeof(pi);
+    GetPerformanceInfo(&pi, sizeof(pi));
+    lblProcesses->setText(QString::number(pi.ProcessCount));
+    lblThreads->setText(QString::number(pi.ThreadCount));
+    lblHandles->setText(QString::number(pi.HandleCount));
+
+    // System uptime
+    quint64 secs = GetTickCount64() / 1000;
+    int days = secs / 86400; secs %= 86400;
+    int hrs  = secs / 3600;   secs %= 3600;
+    int mins = secs / 60;     secs %= 60;
+    lblUptime->setText(QString("%1d %2h %3m %4s").arg(days).arg(hrs).arg(mins).arg(secs));
+}
+
+// Add implementations for GUI slots
+void MainWindow::onOpenProcess()
+{
+    QString processPath = QInputDialog::getText(this, "Open Process", "Enter process path or executable name:");
+    if (processPath.isEmpty()) return;
+    HINSTANCE result = ShellExecuteW(nullptr, L"open", reinterpret_cast<LPCWSTR>(processPath.utf16()), nullptr, nullptr, SW_SHOWNORMAL);
+    if (reinterpret_cast<INT_PTR>(result) <= 32) {
+        QMessageBox::critical(this, "Open Process", "Failed to open process.");
+    } else {
+        QMessageBox::information(this, "Open Process", "Process opened successfully.");
     }
-    free(buffer);
-
-    hardwareInfo << "Hardware information:\n";
-    hardwareInfo << "  Number of logical processors: " << coreCount << "\n";
-    hardwareInfo << "  Number of processors: " << siSysInfo.dwNumberOfProcessors << "\n";
-    hardwareInfo << "  OEM ID: " << siSysInfo.dwOemId << "\n";
-    hardwareInfo << "  Page size: " << siSysInfo.dwPageSize << "\n";
-    hardwareInfo << "  Processor type: " << siSysInfo.dwProcessorType << "\n";
-    hardwareInfo << "  Minimum application address: " << siSysInfo.lpMinimumApplicationAddress << "\n";
-    hardwareInfo << "  Maximum application address: " << siSysInfo.lpMaximumApplicationAddress << "\n";
-    hardwareInfo << "  Active processor mask: " << siSysInfo.dwActiveProcessorMask << "\n";
-
-    MEMORYSTATUSEX statex;
-    statex.dwLength = sizeof(statex);
-    if (GlobalMemoryStatusEx(&statex)) {
-        hardwareInfo << "  Total physical memory: " << statex.ullTotalPhys / (1024 * 1024) << " MB\n";
-    }
-
-    ui->textHardwareInfo->setPlainText(QString::fromStdString(hardwareInfo.str()));
 }
 
 void MainWindow::onGetProcessMemoryUsage()
 {
-    QString processName = QInputDialog::getText(this, "Get Process Memory Usage", "Enter process name:");
+    QString processName = QInputDialog::getText(this, "Process Memory Usage", "Enter process name:");
     if (processName.isEmpty()) return;
-
-    DWORD processID = 0;
-    HANDLE hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (hProcessSnap == INVALID_HANDLE_VALUE) {
-        QMessageBox::critical(this, "Error", "Failed to create process snapshot.");
-        return;
-    }
-    PROCESSENTRY32 pe32;
-    pe32.dwSize = sizeof(PROCESSENTRY32);
-    if (Process32First(hProcessSnap, &pe32)) {
+    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    PROCESSENTRY32 pe; pe.dwSize = sizeof(pe);
+    bool found = false;
+    SIZE_T memKB = 0;
+    if (Process32First(hSnap, &pe)) {
         do {
-            QString exeFile = QString::fromLocal8Bit(pe32.szExeFile);
-            if (exeFile.compare(processName, Qt::CaseInsensitive) == 0) {
-                processID = pe32.th32ProcessID;
+            if (QString::fromLocal8Bit(pe.szExeFile).compare(processName, Qt::CaseInsensitive) == 0) {
+                HANDLE hProc = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, pe.th32ProcessID);
+                if (hProc) {
+                    PROCESS_MEMORY_COUNTERS pmc;
+                    if (GetProcessMemoryInfo(hProc, &pmc, sizeof(pmc))) {
+                        memKB = pmc.WorkingSetSize / 1024;
+                        found = true;
+                    }
+                    CloseHandle(hProc);
+                }
                 break;
             }
-        } while (Process32Next(hProcessSnap, &pe32));
+        } while (Process32Next(hSnap, &pe));
     }
-    CloseHandle(hProcessSnap);
-    if (processID == 0) {
-        QMessageBox::critical(this, "Process Memory Usage", "Process not found.");
-        return;
+    CloseHandle(hSnap);
+    if (found) {
+        QMessageBox::information(this, "Memory Usage", QString("%1 is using %2 KB").arg(processName).arg(memKB));
+    } else {
+        QMessageBox::warning(this, "Memory Usage", "Process not found or access denied.");
     }
-    HANDLE hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, processID);
-    if (!hProcess) {
-        QMessageBox::critical(this, "Process Memory Usage", "Failed to open process.");
-        return;
-    }
-    PROCESS_MEMORY_COUNTERS pmc;
-    SIZE_T memUsageKB = 0;
-    if (GetProcessMemoryInfo(hProcess, &pmc, sizeof(pmc))) {
-        memUsageKB = pmc.WorkingSetSize / 1024;
-    }
-    CloseHandle(hProcess);
-    QMessageBox::information(this, "Process Memory Usage", QString("Memory Usage: %1 KB").arg(memUsageKB));
 }
 
 void MainWindow::onGetProcessPath()
 {
     QString processName = QInputDialog::getText(this, "Get Process Path", "Enter process name:");
     if (processName.isEmpty()) return;
-    DWORD processID = 0;
     HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (hSnap == INVALID_HANDLE_VALUE) {
-        QMessageBox::critical(this, "Get Process Path", "Failed to create process snapshot.");
-        return;
-    }
-    PROCESSENTRY32 pe;
-    pe.dwSize = sizeof(pe);
+    PROCESSENTRY32 pe; pe.dwSize = sizeof(pe);
+    bool found = false;
+    QString path;
     if (Process32First(hSnap, &pe)) {
         do {
-            QString exe = QString::fromLocal8Bit(pe.szExeFile);
-            if (exe.compare(processName, Qt::CaseInsensitive) == 0) {
-                processID = pe.th32ProcessID;
+            if (QString::fromLocal8Bit(pe.szExeFile).compare(processName, Qt::CaseInsensitive) == 0) {
+                HANDLE hProc = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, pe.th32ProcessID);
+                if (hProc) {
+                    char exePath[MAX_PATH];
+                    if (GetModuleFileNameExA(hProc, nullptr, exePath, MAX_PATH)) {
+                        path = QString::fromLocal8Bit(exePath);
+                        found = true;
+                    }
+                    CloseHandle(hProc);
+                }
                 break;
             }
         } while (Process32Next(hSnap, &pe));
     }
     CloseHandle(hSnap);
-    if (processID == 0) {
-        QMessageBox::critical(this, "Get Process Path", "Process not found.");
-        return;
-    }
-    HANDLE hProc = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, processID);
-    if (!hProc) {
-        QMessageBox::critical(this, "Get Process Path", "Failed to open process.");
-        return;
-    }
-    wchar_t pathBuf[MAX_PATH];
-    if (GetModuleFileNameExW(hProc, nullptr, pathBuf, MAX_PATH)) {
-        QString path = QString::fromWCharArray(pathBuf);
+    if (found) {
         QMessageBox::information(this, "Process Path", path);
     } else {
-        QMessageBox::critical(this, "Get Process Path", "Failed to retrieve process path.");
+        QMessageBox::warning(this, "Process Path", "Failed to get process path.");
     }
-    CloseHandle(hProc);
 }
 
-void MainWindow::onOpenProcess()
+void MainWindow::onFastLimitRAM()
 {
-    QString processPath = QInputDialog::getText(this, "Open Process", "Enter full path of executable to open:");
-    if (processPath.isEmpty())
-        return;
-    // Attempt to open the executable
-    HINSTANCE result = ShellExecuteA(nullptr, "open", processPath.toLocal8Bit().constData(), nullptr, nullptr, SW_SHOWNORMAL);
-    if (reinterpret_cast<INT_PTR>(result) <= 32) {
-        QMessageBox::critical(this, "Open Process", "Process failed to open.");
+    QString processName = QInputDialog::getText(this, "Fast Limit RAM", "Enter process name:");
+    if (processName.isEmpty()) return;
+    bool ok = false;
+    int limitKB = QInputDialog::getInt(this, "Fast Limit RAM", "Enter memory limit (KB):", 1024, 1, INT_MAX, 1, &ok);
+    if (!ok) return;
+    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    PROCESSENTRY32 pe; pe.dwSize = sizeof(pe);
+    bool success = false;
+    if (Process32First(hSnap, &pe)) {
+        do {
+            if (QString::fromLocal8Bit(pe.szExeFile).compare(processName, Qt::CaseInsensitive) == 0) {
+                HANDLE hProc = OpenProcess(PROCESS_SET_QUOTA, FALSE, pe.th32ProcessID);
+                if (hProc) {
+                    SIZE_T bytes = static_cast<SIZE_T>(limitKB) * 1024;
+                    if (SetProcessWorkingSetSize(hProc, bytes, bytes)) success = true;
+                    CloseHandle(hProc);
+                }
+                break;
+            }
+        } while (Process32Next(hSnap, &pe));
+    }
+    CloseHandle(hSnap);
+    if (success) {
+        QMessageBox::information(this, "Fast Limit RAM", "Memory limit applied successfully.");
     } else {
-        QMessageBox::information(this, "Open Process", "Process successfully opened.");
+        QMessageBox::warning(this, "Fast Limit RAM", "Failed to apply memory limit.");
+    }
+}
+
+void MainWindow::onLimitJobObjects()
+{
+    QString processName = QInputDialog::getText(this, "Limit With Job Objects", "Enter process name:");
+    if (processName.isEmpty()) return;
+    bool ok = false;
+    int limitKB = QInputDialog::getInt(this, "Limit With Job Objects", "Enter memory limit (KB):", 1024, 1, INT_MAX, 1, &ok);
+    if (!ok) return;
+    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    PROCESSENTRY32 pe; pe.dwSize = sizeof(pe);
+    bool success = false;
+    DWORD pid = 0;
+    if (Process32First(hSnap, &pe)) {
+        do {
+            if (QString::fromLocal8Bit(pe.szExeFile).compare(processName, Qt::CaseInsensitive) == 0) {
+                pid = pe.th32ProcessID;
+                break;
+            }
+        } while (Process32Next(hSnap, &pe));
+    }
+    CloseHandle(hSnap);
+    if (pid) {
+        HANDLE hProc = OpenProcess(PROCESS_SET_QUOTA | PROCESS_TERMINATE, FALSE, pid);
+        if (hProc) {
+            HANDLE hJob = CreateJobObject(nullptr, nullptr);
+            if (hJob) {
+                JOBOBJECT_EXTENDED_LIMIT_INFORMATION info = {};
+                SIZE_T bytes = static_cast<SIZE_T>(limitKB) * 1024;
+                info.BasicLimitInformation.LimitFlags = JOB_OBJECT_LIMIT_PROCESS_MEMORY | JOB_OBJECT_LIMIT_JOB_MEMORY;
+                info.ProcessMemoryLimit = bytes;
+                info.JobMemoryLimit = bytes;
+                if (SetInformationJobObject(hJob, JobObjectExtendedLimitInformation, &info, sizeof(info)) &&
+                    AssignProcessToJobObject(hJob, hProc)) {
+                    success = true;
+                }
+                CloseHandle(hJob);
+            }
+            CloseHandle(hProc);
+        }
+    }
+    if (success) {
+        QMessageBox::information(this, "Limit With Job Objects", "Job object memory limit applied.");
+    } else {
+        QMessageBox::warning(this, "Limit With Job Objects", "Failed to limit memory with job object.");
+    }
+}
+
+void MainWindow::onLimitLogicalProcessors()
+{
+    QString processName = QInputDialog::getText(this, "Limit Logical Processors", "Enter process name:");
+    if (processName.isEmpty()) return;
+    QString maskStr = QInputDialog::getText(this, "Limit Logical Processors", "Enter core mask (hex, e.g., 0xA9):");
+    if (maskStr.isEmpty()) return;
+    bool ok = false;
+    unsigned long mask = maskStr.toULong(&ok, 0);
+    if (!ok) return;
+    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    PROCESSENTRY32 pe; pe.dwSize = sizeof(pe);
+    bool success = false;
+    if (Process32First(hSnap, &pe)) {
+        do {
+            if (QString::fromLocal8Bit(pe.szExeFile).compare(processName, Qt::CaseInsensitive) == 0) {
+                HANDLE hProc = OpenProcess(PROCESS_SET_INFORMATION, FALSE, pe.th32ProcessID);
+                if (hProc) {
+                    if (SetProcessAffinityMask(hProc, mask)) success = true;
+                    CloseHandle(hProc);
+                }
+                break;
+            }
+        } while (Process32Next(hSnap, &pe));
+    }
+    CloseHandle(hSnap);
+    if (success) {
+        QMessageBox::information(this, "Limit Logical Processors", "Processor affinity mask set.");
+    } else {
+        QMessageBox::warning(this, "Limit Logical Processors", "Failed to set affinity mask.");
+    }
+}
+
+void MainWindow::onOptimizePerformance()
+{
+    // Get processor count and masks
+    SYSTEM_INFO si;
+    GetSystemInfo(&si);
+    int n = si.dwNumberOfProcessors;
+    DWORD_PTR fullMask = (n < sizeof(DWORD_PTR)*8) ? ((1ULL<<n)-1) : (DWORD_PTR)-1;
+    DWORD_PTR halfMask = fullMask & ~((1ULL<<(n/2))-1); // upper half
+    DWORD_PTR oneMask  = 1;                              // core 0
+
+    // Snapshot
+    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
+    if(snap==INVALID_HANDLE_VALUE){
+        QMessageBox::warning(this,"Optimize Performance","Failed to snapshot processes.");
+        return;
+    }
+
+    // Skip list
+    const QStringList blacklist = {
+            "system","smss.exe","csrss.exe","wininit.exe",
+            "services.exe","lsass.exe","svchost.exe",
+            "explorer.exe","winlogon.exe"
+    };
+
+    PROCESSENTRY32 pe{sizeof(pe)};
+    int updated=0;
+    if(Process32First(snap,&pe)){
+        do{
+            QString exe = QString::fromLocal8Bit(pe.szExeFile).toLower();
+            if(blacklist.contains(exe)) continue;
+
+            HANDLE h = OpenProcess(PROCESS_SET_INFORMATION, FALSE, pe.th32ProcessID);
+            if(!h) continue;
+
+            DWORD pr = GetPriorityClass(h);
+            DWORD_PTR mask = oneMask;
+            if(pr==IDLE_PRIORITY_CLASS){
+                mask = oneMask;
+            } else if(pr==BELOW_NORMAL_PRIORITY_CLASS || pr==NORMAL_PRIORITY_CLASS){
+                mask = halfMask;
+            } else {
+                mask = fullMask;
+            }
+
+            if(SetProcessAffinityMask(h, mask)) ++updated;
+            CloseHandle(h);
+        } while(Process32Next(snap,&pe));
+    }
+    CloseHandle(snap);
+
+    QMessageBox::information(
+            this,
+            "Optimize Performance",
+            QString("%1 processes updated").arg(updated)
+    );
+}
+
+
+void MainWindow::onResetAffinity()
+{
+    // Determine full mask for all logical processors
+    SYSTEM_INFO sysInfo;
+    GetSystemInfo(&sysInfo);
+    DWORD_PTR fullMask = (sysInfo.dwNumberOfProcessors < sizeof(DWORD_PTR)*8)
+                         ? ((1ULL << sysInfo.dwNumberOfProcessors) - 1)
+                         : static_cast<DWORD_PTR>(-1);
+
+    // Iterate all processes and apply the mask
+    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (snap != INVALID_HANDLE_VALUE) {
+        PROCESSENTRY32 pe;
+        pe.dwSize = sizeof(pe);
+        if (Process32First(snap, &pe)) {
+            do {
+                HANDLE proc = OpenProcess(PROCESS_SET_INFORMATION, FALSE, pe.th32ProcessID);
+                if (proc) {
+                    SetProcessAffinityMask(proc, fullMask);
+                    CloseHandle(proc);
+                }
+            } while (Process32Next(snap, &pe));
+        }
+        CloseHandle(snap);
+    }
+
+    // Notify the user
+    QMessageBox::information(this,
+                             "Reset Affinity",
+                             "Affinity mask reset for all processes.");
+}
+
+void MainWindow::onVerifyIntegrity()
+{
+    QString processName = QInputDialog::getText(this, "Verify Integrity", "Enter process name:");
+    if (processName.isEmpty()) return;
+    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    PROCESSENTRY32 pe; pe.dwSize = sizeof(pe);
+    QString path;
+    if (Process32First(hSnap, &pe)) {
+        do {
+            if (QString::fromLocal8Bit(pe.szExeFile).compare(processName, Qt::CaseInsensitive) == 0) {
+                HANDLE hProc = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, pe.th32ProcessID);
+                if (hProc) {
+                    char exePath[MAX_PATH];
+                    if (GetModuleFileNameExA(hProc, nullptr, exePath, MAX_PATH)) path = QString::fromLocal8Bit(exePath);
+                    CloseHandle(hProc);
+                }
+                break;
+            }
+        } while (Process32Next(hSnap, &pe));
+    }
+    CloseHandle(hSnap);
+    if (path.isEmpty()) {
+        QMessageBox::warning(this, "Verify Integrity", "Process not found.");
+        return;
+    }
+    static QMap<QString, QByteArray> hashes;
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::warning(this, "Verify Integrity", "Failed to open file.");
+        return;
+    }
+    QByteArray data = file.readAll();
+    file.close();
+    QByteArray hash = QCryptographicHash::hash(data, QCryptographicHash::Sha256);
+    if (hashes.contains(processName)) {
+        if (hashes[processName] == hash) {
+            QMessageBox::information(this, "Verify Integrity", "Integrity verified (hash matches).");
+        } else {
+            QMessageBox::warning(this, "Verify Integrity", "Integrity check failed (hash mismatch).");
+        }
+    } else {
+        hashes[processName] = hash;
+        QMessageBox::information(this, "Verify Integrity", QString("Hash stored: %1").arg(QString(hash.toHex())));
     }
 }
 
 void MainWindow::onProcessSelected(QTableWidgetItem* item)
 {
     int row = item->row();
-    QString processName = ui->tableProcesses->item(row, 1)->text();
-    DWORD processID = ui->tableProcesses->item(row, 0)->text().toUInt();
-
-    ProcessInfo processInfo;
-    QString memoryUsage = "N/A"; // Declare memoryUsage
-    QString parentID = "N/A";
-    QString threadCount = "N/A";
-    QString cores = "N/A";
-
-    HANDLE hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, processID);
-    if (hProcess != nullptr) {
-        PROCESS_MEMORY_COUNTERS pmc;
-        if (GetProcessMemoryInfo(hProcess, &pmc, sizeof(pmc))) {
-            memoryUsage = QString::number(pmc.WorkingSetSize / 1024) + " KB";
-        }
-
-        DWORD_PTR processAffinityMask, systemAffinityMask;
-        if (GetProcessAffinityMask(hProcess, &processAffinityMask, &systemAffinityMask)) {
-            cores = "";
-            for (DWORD_PTR mask = 1, core = 0; mask != 0; mask <<= 1, ++core) {
-                if (processAffinityMask & mask) {
-                    cores += QString::number(core) + " ";
-                }
-            }
-        }
-        CloseHandle(hProcess);
+    QString pidStr = ui->tableProcesses->item(row, 0)->text();
+    DWORD pid = pidStr.toUInt();
+    HANDLE hProc = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, pid);
+    QString path = "N/A";
+    if (hProc) {
+        char exe[MAX_PATH];
+        if (GetModuleFileNameExA(hProc, nullptr, exe, MAX_PATH))
+            path = QString::fromLocal8Bit(exe);
+        CloseHandle(hProc);
     }
-
-    if (Process32First(processInfo.getProcessSnap(), const_cast<LPPROCESSENTRY32>(&processInfo.getProcessEntry()))) {
-        do {
-            if (processInfo.getProcessEntry().th32ProcessID == processID) {
-                parentID = QString::number(processInfo.getProcessEntry().th32ParentProcessID);
-                threadCount = QString::number(processInfo.getProcessEntry().cntThreads);
-                break;
-            }
-        } while (Process32Next(processInfo.getProcessSnap(), const_cast<LPPROCESSENTRY32>(&processInfo.getProcessEntry())));
-    }
-
-    QString processInfoText = QString("PROCESS NAME: %1\nPID: %2\nParent ID: %3\nNo of Thread: %4\nMemory Usage: %5\nRunning on cores: %6")
-        .arg(processName)
-        .arg(processID)
-        .arg(parentID)
-        .arg(threadCount)
-        .arg(memoryUsage)
-        .arg(cores);
-
-    QMessageBox::information(this, "Process Information", processInfoText);
+    QString info = QString("PID: %1\nName: %2\nMemory: %3\nThreads: %4\nUser: %5\nPriority: %6\nPath: %7")
+        .arg(pidStr)
+        .arg(ui->tableProcesses->item(row, 1)->text())
+        .arg(ui->tableProcesses->item(row, 2)->text())
+        .arg(ui->tableProcesses->item(row, 3)->text())
+        .arg(ui->tableProcesses->item(row, 5)->text())
+        .arg(ui->tableProcesses->item(row, 6)->text())
+        .arg(path);
+    QMessageBox::information(this, "Process Details", info);
 }
 
 void MainWindow::onHeaderClicked(int column)
 {
-    static Qt::SortOrder currentSortOrder = Qt::AscendingOrder;
-
-    // Toggle sort order
-    currentSortOrder = (currentSortOrder == Qt::AscendingOrder) ? Qt::DescendingOrder : Qt::AscendingOrder;
-
-    ui->tableProcesses->sortItems(column, currentSortOrder);
-    ui->tableProcesses->horizontalHeader()->setSortIndicator(column, currentSortOrder);
+    auto header = ui->tableProcesses->horizontalHeader();
+    Qt::SortOrder order = header->sortIndicatorOrder() == Qt::AscendingOrder
+        ? Qt::DescendingOrder
+        : Qt::AscendingOrder;
+    ui->tableProcesses->sortItems(column, order);
+    header->setSortIndicator(column, order);
 }
 
-void MainWindow::onFastLimitRAM()
-{
-    QString procName = QInputDialog::getText(this, "Fast Limit RAM", "Enter process name:");
-    if (procName.isEmpty()) return;
-    bool ok = false;
-    int limitKb = QInputDialog::getInt(this, "Fast Limit RAM", "Enter memory limit (KB):", 0, 1, INT_MAX, 1, &ok);
-    if (!ok) return;
-    DWORD processID = 0;
-    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (hSnap == INVALID_HANDLE_VALUE) {
-        QMessageBox::critical(this, "Fast Limit RAM", "Failed to create process snapshot");
-        return;
-    }
-    PROCESSENTRY32 pe;
-    pe.dwSize = sizeof(pe);
-    if (Process32First(hSnap, &pe)) {
-        do {
-            if (QString::fromLocal8Bit(pe.szExeFile).compare(procName, Qt::CaseInsensitive) == 0) {
-                processID = pe.th32ProcessID;
-                break;
-            }
-        } while (Process32Next(hSnap, &pe));
-    }
-    CloseHandle(hSnap);
-    if (processID == 0) {
-        QMessageBox::warning(this, "Fast Limit RAM", "Process not found");
-        return;
-    }
-    HANDLE hProc = OpenProcess(PROCESS_SET_QUOTA, FALSE, processID);
-    if (!hProc) {
-        QMessageBox::critical(this, "Fast Limit RAM", "Unable to open process");
-        return;
-    }
-    SIZE_T memBytes = static_cast<SIZE_T>(limitKb) * 1024;
-    if (!SetProcessWorkingSetSize(hProc, memBytes, memBytes)) {
-        QMessageBox::critical(this, "Fast Limit RAM", "Failed to set memory limit");
-        CloseHandle(hProc);
-        return;
-    }
-    CloseHandle(hProc);
-    QMessageBox::information(this, "Fast Limit RAM",
-        QString("Process \"") + procName + "\" memory limited to " + QString::number(limitKb) + " KB");
-}
-
-void MainWindow::onLimitJobObjects()
-{
-    QString procName = QInputDialog::getText(this, "Limit With Job Objects", "Enter process name:");
-    if (procName.isEmpty()) return;
-    bool ok = false;
-    int limitKb = QInputDialog::getInt(this, "Limit With Job Objects", "Enter memory limit (KB):", 0, 1, INT_MAX, 1, &ok);
-    if (!ok) return;
-    DWORD processID = 0;
-    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (hSnap == INVALID_HANDLE_VALUE) {
-        QMessageBox::critical(this, "Limit With Job Objects", "Failed to create process snapshot");
-        return;
-    }
-    PROCESSENTRY32 pe;
-    pe.dwSize = sizeof(pe);
-    if (Process32First(hSnap, &pe)) {
-        do {
-            if (QString::fromLocal8Bit(pe.szExeFile).compare(procName, Qt::CaseInsensitive) == 0) {
-                processID = pe.th32ProcessID;
-                break;
-            }
-        } while (Process32Next(hSnap, &pe));
-    }
-    CloseHandle(hSnap);
-    if (processID == 0) {
-        QMessageBox::warning(this, "Limit With Job Objects", "Process not found");
-        return;
-    }
-    HANDLE hProc = OpenProcess(PROCESS_SET_QUOTA | PROCESS_TERMINATE, FALSE, processID);
-    if (!hProc) {
-        QMessageBox::critical(this, "Limit With Job Objects", "Unable to open process");
-        return;
-    }
-    HANDLE hJob = CreateJobObject(nullptr, nullptr);
-    if (!hJob) {
-        QMessageBox::critical(this, "Limit With Job Objects", "Failed to create job object");
-        CloseHandle(hProc);
-        return;
-    }
-    JOBOBJECT_EXTENDED_LIMIT_INFORMATION jeli = {};
-    SIZE_T memBytes = static_cast<SIZE_T>(limitKb) * 1024;
-    jeli.BasicLimitInformation.LimitFlags = JOB_OBJECT_LIMIT_PROCESS_MEMORY;
-    jeli.ProcessMemoryLimit = memBytes;
-    jeli.BasicLimitInformation.LimitFlags |= JOB_OBJECT_LIMIT_JOB_MEMORY;
-    jeli.JobMemoryLimit = memBytes;
-    if (!SetInformationJobObject(hJob, JobObjectExtendedLimitInformation, &jeli, sizeof(jeli))) {
-        QMessageBox::critical(this, "Limit With Job Objects", "Failed to set job object limits");
-        CloseHandle(hJob);
-        CloseHandle(hProc);
-        return;
-    }
-    if (!AssignProcessToJobObject(hJob, hProc)) {
-        QMessageBox::critical(this, "Limit With Job Objects", "Failed to assign process to job");
-        CloseHandle(hJob);
-        CloseHandle(hProc);
-        return;
-    }
-    CloseHandle(hJob);
-    CloseHandle(hProc);
-    QMessageBox::information(this, "Limit With Job Objects",
-        QString("Process \"") + procName + "\" memory limited to " + QString::number(limitKb) + " KB");
-}
-
-void MainWindow::onLimitLogicalProcessors()
-{
-    QString procName = QInputDialog::getText(this, "Limit Logical Processor", "Enter process name:");
-    if (procName.isEmpty()) return;
-    // Determine number of logical processors
-    SYSTEM_INFO sysInfo;
-    GetSystemInfo(&sysInfo);
-    int nProcs = sysInfo.dwNumberOfProcessors;
-    if (nProcs > 16) nProcs = 16; // clamp to 16 cores
-    qulonglong maxMask = ((qulonglong)1 << nProcs) - 1;
-    // Build mask list with descriptions
-    QStringList maskList;
-    for (qulonglong i = 1; i <= maxMask; ++i) {
-        QString maskHex = QString("0x%1").arg(i, 0, 16).toUpper();
-        QStringList coreList;
-        for (int core = 0; core < nProcs; ++core) {
-            if (i & (1ULL << core)) coreList << QString::number(core);
-        }
-        maskList << QString("%1 - Logical Processor%2 %3")
-                        .arg(maskHex)
-                        .arg(coreList.size() > 1 ? "s" : "")
-                        .arg(coreList.join(","));
-    }
-    bool ok = false;
-    QString maskStr = QInputDialog::getItem(this, "Limit Logical Processor", "Select core mask:", maskList, 0, false, &ok);
-    if (!ok || maskStr.isEmpty()) return;
-    // Extract hex mask from selection
-    QString maskHexOnly = maskStr.section(' ', 0, 0);
-    bool convOk = false;
-    DWORD_PTR mask = maskHexOnly.toULongLong(&convOk, 16);
-    if (!convOk) return;
-    // Find process ID
-    DWORD processID = 0;
-    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (hSnap != INVALID_HANDLE_VALUE) {
-        PROCESSENTRY32 pe;
-        pe.dwSize = sizeof(pe);
-        if (Process32First(hSnap, &pe)) {
-            do {
-                if (QString::fromLocal8Bit(pe.szExeFile).compare(procName, Qt::CaseInsensitive) == 0) {
-                    processID = pe.th32ProcessID;
-                    break;
-                }
-            } while (Process32Next(hSnap, &pe));
-        }
-        CloseHandle(hSnap);
-    }
-    if (processID == 0) {
-        QMessageBox::warning(this, "Limit Logical Processor", "Process not found");
-        return;
-    }
-    HANDLE hProc = OpenProcess(PROCESS_SET_INFORMATION, FALSE, processID);
-    if (!hProc) {
-        QMessageBox::critical(this, "Limit Logical Processor", "Unable to open process");
-        return;
-    }
-    if (!SetProcessAffinityMask(hProc, mask)) {
-        QMessageBox::critical(this, "Limit Logical Processor", "Failed to set process affinity mask");
-        CloseHandle(hProc);
-        return;
-    }
-    CloseHandle(hProc);
-    QMessageBox::information(this, "Limit Logical Processor",
-        QString("Process \"") + procName + "\" affinity mask set to " + maskHexOnly);
-}
-
-void MainWindow::onOptimizePerformance()
-{
-    // Gather eligible processes with their old affinity and priority weight
-    struct Proc { DWORD pid; DWORD_PTR oldMask; DWORD_PTR newMask; int weight; QString name; };
-    QVector<Proc> procs;
-    SYSTEM_INFO sysInfo; GetSystemInfo(&sysInfo);
-    DWORD numCores = sysInfo.dwNumberOfProcessors;
-    // Blacklist
-    static const QStringList blacklist = {"System","smss.exe","csrss.exe","wininit.exe","services.exe","lsass.exe","svchost.exe","explorer.exe","winlogon.exe"};
-    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (hSnap != INVALID_HANDLE_VALUE) {
-        PROCESSENTRY32 pe; pe.dwSize = sizeof(pe);
-        if (Process32First(hSnap, &pe)) do {
-            QString name = QString::fromLocal8Bit(pe.szExeFile);
-            if (blacklist.contains(name, Qt::CaseInsensitive)) continue;
-            HANDLE hProc = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_SET_INFORMATION, FALSE, pe.th32ProcessID);
-            if (!hProc) continue;
-            DWORD_PTR oldMask=0, sysMask;
-            GetProcessAffinityMask(hProc, &oldMask, &sysMask);
-            DWORD pr = GetPriorityClass(hProc);
-            int weight = 3;
-            if (pr==HIGH_PRIORITY_CLASS) weight=5;
-            else if (pr==ABOVE_NORMAL_PRIORITY_CLASS) weight=4;
-            else if (pr==NORMAL_PRIORITY_CLASS) weight=3;
-            else if (pr==BELOW_NORMAL_PRIORITY_CLASS) weight=2;
-            else if (pr==IDLE_PRIORITY_CLASS) weight=1;
-            procs.append({pe.th32ProcessID, oldMask, 0, weight, name});
-            CloseHandle(hProc);
-        } while (Process32Next(hSnap, &pe));
-        CloseHandle(hSnap);
-    }
-    // Compute total weight
-    int totalWeight = 0;
-    for (auto &p : procs) totalWeight += p.weight;
-    // Assign new masks proportionally
-    DWORD_PTR coreIndex = 0;
-    for (auto &p : procs) {
-        int count = qMax(1, int((double)p.weight / totalWeight * numCores + 0.5));
-        DWORD_PTR mask = 0;
-        for (int i = 0; i < count; ++i) {
-            mask |= (1ULL << (coreIndex % numCores));
-            ++coreIndex;
-        }
-        p.newMask = mask;
-        HANDLE hProc = OpenProcess(PROCESS_SET_INFORMATION, FALSE, p.pid);
-        if (hProc) { SetProcessAffinityMask(hProc, mask); CloseHandle(hProc); }
-    }
-    // Show results
-    QDialog dlg(this);
-    dlg.setWindowTitle("Optimize Performance Results");
-    QVBoxLayout* layout = new QVBoxLayout(&dlg);
-    QTableWidget* table = new QTableWidget(procs.size(), 3, &dlg);
-    table->setHorizontalHeaderLabels({"Process","Old Mask","New Mask"});
-    for (int i = 0; i < procs.size(); ++i) {
-        table->setItem(i, 0, new QTableWidgetItem(procs[i].name));
-        table->setItem(i, 1, new QTableWidgetItem(QString("0x%1").arg((ulong)procs[i].oldMask,0,16).toUpper()));
-        table->setItem(i, 2, new QTableWidgetItem(QString("0x%1").arg((ulong)procs[i].newMask,0,16).toUpper()));
-    }
-    layout->addWidget(table);
-    dlg.resize(600, 400);
-    dlg.exec();
-}
-
-void MainWindow::onResetAffinity()
-{
-    SYSTEM_INFO sysInfo;
-    GetSystemInfo(&sysInfo);
-    DWORD_PTR fullMask = ((DWORD_PTR)1 << sysInfo.dwNumberOfProcessors) - 1;
-    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (hSnap != INVALID_HANDLE_VALUE) {
-        PROCESSENTRY32 pe;
-        pe.dwSize = sizeof(pe);
-        if (Process32First(hSnap, &pe)) {
-            do {
-                HANDLE hProc = OpenProcess(PROCESS_SET_INFORMATION | PROCESS_QUERY_INFORMATION, FALSE, pe.th32ProcessID);
-                if (hProc) {
-                    SetProcessAffinityMask(hProc, fullMask);
-                    CloseHandle(hProc);
-                }
-            } while (Process32Next(hSnap, &pe));
-        }
-        CloseHandle(hSnap);
-    }
-    QMessageBox::information(this, "Reset Affinity", "Affinity reset for all processes.");
-}
-
-void MainWindow::onVerifyIntegrity()
-{
-    bool ok = false;
-    QString processName = QInputDialog::getText(this, "Verify Integrity", "Enter process name:", QLineEdit::Normal, QString(), &ok);
-    if (!ok || processName.isEmpty())
-        return;
-    ProcessInfo processInfo;
-    bool valid = processInfo.VerifyProcessIntegrity(processName.toStdString().c_str());
-    if (valid) {
-        QMessageBox::information(this, "Verify Integrity", "Process integrity verified successfully.");
-    } else {
-        QMessageBox::critical(this, "Verify Integrity", "Process integrity check failed.");
-    }
-}
-
-// Update CPU utilization chart
 void MainWindow::updateCpuUsage()
 {
     // Get current system times

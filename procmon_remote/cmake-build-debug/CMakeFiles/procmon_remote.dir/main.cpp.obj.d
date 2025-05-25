@@ -485,4 +485,16 @@ CMakeFiles/procmon_remote.dir/main.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/QImage \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/qimage.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QTimer \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qtimer.h
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qtimer.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QFormLayout \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qformlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLayout \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLabel \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpicture.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextdocument.h

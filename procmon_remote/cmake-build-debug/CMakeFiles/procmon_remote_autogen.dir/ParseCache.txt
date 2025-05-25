@@ -389,6 +389,7 @@ C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/procmonupd
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qpainterpath.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qpalette.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qpen.h
+ mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qpicture.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qpixelformat.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qpixmap.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qpointingdevice.h
@@ -398,6 +399,7 @@ C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/procmonupd
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qrgba64.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qscreen.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qscreen_platform.h
+ mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextdocument.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextoption.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qtgui-config.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qtguiexports.h
@@ -408,8 +410,11 @@ C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/procmonupd
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qvectornd.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qwindowdefs.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtGui/qwindowdefs_win.h
+ mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QFormLayout
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsView
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsWidget
+ mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLabel
+ mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLayout
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QStyle
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidgetItem
@@ -420,12 +425,18 @@ C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/procmonupd
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractslider.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h
+ mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h
+ mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qformlayout.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qframe.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsitem.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicslayoutitem.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsscene.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsview.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicswidget.h
+ mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h
+ mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlabel.h
+ mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayout.h
+ mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qrubberband.h
  mdp:F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h

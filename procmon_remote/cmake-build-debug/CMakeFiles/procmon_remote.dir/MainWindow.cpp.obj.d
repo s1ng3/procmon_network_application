@@ -484,15 +484,23 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/qimage.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QTimer \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qtimer.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QFormLayout \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qformlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLayout \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLabel \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpicture.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextdocument.h \
  C:/Users/Tudor/ONEDRI~1/Desktop/PROCMO~2/PROCMO~1/CMAKE-~1/PROCMO~1/include/ui_MainWindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QApplication \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qapplication.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QHeaderView \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qheaderview.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
@@ -510,7 +518,6 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTextEdit \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtextedit.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextdocument.h \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextcursor.h \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextformat.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
@@ -820,4 +827,32 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtCharts/qvalueaxis.h \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/QBrush \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/QColor \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qcolor.h
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qcolor.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/intrin.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/setjmp.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cpuid.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/tlhelp32.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QFile \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qfile.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qfiledevice.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QCryptographicHash \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qcryptographichash.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QMap \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qmap.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QByteArray \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qbytearray.h

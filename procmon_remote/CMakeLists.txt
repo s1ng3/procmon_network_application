@@ -40,7 +40,7 @@ add_executable(procmon_remote main.cpp ProcessInfo.cpp
 target_link_libraries(procmon_remote PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Charts ssh ws2_32 Advapi32 Crypt32 psapi)
 
 # if on Windows (32- or 64-bit), always deploy Qt and libssh DLLs
-if(WIN64)
+if(WIN64 OR WIN32)
 # 1) Deploy Qt6 DLLs
 add_custom_command(TARGET procmon_remote POST_BUILD
         COMMAND
@@ -51,7 +51,7 @@ add_custom_command(TARGET procmon_remote POST_BUILD
 # 2) Copy libssh DLL
 add_custom_command(TARGET procmon_remote POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "F:/Qt3/6.9.0/mingw_64/bin/libssh-4.dll"
+        $<TARGET_FILE:ssh>
         "$<TARGET_FILE_DIR:procmon_remote>/libssh-4.dll"
 )
 endif()

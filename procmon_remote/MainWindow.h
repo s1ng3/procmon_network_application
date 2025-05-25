@@ -9,6 +9,8 @@
 #include <QtCharts/QLineSeries>
 #include <QtCharts/QChart>
 #include <QTimer>
+#include <QFormLayout>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -41,6 +43,7 @@ private slots:
     void onProcessSelected(QTableWidgetItem* item);
     void onHeaderClicked(int column);
     void updateCpuUsage();
+    void updateStats();
 
 private:
     QToolButton *btnRefresh;
@@ -55,6 +58,32 @@ private:
     quint64 lastKernelTime;
     quint64 lastUserTime;
     int cpuPointIndex;
+
+    // Stats panel
+    QWidget *statsWidget;
+    QLabel *lblUtilization;
+    QLabel *lblProcesses;
+    QLabel *lblUptime;
+    QLabel *lblBaseSpeed;
+    QLabel *lblSockets;
+    QLabel *lblCores;
+    QLabel *lblLogical;
+    QLabel *lblVirtualization;
+    QLabel *lblThreads;
+    QLabel *lblHandles;
+    QLabel *lblL1Cache;
+    QLabel *lblL2Cache;
+    QLabel *lblL3Cache;
+
+    // Additional members for stats and CPU info
+    double lastCpuPercent;
+    int baseSpeedMHz;
+    int l1Size;
+    int l2Size;
+    int l3Size;
+    int physicalCores;
+    int socketCount;
+    bool virtualizationEnabled;
 };
 
 #endif // MAINWINDOW_H
