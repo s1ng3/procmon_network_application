@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Process Monitor</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="tabPosition">
+       <enum>QTabWidget::TabPosition::North</enum>
+      </property>
+      <widget class="QWidget" name="tabProcesses">
+       <attribute name="title">
+        <string>Processes</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="processLayout">
+        <item>
+         <layout class="QHBoxLayout" name="mainHorizontalLayout">
+          <item>
+           <widget class="QTableWidget" name="tableProcesses">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>1</horstretch>
+              <verstretch>1</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>600</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="sortingEnabled">
+             <bool>true</bool>
+            </property>
+            <property name="columnCount">
+             <number>7</number>
+            </property>
+            <property name="horizontalHeaderLabels" stdset="0">
+             <stringlist>
+              <string>PID</string>
+              <string>Name</string>
+              <string>Memory</string>
+              <string>Threads</string>
+              <string>Status</string>
+              <string>User</string>
+              <string>Priority</string>
+             </stringlist>
+            </property>
+            <column/>
+            <column/>
+            <column/>
+            <column/>
+            <column/>
+            <column/>
+            <column/>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Expanding</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="buttonLayout">
+            <item>
+             <widget class="QPushButton" name="btnProcessDisplay">
+              <property name="text">
+               <string>Display Processes</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnProcessLog">
+              <property name="text">
+               <string>Log Process</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnProcessSearch">
+              <property name="text">
+               <string>Search Process</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnKillProcess">
+              <property name="text">
+               <string>Kill Process</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnOpenProcess">
+              <property name="text">
+               <string>Open Process</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnGetProcessMemoryUsage">
+              <property name="text">
+               <string>Get Process Memory Usage</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnGetProcessPath">
+              <property name="text">
+               <string>Get Process Path</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnFastLimitRAM">
+              <property name="text">
+               <string>Fast Limit RAM</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnLimitJobObjects">
+              <property name="text">
+               <string>Limit With Job Objects</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnLimitLogicalProcessors">
+              <property name="text">
+               <string>Limit Logical Processor</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnOptimizePerformance">
+              <property name="text">
+               <string>Optimize Performance</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnResetAffinity">
+              <property name="text">
+               <string>Reset Affinity</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnVerifyIntegrity">
+              <property name="text">
+               <string>Verify Integrity</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnExit">
+              <property name="text">
+               <string>Exit</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabHardware">
+       <attribute name="title">
+        <string>Hardware Info</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="hardwareLayout">
+        <item>
+         <widget class="QTextEdit" name="textHardwareInfo">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnDisplayHardwareInfo">
+          <property name="text">
+           <string>Display Hardware Info</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>33</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

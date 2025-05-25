@@ -8,9 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/procmon_network_application-main/procmon_network_application-main/procmon_remote/ProcessInfo.cpp" "CMakeFiles/procmon_remote.dir/ProcessInfo.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/ProcessInfo.cpp.obj.d"
-  "D:/procmon_network_application-main/procmon_network_application-main/procmon_remote/ServerClient.cpp" "CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj.d"
-  "D:/procmon_network_application-main/procmon_network_application-main/procmon_remote/main.cpp" "CMakeFiles/procmon_remote.dir/main.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/main.cpp.obj.d"
+  "" "procmon_remote_autogen/timestamp" "custom" "procmon_remote_autogen/deps"
+  "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/MainWindow.cpp" "CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj.d"
+  "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/ProcessInfo.cpp" "CMakeFiles/procmon_remote.dir/ProcessInfo.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/ProcessInfo.cpp.obj.d"
+  "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/RaspberryProcesses.cpp" "CMakeFiles/procmon_remote.dir/RaspberryProcesses.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/RaspberryProcesses.cpp.obj.d"
+  "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/ServerClient.cpp" "CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj.d"
+  "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/main.cpp" "CMakeFiles/procmon_remote.dir/main.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/main.cpp.obj.d"
+  "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/cmake-build-debug/procmon_remote_autogen/mocs_compilation.cpp" "CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

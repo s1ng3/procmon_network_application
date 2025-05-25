@@ -1,551 +1,437 @@
 CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj: \
- D:\procmon_network_application-main\procmon_network_application-main\procmon_remote\ServerClient.cpp \
- D:\procmon_network_application-main\procmon_network_application-main\procmon_remote\ServerClient.hpp \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_base.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/stdint.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/_mingw.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_lockfree_defines.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/move.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winsock2.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_unicode.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/windows.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sdkddkver.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/excpt.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/stdarg.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_stdarg.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/windef.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winapifamily.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/minwindef.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/specstrings.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sal.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/concurrencysal.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/driverspecs.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winnt.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/apiset.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/basetsd.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/guiddef.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/string.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/x86intrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/x86gprintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/ia32intrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/adxintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/bmiintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/bmi2intrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cetintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cldemoteintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clflushoptintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clwbintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clzerointrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cmpccxaddintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/enqcmdintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fxsrintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/lzcntintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/lwpintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/movdirintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mwaitintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mwaitxintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pconfigintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/popcntintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pkuintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/prfchiintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/raointintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/rdseedintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/rtmintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/serializeintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/sgxintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/tbmintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/tsxldtrkintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/uintrintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/waitpkgintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/wbnoinvdintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsaveintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsavecintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsaveoptintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsavesintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xtestintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/hresetintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/immintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mmintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xmmintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdlib \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/limits.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/errno.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/emmintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pmmintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/tmmintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/smmintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/wmmintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxvnniintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxifmaintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxvnniint8intrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx2intrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512erintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512pfintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512cdintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vlintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bwintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512dqintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vlbwintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vldqintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512ifmaintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512ifmavlintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmiintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmivlintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx5124fmapsintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx5124vnniwintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vpopcntdqintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmi2intrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmi2vlintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vnniintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vnnivlintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vpopcntdqvlintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bitalgintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vp2intersectintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vp2intersectvlintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fp16intrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fp16vlintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/shaintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fmaintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/f16cintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/gfniintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/vaesintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/vpclmulqdqintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bf16vlintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bf16intrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxneconvertintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxtileintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxint8intrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxbf16intrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxcomplexintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/prfchwintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/keylockerintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxfp16intrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm3dnow.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fma4intrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/ammintrin.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xopintrin.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/pshpack4.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/poppack.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/pshpack4.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/pshpack2.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/poppack.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/pshpack2.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/pshpack8.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/pshpack8.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/ktmtypes.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winbase.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/apisetcconv.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/minwinbase.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/bemapiset.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/debugapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/errhandlingapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/fibersapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/fileapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/handleapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/heapapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/ioapiset.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/interlockedapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/jobapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/libloaderapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/memoryapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/namedpipeapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/namespaceapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/processenv.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/processthreadsapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/processtopologyapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/profileapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/realtimeapiset.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/securityappcontainer.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/securitybaseapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/synchapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sysinfoapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/systemtopologyapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/threadpoolapiset.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/threadpoollegacyapiset.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/utilapiset.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/wow64apiset.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winerror.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/fltwinerror.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/timezoneapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/wingdi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/pshpack1.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winuser.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/tvout.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winnls.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/datetimeapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/stringapiset.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/wincon.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winver.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winreg.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/reason.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winnetwk.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/wnnc.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/virtdisk.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/cderr.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/dde.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/ddeml.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/dlgs.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/lzexpand.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/mmsystem.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/mmsyscom.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/mciapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/mmiscapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/mmiscapi2.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/playsoundapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/mmeapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/timeapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/joystickapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/nb30.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/rpc.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/rpcdce.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/rpcdcep.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/rpcnsi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/rpcnterr.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/rpcasync.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/shellapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winperf.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winsock.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/wincrypt.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/bcrypt.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/ncrypt.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/dpapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winefs.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winscard.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/wtypes.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/rpcndr.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/rpcnsip.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/rpcsal.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/ole2.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/objbase.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/combaseapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/wtypesbase.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/unknwnbase.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/objidlbase.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/cguid.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/objidl.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/unknwn.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/urlmon.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/oleidl.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/servprov.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/msxml.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/oaidl.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/propidl.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/oleauto.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winioctl.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winsmcrd.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winspool.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/prsht.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/commdlg.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/stralign.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stralign_s.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/winsvc.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/mcx.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/imm.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_ws1_undef.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/_timeval.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/_bsd_types.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/inaddr.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_socket_types.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_fd_types.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_ip_types.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_wsadata.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/ws2def.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_wsa_errnos.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/qos.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stringfwd.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memoryfwd.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/char_traits.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/postypes.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/_mingw_stat64.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocator.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/new_allocator.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functexcept.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_defines.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cpp_type_traits.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/localefwd.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/locale.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iosfwd \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cctype \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_forced.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator_base_funcs.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/concept_check.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator_base_types.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/type_traits.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ptr_traits.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_function.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/binders.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/numeric_traits.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_pair.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/utility.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/debug.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/predefined_ops.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/refwrap.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/invoke.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/range_access.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/alloc_traits.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/alloc_traits.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_construct.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/string_conversions.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdio \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/charconv.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functional_hash.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hash_bytes.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.tcc \
- D:\procmon_network_application-main\procmon_network_application-main\procmon_remote\ProcessInfo.hpp \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/stdc++.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/assert.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cfloat \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/float.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/float.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ciso646 \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/csetjmp \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/setjmp.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdarg \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algo.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/algorithmfwd.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_heap.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uniform_int_dist.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tempbuf.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bitset \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tuple \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/typeinfo \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stream_iterator.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf_iterator.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/streambuf \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ios_base.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/atomicity.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/pthread.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/process.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_startup.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/signal.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/pthread_signal.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/time.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sys/timeb.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/pthread_time.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/pthread_compat.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/pthread_unistd.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/system_error \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/exception \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_ptr.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_init_exception.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/nested_exception.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_raw_storage_iter.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/align.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bit \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_base.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocated_ptr.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/concurrence.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/auto_ptr.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_numeric.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/utility \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/scoped_allocator \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/typeindex \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/math.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/csignal \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ccomplex \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/complex \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cfenv \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fenv.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/fenv.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cinttypes \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/inttypes.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdalign \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdalign.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdbool \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdbool.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctgmath \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cuchar \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/deque \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_deque.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/deque.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/list \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_list.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/list.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tree.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_map.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multimap.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/erase_if.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/queue \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_vector.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multiset.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stack \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_stack.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/valarray \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/valarray_array.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/valarray_array.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/valarray_before.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/slice_array.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/valarray_after.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/gslice.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/gslice_array.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/mask_array.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/indirect_array.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/condition_variable \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_mutex.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_lock.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/forward_list \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/forward_list.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/forward_list.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/future \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_futex.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/random \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/random.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/opt_random.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/random.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/regex \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/regex_constants.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/regex_error.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/regex_automaton.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/regex_automaton.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/regex_scanner.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/regex_scanner.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/regex_compiler.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/regex_compiler.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/regex.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/regex.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/regex_executor.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/regex_executor.tcc \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/thread \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/this_thread_sleep.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_map \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_map.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hashtable.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hashtable_policy.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/enable_special_members.h \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_set \
- D:/CLion\ 2023.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/sys/stat.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/io.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/tlhelp32.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/psapi.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/ws2tcpip.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/ws2ipdef.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/in6addr.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h \
- D:/CLion\ 2023.1/bin/mingw/x86_64-w64-mingw32/include/mstcpip.h
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\ServerClient.cpp \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_map \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/pstl_config.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_map.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hashtable.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hashtable_policy.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tuple \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_pair.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/move.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/utility.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/invoke.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functional_hash.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hash_bytes.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functexcept.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_defines.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cpp_type_traits.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/type_traits.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/numeric_traits.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator_base_types.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator_base_funcs.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/concept_check.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ptr_traits.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/debug.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/predefined_ops.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bit \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/alloc_traits.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/alloc_traits.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_construct.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memoryfwd.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocator.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/new_allocator.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/enable_special_members.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_function.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/binders.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node_handle.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/range_access.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/erase_if.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memory_resource.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/_mingw.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator_args.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iosfwd \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stringfwd.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/postypes.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/_mingw_stat64.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/exception \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_ptr.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_init_exception.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/typeinfo \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/nested_exception.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/char_traits.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/localefwd.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/locale.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cctype \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ios_base.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/atomicity.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pthread.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/errno.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/process.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/corecrt_startup.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/limits.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/signal.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pthread_signal.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/time.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sys/timeb.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/_timeval.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pthread_time.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pthread_compat.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pthread_unistd.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_forced.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/refwrap.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string_view \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/string_view.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/string_conversions.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdlib \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdio \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/charconv.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/system_error \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/streambuf \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf_iterator.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/thread \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/this_thread_sleep.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/stdint.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\ServerClient.hpp \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_base.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_lockfree_defines.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winsock2.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/_mingw_unicode.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/windows.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sdkddkver.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/excpt.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/stdarg.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/windef.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winapifamily.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/minwindef.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/specstrings.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sal.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/concurrencysal.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/driverspecs.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winnt.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/apiset.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/basetsd.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/guiddef.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/string.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/x86intrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/x86gprintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/ia32intrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/adxintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/bmiintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/bmi2intrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cetintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cldemoteintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clflushoptintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clwbintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clzerointrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cmpccxaddintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/enqcmdintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fxsrintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/lzcntintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/lwpintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/movdirintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mwaitintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mwaitxintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pconfigintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/popcntintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pkuintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/prfchiintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/raointintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/rdseedintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/rtmintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/serializeintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/sgxintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/tbmintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/tsxldtrkintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/uintrintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/waitpkgintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/wbnoinvdintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsaveintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsavecintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsaveoptintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsavesintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xtestintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/hresetintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/immintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mmintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xmmintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/emmintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pmmintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/tmmintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/smmintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/wmmintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxvnniintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxifmaintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxvnniint8intrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx2intrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512erintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512pfintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512cdintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vlintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bwintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512dqintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vlbwintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vldqintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512ifmaintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512ifmavlintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmiintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmivlintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx5124fmapsintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx5124vnniwintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vpopcntdqintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmi2intrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vbmi2vlintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vnniintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vnnivlintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vpopcntdqvlintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bitalgintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vp2intersectintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512vp2intersectvlintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fp16intrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fp16vlintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/shaintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fmaintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/f16cintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/gfniintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/vaesintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/vpclmulqdqintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bf16vlintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512bf16intrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxneconvertintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxtileintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxint8intrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxbf16intrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxcomplexintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/prfchwintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/keylockerintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxfp16intrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm3dnow.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fma4intrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/ammintrin.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xopintrin.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pshpack4.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/poppack.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pshpack4.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pshpack2.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/poppack.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pshpack2.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pshpack8.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pshpack8.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/ktmtypes.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winbase.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/apisetcconv.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/minwinbase.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/bemapiset.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/debugapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/errhandlingapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/fibersapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/fileapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/handleapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/heapapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/ioapiset.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/interlockedapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/jobapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/libloaderapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/memoryapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/namedpipeapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/namespaceapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/processenv.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/processthreadsapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/processtopologyapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/profileapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/realtimeapiset.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/securityappcontainer.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/securitybaseapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/synchapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sysinfoapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/systemtopologyapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/threadpoolapiset.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/threadpoollegacyapiset.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/utilapiset.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/wow64apiset.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winerror.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/fltwinerror.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/timezoneapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/wingdi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pshpack1.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winuser.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/tvout.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winnls.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/datetimeapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/stringapiset.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/wincon.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winver.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winreg.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/reason.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winnetwk.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/wnnc.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/virtdisk.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/cderr.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/dde.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/ddeml.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/dlgs.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/lzexpand.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mmsystem.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mmsyscom.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mciapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mmiscapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mmiscapi2.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/playsoundapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mmeapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/timeapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/joystickapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/nb30.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/rpc.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/rpcdce.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/rpcdcep.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/rpcnsi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/rpcnterr.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/rpcasync.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/shellapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winperf.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winsock.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/wincrypt.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/bcrypt.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/ncrypt.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/dpapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winefs.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winscard.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/wtypes.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/rpcndr.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/rpcnsip.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/rpcsal.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/ole2.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/objbase.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/combaseapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/wtypesbase.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/unknwnbase.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/objidlbase.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/cguid.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/objidl.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/unknwn.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/urlmon.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/oleidl.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/servprov.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/msxml.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/oaidl.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/propidl.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/oleauto.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winioctl.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winsmcrd.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winspool.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/prsht.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/commdlg.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/stralign.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sec_api/stralign_s.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winsvc.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mcx.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/imm.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_ws1_undef.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/_bsd_types.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/inaddr.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_socket_types.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_fd_types.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_ip_types.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_wsadata.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/ws2def.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_wsa_errnos.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/qos.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\ProcessInfo.hpp \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sys/stat.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/io.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/tlhelp32.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psapi.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/ws2tcpip.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/ws2ipdef.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/in6addr.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mstcpip.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\procmonupdatev1\procmon_remote\RaspberryProcesses.hpp \
+ F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/libssh.h \
+ F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/libssh_version.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/unistd.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/getopt.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/inttypes.h \
+ F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/legacy.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/conio.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sec_api/conio_s.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream

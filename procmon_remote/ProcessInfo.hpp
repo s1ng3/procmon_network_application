@@ -4,13 +4,12 @@
 #ifndef PROCESSINFO_HPP
 #define PROCESSINFO_HPP
 
-#include <bits/stdc++.h>
+#include <cstring>
+#include <cstdio>
 #include <sys/stat.h>
-#include <string.h>
 #include <winsock2.h>
 #include <windows.h>
 #include <tlhelp32.h>
-#include <stdio.h>
 #include <io.h>
 #include <psapi.h>
 #include <ws2tcpip.h>
@@ -85,6 +84,10 @@ public:
     bool DisplayRaspberryProcesses();
     bool LimitArduinoPowerForAnalogAndDigital();
     bool OptimizeProcessPerformance();
+
+    HANDLE getProcessSnap() const { return hProcessSnap; }
+    const PROCESSENTRY32& getProcessEntry() const { return pe32; }
 };
 
 #endif // PROCESSINFO_HPP
+

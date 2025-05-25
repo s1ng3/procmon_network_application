@@ -5,7 +5,13 @@
 // provides various functions to interact with processes on the system.
 
 // The ProcessInfo class uses the Windows API to retrieve information about processes, threads, and DLLs.
-
+#include <fstream>
+#include "bits/stdc++.h"
+#include <sstream>
+#include <vector>
+#include <limits>
+#include <unordered_map>
+#include "iostream"
 #include "ProcessInfo.hpp"
 #include "RaspberryProcesses.hpp"
 
@@ -56,20 +62,21 @@ DLLInfo::DLLInfo(DWORD no)
 BOOL DLLInfo::DependentDLLDisplay()
 {
     char arr[200];
-    if (!Module32First(hProcessSnap,&me32))
+    if (!Module32First(hProcessSnap, &me32))
     {
-        cout<<"FAILED to get DLL Information"<<endl;
+        cout << "FAILED to get DLL Information" << endl;
         CloseHandle(hProcessSnap);
         return false;
     }
-    cout<<"DEPENDENT DLL OF THIS PROCESS: "<<endl;
+    cout << "DEPENDENT DLL OF THIS PROCESS: " << endl;
     do
     {
         wchar_t wModule[200];
-        mbstowcs_s(nullptr,wModule,me32.szModule,200);
-        wcstombs_s(nullptr,arr,200,wModule,200);
-        cout<<arr<<endl;
-    } while (Module32Next(hProcessSnap,&me32));
+        size_t convertedChars = 0;
+        mbstowcs_s(&convertedChars, wModule, 200, me32.szModule, _TRUNCATE);
+        wcstombs_s(&convertedChars, arr, 200, wModule, _TRUNCATE);
+        cout << arr << endl;
+    } while (Module32Next(hProcessSnap, &me32));
     CloseHandle(hProcessSnap);
     return true;
 }
@@ -280,71 +287,59 @@ bool ProcessInfo::ProcessLog(const char* processName) {
 bool ProcessInfo::ProcessDisplay()
 {
     char arr[200];
-    if (!Process32First(hProcessSnap,&pe32))
+    if (!Process32First(hProcessSnap, &pe32))
     {
-        cout<<"Error in finding the first process"<<endl;
+        cout << "Error in finding the first process" << endl;
         CloseHandle(hProcessSnap);
         return false;
     }
     do
     {
         wchar_t wExeFile[200];
-        mbstowcs_s(nullptr,wExeFile,pe32.szExeFile,200);
-        wcstombs_s(nullptr,arr,200,wExeFile,200);
+        mbstowcs_s(nullptr, wExeFile, pe32.szExeFile, 200);
+        wcstombs_s(nullptr, arr, 200, wExeFile, 200);
 
-        cout<<endl<<"--------------------------------------";
-        cout<<endl<<"PROCESS NAME: "<<arr;
-        cout<<endl<<"PID: "<<pe32.th32ProcessID;
-        cout<<endl<<"Parent ID: "<<pe32.th32ParentProcessID;
-        cout<<endl<<"No of Thread: "<<pe32.cntThreads;
+        cout << endl << "--------------------------------------";
+        cout << endl << "PROCESS NAME: " << arr;
+        cout << endl << "PID: " << pe32.th32ProcessID;
+        cout << endl << "Parent ID: " << pe32.th32ParentProcessID;
+        cout << endl << "No of Thread: " << pe32.cntThreads;
 
-        // Display thread information
-        // ptobj=new ThreadInfo(pe32.th32ProcessID);
-        // ptobj->ThreadsDisplay(); ///TODO Uncomment this lines to display thread information
-        // delete ptobj;
-
-        // Display DLL information
-        // pdobj=new DLLInfo(pe32.th32ProcessID);
-        // pdobj->DependentDLLDisplay(); ///TODO Uncomment this lines to display DLL information
-        // delete pdobj;
-
-        // Get memory usage information
-        HANDLE hProcess=OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ,FALSE,pe32.th32ProcessID);
+        HANDLE hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, pe32.th32ProcessID);
         if (hProcess != nullptr)
         {
             PROCESS_MEMORY_COUNTERS pmc;
-            if (GetProcessMemoryInfo(hProcess,&pmc,sizeof(pmc)))
+            if (GetProcessMemoryInfo(hProcess, &pmc, sizeof(pmc)))
             {
-                cout<<endl<<"Memory Usage: "<<pmc.WorkingSetSize / 1024<<" KB";
+                cout << endl << "Memory Usage: " << pmc.WorkingSetSize / 1024 << " KB";
             }
 
-            // Get process affinity mask
-            DWORD_PTR processAffinityMask,systemAffinityMask;
-            if (GetProcessAffinityMask(hProcess,&processAffinityMask,&systemAffinityMask))
+            DWORD_PTR processAffinityMask, systemAffinityMask;
+            if (GetProcessAffinityMask(hProcess, &processAffinityMask, &systemAffinityMask))
             {
-                cout<<endl<<"Running on cores: ";
-                for (DWORD_PTR mask=1,core=0; mask != 0; mask <<= 1,++core)
+                cout << endl << "Running on cores: ";
+                for (DWORD_PTR mask = 1, core = 0; mask != 0; mask <<= 1, ++core)
                 {
                     if (processAffinityMask & mask)
                     {
-                        cout<<core<<" ";
+                        cout << core << " ";
                     }
                 }
             }
             else
             {
-                cout<<endl<<"Failed to retrieve process affinity mask.";
+                cout << endl << "Failed to retrieve process affinity mask.";
             }
             CloseHandle(hProcess);
         }
         else
         {
-            cout<<endl<<"Failed to open process.";
+            cout << endl << "Failed to open process.";
         }
 
-        cout<<endl<<"--------------------------------------\n\n";
+        cout << endl << "--------------------------------------\n\n";
 
-    } while (Process32Next(hProcessSnap,&pe32));
+    } while (Process32Next(hProcessSnap, &pe32));
     CloseHandle(hProcessSnap);
     return true;
 }
@@ -1418,3 +1413,4 @@ bool ProcessInfo::VerifyProcessIntegrity(const char* processName) {
 }
 
 // added prometheus and node exporter
+

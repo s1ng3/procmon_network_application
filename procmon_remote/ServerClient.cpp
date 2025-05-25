@@ -6,8 +6,13 @@
 // The client thread sends commands to the server and receives the response.
 // The main function displays a menu of available commands and allows the user to choose a command to execute.
 
+#include <unordered_map>
+#include <sstream>
+#include <thread>
 #include "ServerClient.hpp"
 #include "ProcessInfo.hpp"
+#include "iostream"
+#include "ostream"
 
 atomic<bool> serverRunning(true);
 

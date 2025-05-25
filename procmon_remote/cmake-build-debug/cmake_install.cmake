@@ -1,4 +1,4 @@
-# Install script for directory: F:/JetBrains Projects/CLion Projects/procmon_remote
+# Install script for directory: C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "F:/JetBrains Projects/CLion Projects/procmon_remote/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/procmonupdatev1/procmon_remote/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
