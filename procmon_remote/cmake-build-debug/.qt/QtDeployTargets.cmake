@@ -1,3 +1,3 @@
-set(__QT_DEPLOY_TARGET_procmon_remote_FILE C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/ciclona/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote.exe)
+set(__QT_DEPLOY_TARGET_procmon_remote_FILE F:/JetBrains Projects/CLion Projects/procmon_network_application/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote.exe)
 set(__QT_DEPLOY_TARGET_procmon_remote_TYPE EXECUTABLE)
 set(__QT_DEPLOY_TARGET_procmon_remote_RUNTIME_DLLS F:/Qt3/6.9.0/mingw_64/bin/Qt6Charts.dll;F:/VCPKG/vcpkg/installed/x64-windows/debug/bin/ssh.dll;F:/Qt3/6.9.0/mingw_64/bin/Qt6OpenGLWidgets.dll;F:/Qt3/6.9.0/mingw_64/bin/Qt6Widgets.dll;F:/Qt3/6.9.0/mingw_64/bin/Qt6OpenGL.dll;F:/Qt3/6.9.0/mingw_64/bin/Qt6Gui.dll;F:/Qt3/6.9.0/mingw_64/bin/Qt6Core.dll)

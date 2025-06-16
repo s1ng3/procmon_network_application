@@ -13,6 +13,8 @@
 #include <unordered_map>
 #include "iostream"
 #include "ProcessInfo.hpp"
+#include <wincrypt.h>
+#include <shellapi.h>
 #include "RaspberryProcesses.hpp"
 
 ThreadInfo::ThreadInfo(DWORD no)

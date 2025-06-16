@@ -1,3 +1,5 @@
+#include <winsock2.h>
+#include <windows.h>
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "ProcessInfo.hpp"
@@ -6,7 +8,7 @@
 #include <QPushButton>
 #include <QToolButton>
 #include <QStyle>
-#include <windows.h>
+#include <QRandomGenerator>
 #include <shellapi.h>
 #include <tlhelp32.h>
 #include <QStringList>
@@ -28,6 +30,9 @@
 #include <QCryptographicHash>
 #include <QMap>
 #include <QByteArray>
+#include <QBarSet>
+#include <QBarSeries>
+#include <QBarCategoryAxis>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -56,6 +61,14 @@ MainWindow::MainWindow(QWidget *parent)
     themeSelector = new QComboBox(this);
     themeSelector->setFixedWidth(180);
     themeSelector->setToolTip("Switch color theme");
+    // Store default theme style and palette
+    defaultPalette = qApp->palette();
+    defaultAppStyleSheet = qApp->styleSheet();
+    initialMainStyleSheet = this->styleSheet();
+    // Setup default black-blue theme colors and apply initially
+    defaultThemeColors = QStringList() << "#000000" << "#1565C0" << "#2196F3" << "#0A0A0A" << "#1E1E1E";
+    // Add Default Theme option
+    themeSelector->addItem("Default Theme");
     // Theme names and palettes
     themes["Dark Purple"]      = {"#4B0082", "#6A0DAD", "#E040FB", "#1A0026", "#F0E6FF"};
     themes["Ocean Blue"]       = {"#006994", "#009DDC", "#FFD166", "#EAF6FF", "#023047"};
@@ -76,15 +89,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(themeSelector, &QComboBox::currentTextChanged, this, &MainWindow::onThemeChanged);
     menuBar()->setCornerWidget(themeSelector, Qt::TopLeftCorner);
 
-    // UI styling enhancements for a modern dark theme
-    this->setStyleSheet(
-        "QMainWindow { background-color: #2e3440; color: #d8dee9; }"
-        " QPushButton { background-color: #4c566a; border: none; border-radius: 4px; padding: 6px 12px; }"
-        " QPushButton:hover { background-color: #5e81ac; }"
-        " QPushButton:pressed { background-color: #81a1c1; }"
-        " QTableWidget { background-color: #3b4252; color: #eceff4; gridline-color: #434c5e; }"
-        " QHeaderView::section { background-color: #4c566a; color: #eceff4; }"
-    );
     // Increase padding and spacing
     if (auto lay = ui->centralwidget->layout()) {
         lay->setContentsMargins(10, 10, 10, 10);
@@ -294,6 +298,51 @@ MainWindow::MainWindow(QWidget *parent)
     lastKernelTime = ((quint64)ftKernel.dwHighDateTime << 32) | ftKernel.dwLowDateTime;
     lastUserTime = ((quint64)ftUser.dwHighDateTime << 32) | ftUser.dwLowDateTime;
     cpuPointIndex = 0;
+
+    // Core usage bar chart setup
+    SYSTEM_INFO sysInfo2; GetSystemInfo(&sysInfo2);
+    coreCount = sysInfo2.dwNumberOfProcessors;
+
+    coreBarSet = new QBarSet("Usage");
+    for (int i = 0; i < coreCount; ++i) *coreBarSet << 0;
+    coreBarSeries = new QBarSeries(this);
+    coreBarSeries->append(coreBarSet);
+    coreBarChart = new QChart();
+    coreBarChart->addSeries(coreBarSeries);
+    coreBarChart->setAnimationOptions(QChart::NoAnimation);
+    coreBarChart->setTitle("Per-CPU Core Usage");
+    QStringList categories;
+    for (int i = 0; i < coreCount; ++i) categories << QString::number(i);
+    auto axisX2 = new QBarCategoryAxis(); axisX2->append(categories);
+    coreBarChart->addAxis(axisX2, Qt::AlignBottom);
+    coreBarSeries->attachAxis(axisX2);
+    auto axisY2 = new QValueAxis(); axisY2->setRange(0,100);
+    coreBarChart->addAxis(axisY2, Qt::AlignLeft);
+    coreBarSeries->attachAxis(axisY2);
+    coreBarChartView = new QChartView(coreBarChart, this);
+    coreBarChartView->setMinimumHeight(150);
+    coreBarChartView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    coreBarChartView->show();
+
+    // PDH initialization for per-core CPU usage
+    PdhOpenQuery(nullptr, 0, &coreQuery);
+    coreCounters.resize(coreCount);
+    for (int i = 0; i < coreCount; ++i) {
+        QString path = QString("\\Processor(%1)\\% Processor Time").arg(i);
+        PdhAddCounterW(coreQuery, (LPCWSTR)path.utf16(), 0, &coreCounters[i]);
+    }
+    PdhCollectQueryData(coreQuery);
+    coreBarTimer = new QTimer(this);
+    connect(coreBarTimer, &QTimer::timeout, this, &MainWindow::updateCoreUsageBars);
+    coreBarTimer->start(1000);
+
+    // place per-core chart left of buttons in processes tab
+    if (auto mainHL = ui->tabProcesses->findChild<QHBoxLayout*>("mainHorizontalLayout")) {
+        mainHL->insertWidget(0, coreBarChartView);
+    }
+
+    // Apply default theme after full UI initialization
+    applyTheme(defaultThemeColors);
 }
 
 MainWindow::~MainWindow()
@@ -305,11 +354,13 @@ void MainWindow::onProcessDisplay()
 {
     if (!processesVisible) {
         ui->tableProcesses->show();
+        coreBarChartView->hide();
         processesVisible = true;
         ui->btnProcessDisplay->setText("Hide Processes");
         refreshProcesses();
     } else {
         ui->tableProcesses->hide();
+        coreBarChartView->show();
         processesVisible = false;
         ui->btnProcessDisplay->setText("Display Processes");
     }
@@ -660,29 +711,46 @@ void MainWindow::onLimitJobObjects()
 
 void MainWindow::onLimitLogicalProcessors()
 {
+    // Prompt user for process name to limit
     QString processName = QInputDialog::getText(this, "Limit Logical Processors", "Enter process name:");
+    // If no process name provided, abort operation
     if (processName.isEmpty()) return;
+    // Prompt user for core mask in hexadecimal format (e.g., 0xA9)
     QString maskStr = QInputDialog::getText(this, "Limit Logical Processors", "Enter core mask (hex, e.g., 0xA9):");
+    // If user did not provide a mask, abort operation
     if (maskStr.isEmpty()) return;
+    // Convert mask string to unsigned long value, base auto-detected
     bool ok = false;
     unsigned long mask = maskStr.toULong(&ok, 0);
+    // If conversion failed, abort operation
     if (!ok) return;
+    // Take a snapshot of all running processes
     HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    // Prepare process entry structure with its size
     PROCESSENTRY32 pe; pe.dwSize = sizeof(pe);
+    // Track whether setting affinity succeeded
     bool success = false;
+    // Iterate through the snapshot to find the matching process
     if (Process32First(hSnap, &pe)) {
         do {
+            // Compare each process name case-insensitively against user input
             if (QString::fromLocal8Bit(pe.szExeFile).compare(processName, Qt::CaseInsensitive) == 0) {
+                // Open the process with permission to change its affinity
                 HANDLE hProc = OpenProcess(PROCESS_SET_INFORMATION, FALSE, pe.th32ProcessID);
                 if (hProc) {
+                    // Attempt to set the specified affinity mask
                     if (SetProcessAffinityMask(hProc, mask)) success = true;
+                    // Close the handle when done
                     CloseHandle(hProc);
                 }
+                // Stop searching after first match
                 break;
             }
         } while (Process32Next(hSnap, &pe));
     }
+    // Release the snapshot handle
     CloseHandle(hSnap);
+    // Notify the user of the outcome based on the success flag
     if (success) {
         QMessageBox::information(this, "Limit Logical Processors", "Processor affinity mask set.");
     } else {
@@ -904,6 +972,18 @@ void MainWindow::updateCpuUsage()
     }
 }
 
+// Slot to update per-core CPU usage bars
+void MainWindow::updateCoreUsageBars()
+{
+    PdhCollectQueryData(coreQuery);
+    for (int i = 0; i < coreCount; ++i) {
+        PDH_FMT_COUNTERVALUE val;
+        if (PdhGetFormattedCounterValue(coreCounters[i], PDH_FMT_DOUBLE, nullptr, &val) == ERROR_SUCCESS) {
+            coreBarSet->replace(i, val.doubleValue);
+        }
+    }
+}
+
 // Apply theme colors to the UI using palette and stylesheet
 void MainWindow::applyTheme(const QStringList &colors) {
     // colors: [primary, secondary, accent, background, surface]
@@ -986,6 +1066,21 @@ void MainWindow::applyTheme(const QStringList &colors) {
             }
         }
     }
+    // Theme core bar chart as well
+    if (coreBarChart) {
+        coreBarChart->setBackgroundBrush(QBrush(QColor(bg)));
+        coreBarChart->setTitleBrush(QBrush(QColor(textColor)));
+        for (auto axis : coreBarChart->axes()) {
+            axis->setLabelsBrush(QBrush(QColor(textColor)));
+            axis->setLinePen(QPen(QColor(accent)));
+            axis->setGridLinePen(QPen(QColor(surface)));
+        }
+        // Set bar colors
+        for (auto barSet : coreBarSeries->barSets()) {
+            barSet->setBrush(QBrush(QColor(accent)));
+            barSet->setLabelColor(QColor(textColor));
+        }
+    }
     // Stats panel
     if (statsWidget) {
         // Use accent as background, and accentTextColor for text
@@ -995,7 +1090,9 @@ void MainWindow::applyTheme(const QStringList &colors) {
 }
 
 void MainWindow::onThemeChanged(const QString &themeName) {
-    if (themes.contains(themeName)) {
+    if (themeName == "Default Theme") {
+        applyTheme(defaultThemeColors);
+    } else if (themes.contains(themeName)) {
         applyTheme(themes[themeName]);
     }
 }

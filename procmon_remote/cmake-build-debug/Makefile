@@ -56,10 +56,10 @@ RM = F:\JetBrains\CLion\bin\cmake\win\x64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote"
+CMAKE_SOURCE_DIR = "F:\JetBrains Projects\CLion Projects\procmon_network_application\procmon_network_application\procmon_remote"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\cmake-build-debug"
+CMAKE_BINARY_DIR = "F:\JetBrains Projects\CLion Projects\procmon_network_application\procmon_network_application\procmon_remote\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles" "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "F:\JetBrains Projects\CLion Projects\procmon_network_application\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles" "F:\JetBrains Projects\CLion Projects\procmon_network_application\procmon_network_application\procmon_remote\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\ciclona\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "F:\JetBrains Projects\CLion Projects\procmon_network_application\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target

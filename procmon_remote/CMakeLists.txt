@@ -37,7 +37,7 @@ add_executable(procmon_remote main.cpp ProcessInfo.cpp
 )
 
 # Link the libssh library
-target_link_libraries(procmon_remote PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Charts ssh ws2_32 Advapi32 Crypt32 psapi)
+target_link_libraries(procmon_remote PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Charts ssh ws2_32 Advapi32 Crypt32 psapi pdh)
 
 # if on Windows (32- or 64-bit), always deploy Qt and libssh DLLs
 if(WIN64 OR WIN32)

@@ -8,11 +8,19 @@
 #include <QtCharts/QChartView>
 #include <QtCharts/QLineSeries>
 #include <QtCharts/QChart>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QValueAxis>
 #include <QTimer>
 #include <QFormLayout>
 #include <QLabel>
 #include <QComboBox>
 #include <QMap>
+#include <QPalette>
+#include <QString>
+#include <QVector>  // Added for per-core usage
+#include <pdh.h>    // PDH for per-core CPU counters
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -48,6 +56,7 @@ private slots:
     void updateStats();
     void onThemeChanged(const QString &themeName);
     void updateHardwareInfo(); // slot for real-time hardware info updates
+    void updateCoreUsageBars(); // slot to update per-core CPU usage bars
 
 private:
     void applyTheme(const QStringList &colors);
@@ -66,6 +75,16 @@ private:
     quint64 lastUserTime;
     int cpuPointIndex;
 
+    // Core usage bar chart members
+    QChart *coreBarChart;
+    QChartView *coreBarChartView;
+    QBarSeries *coreBarSeries;
+    QBarSet *coreBarSet;
+    QTimer *coreBarTimer; // timer for per-core CPU usage updates
+    PDH_HQUERY coreQuery;                // PDH query handle
+    QVector<PDH_HCOUNTER> coreCounters;  // PDH counters per core
+    int coreCount;
+
     // Stats panel
     QWidget *statsWidget;
     QLabel *lblUtilization;
@@ -83,7 +102,7 @@ private:
     QLabel *lblL3Cache;
 
     // Additional members for stats and CPU info
-    double lastCpuPercent;
+    double lastCpuPercent{0.0};
     int baseSpeedMHz;
     int l1Size;
     int l2Size;
@@ -92,6 +111,12 @@ private:
     int socketCount;
     bool virtualizationEnabled;
     QTimer *hardwareInfoTimer; // timer to refresh hardware information
+
+    // Default theme members
+    QPalette defaultPalette; // store default application palette
+    QString defaultAppStyleSheet; // store default application stylesheet
+    QString initialMainStyleSheet; // store initial MainWindow stylesheet
+    QStringList defaultThemeColors; // colors for custom default theme
 };
 
 #endif // MAINWINDOW_H
