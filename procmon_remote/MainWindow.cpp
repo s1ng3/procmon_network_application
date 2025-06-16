@@ -33,6 +33,7 @@
 #include <QBarSet>
 #include <QBarSeries>
 #include <QBarCategoryAxis>
+#include <QtCharts/QLegendMarker>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -307,20 +308,27 @@ MainWindow::MainWindow(QWidget *parent)
     for (int i = 0; i < coreCount; ++i) *coreBarSet << 0;
     coreBarSeries = new QBarSeries(this);
     coreBarSeries->append(coreBarSet);
+    coreBarSeries->setLabelsVisible(false);  // hide labels on bars
     coreBarChart = new QChart();
     coreBarChart->addSeries(coreBarSeries);
+    coreBarChart->legend()->setVisible(true);
+    coreBarChart->legend()->setAlignment(Qt::AlignRight);
+    coreBarChart->legend()->setLabelBrush(QBrush(QColor("#fff"))); // will be overridden by theme
     coreBarChart->setAnimationOptions(QChart::NoAnimation);
     coreBarChart->setTitle("Per-CPU Core Usage");
     QStringList categories;
     for (int i = 0; i < coreCount; ++i) categories << QString::number(i);
     auto axisX2 = new QBarCategoryAxis(); axisX2->append(categories);
+    axisX2->setTitleText("Core #");
     coreBarChart->addAxis(axisX2, Qt::AlignBottom);
     coreBarSeries->attachAxis(axisX2);
     auto axisY2 = new QValueAxis(); axisY2->setRange(0,100);
+    axisY2->setTitleText("Usage (%)");
     coreBarChart->addAxis(axisY2, Qt::AlignLeft);
     coreBarSeries->attachAxis(axisY2);
     coreBarChartView = new QChartView(coreBarChart, this);
-    coreBarChartView->setMinimumHeight(150);
+    coreBarChartView->setMinimumWidth(400); // setting width
+    coreBarChartView->setMinimumHeight(200);
     coreBarChartView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     coreBarChartView->show();
 
@@ -1074,6 +1082,10 @@ void MainWindow::applyTheme(const QStringList &colors) {
             axis->setLabelsBrush(QBrush(QColor(textColor)));
             axis->setLinePen(QPen(QColor(accent)));
             axis->setGridLinePen(QPen(QColor(surface)));
+        }
+        // style legend marker label color
+        for (auto marker : coreBarChart->legend()->markers()) {
+            marker->setLabelBrush(QBrush(QColor(textColor)));
         }
         // Set bar colors
         for (auto barSet : coreBarSeries->barSets()) {

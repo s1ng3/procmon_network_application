@@ -878,4 +878,6 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qbytearray.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCharts/QBarSet \
  F:/Qt3/6.9.0/mingw_64/include/QtCharts/QBarSeries \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QBarCategoryAxis
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QBarCategoryAxis \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QLegendMarker \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qlegendmarker.h
