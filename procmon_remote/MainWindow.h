@@ -117,6 +117,10 @@ private:
     QString defaultAppStyleSheet; // store default application stylesheet
     QString initialMainStyleSheet; // store initial MainWindow stylesheet
     QStringList defaultThemeColors; // colors for custom default theme
+
+    // Pie charts
+    QChart *pieChartMem, *pieChartProcState, *pieChartProcPriority, *pieChartDisk;
+    QChartView *pieChartViewMem, *pieChartViewState, *pieChartViewPriority, *pieChartViewDisk;
 };
 
 #endif // MAINWINDOW_H

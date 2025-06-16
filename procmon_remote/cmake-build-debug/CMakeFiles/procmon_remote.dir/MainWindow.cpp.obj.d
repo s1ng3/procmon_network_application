@@ -880,4 +880,13 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtCharts/QBarSeries \
  F:/Qt3/6.9.0/mingw_64/include/QtCharts/QBarCategoryAxis \
  F:/Qt3/6.9.0/mingw_64/include/QtCharts/QLegendMarker \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qlegendmarker.h
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qlegendmarker.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QPieSeries \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qpieseries.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QPieSlice \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qpieslice.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGridLayout \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsLinearLayout \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicslinearlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicslayout.h

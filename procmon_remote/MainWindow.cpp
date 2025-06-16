@@ -34,6 +34,10 @@
 #include <QBarSeries>
 #include <QBarCategoryAxis>
 #include <QtCharts/QLegendMarker>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QGridLayout>
+#include <QGraphicsLinearLayout>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -327,8 +331,8 @@ MainWindow::MainWindow(QWidget *parent)
     coreBarChart->addAxis(axisY2, Qt::AlignLeft);
     coreBarSeries->attachAxis(axisY2);
     coreBarChartView = new QChartView(coreBarChart, this);
-    coreBarChartView->setMinimumWidth(400); // setting width
-    coreBarChartView->setMinimumHeight(200);
+    coreBarChartView->setMinimumWidth(600); // setting width
+    coreBarChartView->setMinimumHeight(300);
     coreBarChartView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     coreBarChartView->show();
 
@@ -347,10 +351,103 @@ MainWindow::MainWindow(QWidget *parent)
     // place per-core chart left of buttons in processes tab
     if (auto mainHL = ui->tabProcesses->findChild<QHBoxLayout*>("mainHorizontalLayout")) {
         mainHL->insertWidget(0, coreBarChartView);
+        // Create pie charts wrapper
+        QWidget *pieWrapper = new QWidget(this);
+        QGridLayout *grid = new QGridLayout(pieWrapper);
+        grid->setContentsMargins(4,4,4,4);
+        grid->setSpacing(4);
+        // Memory Usage Distribution
+        pieChartMem = new QChart(); pieChartMem->setTitle("Memory Usage"); pieChartMem->setTheme(QChart::ChartThemeDark);
+        QPieSeries *seriesMem = new QPieSeries();
+        MEMORYSTATUSEX mem; mem.dwLength = sizeof(mem); GlobalMemoryStatusEx(&mem);
+        PERFORMANCE_INFORMATION pi; pi.cb = sizeof(pi); GetPerformanceInfo(&pi, sizeof(pi));
+        qreal usedMB = (mem.ullTotalPhys - mem.ullAvailPhys) / (1024.0*1024.0);
+        qreal freeMB = mem.ullAvailPhys / (1024.0*1024.0);
+        qreal cachedMB = (pi.SystemCache * pi.PageSize) / (1024.0*1024.0);
+        qreal pagedMB = mem.ullTotalPageFile / (1024.0*1024.0);
+        seriesMem->append("Used", usedMB);
+        seriesMem->append("Free", freeMB);
+        seriesMem->append("Cached", cachedMB);
+        seriesMem->append("Paged", pagedMB);
+        seriesMem->setPieSize(0.5);
+        pieChartMem->addSeries(seriesMem);
+        pieChartMem->legend()->setFont(QFont("", 8));
+        pieChartMem->legend()->setVisible(true);
+        pieChartMem->legend()->setAlignment(Qt::AlignRight);
+        pieChartViewMem = new QChartView(pieChartMem, this);
+        pieChartViewMem->setRenderHint(QPainter::Antialiasing);
+        pieChartViewMem->setMinimumSize(300, 250); // initial was 300
+        grid->addWidget(pieChartViewMem, 0, 0);
+        // Process State Distribution
+        pieChartProcState = new QChart(); pieChartProcState->setTitle("Process States"); pieChartProcState->setTheme(QChart::ChartThemeDark);
+        QPieSeries *seriesState = new QPieSeries();
+        seriesState->append("Running", 1);
+        seriesState->append("Sleeping", 1);
+        seriesState->append("Stopped", 1);
+        seriesState->setPieSize(0.5);
+        pieChartProcState->addSeries(seriesState);
+        pieChartProcState->legend()->setFont(QFont("", 8));
+        pieChartProcState->legend()->setVisible(true);
+        pieChartProcState->legend()->setAlignment(Qt::AlignRight);
+        pieChartViewState = new QChartView(pieChartProcState, this);
+        pieChartViewState->setRenderHint(QPainter::Antialiasing);
+        pieChartViewState->setMinimumSize(300, 250);
+        grid->addWidget(pieChartViewState, 0, 1);
+        // Process Priority Classes
+        pieChartProcPriority = new QChart(); pieChartProcPriority->setTitle("Process Priorities"); pieChartProcPriority->setTheme(QChart::ChartThemeDark);
+        QPieSeries *seriesPrio = new QPieSeries();
+        seriesPrio->append("Below-Normal", 1);
+        seriesPrio->append("Normal", 1);
+        seriesPrio->append("Above-Normal", 1);
+        seriesPrio->append("High", 1);
+        seriesPrio->append("Real-Time", 1);
+        seriesPrio->setPieSize(0.5);
+        pieChartProcPriority->addSeries(seriesPrio);
+        pieChartProcPriority->legend()->setFont(QFont("", 8));
+        pieChartProcPriority->legend()->setVisible(true);
+        pieChartProcPriority->legend()->setAlignment(Qt::AlignRight);
+        pieChartViewPriority = new QChartView(pieChartProcPriority, this);
+        pieChartViewPriority->setRenderHint(QPainter::Antialiasing);
+        pieChartViewPriority->setMinimumSize(300, 250);
+        grid->addWidget(pieChartViewPriority, 1, 0);
+        // Disk Usage per Partition
+        pieChartDisk = new QChart(); pieChartDisk->setTitle("Disk Usage"); pieChartDisk->setTheme(QChart::ChartThemeDark);
+        QPieSeries *seriesDisk = new QPieSeries();
+        ULARGE_INTEGER freeBytes, totalBytes, availBytes;
+        if (GetDiskFreeSpaceEx(nullptr, &freeBytes, &totalBytes, &availBytes)) {
+            qreal usedDisk = (totalBytes.QuadPart - freeBytes.QuadPart) / (1024.0*1024.0*1024.0);
+            qreal freeDisk = freeBytes.QuadPart / (1024.0*1024.0*1024.0);
+            seriesDisk->append("Used (GB)", usedDisk);
+            seriesDisk->append("Free (GB)", freeDisk);
+        } else {
+            seriesDisk->append("Used", 1);
+            seriesDisk->append("Free", 1);
+        }
+        seriesDisk->setPieSize(0.5);
+        pieChartDisk->addSeries(seriesDisk);
+        pieChartDisk->legend()->setFont(QFont("", 8));
+        pieChartDisk->legend()->setVisible(true);
+        pieChartDisk->legend()->setAlignment(Qt::AlignRight);
+        pieChartViewDisk = new QChartView(pieChartDisk, this);
+        pieChartViewDisk->setRenderHint(QPainter::Antialiasing);
+        pieChartViewDisk->setMinimumSize(300, 250);
+        grid->addWidget(pieChartViewDisk, 1, 1);
+        // Insert pieWrapper into layout between coreBarChartView and buttons
+        mainHL->insertWidget(1, pieWrapper);
     }
 
     // Apply default theme after full UI initialization
     applyTheme(defaultThemeColors);
+    // Stretch process-tab buttons to match stats panel width
+    {
+        int statsWidth = statsWidget->sizeHint().width();
+        QList<QPushButton*> procBtns = { ui->btnProcessDisplay, ui->btnProcessLog, ui->btnProcessSearch,
+                                        ui->btnKillProcess, ui->btnOpenProcess, ui->btnGetProcessMemoryUsage,
+                                        ui->btnGetProcessPath, ui->btnFastLimitRAM, ui->btnLimitJobObjects,
+                                        ui->btnLimitLogicalProcessors, ui->btnOptimizePerformance,
+                                        ui->btnResetAffinity, ui->btnVerifyIntegrity, ui->btnExit };
+        for (auto b : procBtns) if (b) b->setFixedWidth(statsWidth);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -363,12 +460,16 @@ void MainWindow::onProcessDisplay()
     if (!processesVisible) {
         ui->tableProcesses->show();
         coreBarChartView->hide();
+        // also hide pie charts when displaying process table
+        pieChartViewMem->hide(); pieChartViewState->hide(); pieChartViewPriority->hide(); pieChartViewDisk->hide();
         processesVisible = true;
         ui->btnProcessDisplay->setText("Hide Processes");
         refreshProcesses();
     } else {
         ui->tableProcesses->hide();
         coreBarChartView->show();
+        // restore pie charts visibility
+        pieChartViewMem->show(); pieChartViewState->show(); pieChartViewPriority->show(); pieChartViewDisk->show();
         processesVisible = false;
         ui->btnProcessDisplay->setText("Display Processes");
     }
@@ -1099,6 +1200,58 @@ void MainWindow::applyTheme(const QStringList &colors) {
         statsWidget->setStyleSheet(QString("background-color:%1;color:%2;border-radius:4px;padding:4px;")
                                   .arg(statsBg, statsText));
     }
+
+    // Theme pie charts: generate distinguishable slice colors by varying hue of accent color
+    QList<QColor> sliceColors = { QColor(primary), QColor(secondary), QColor(accent), QColor(textColor), QColor(surface) };
+
+//    QList<QColor> sliceColors;
+//    {
+//        QColor base(accent);
+//        int slices = 5;
+//        int baseHue = base.hue();
+//        int sat = base.saturation() > 0 ? base.saturation() : 150;
+//        int light = base.lightness();
+//        int step = 360 / slices;
+//        for (int i = 0; i < slices; ++i) {
+//            int hue = (baseHue + step * i) % 360;
+//            sliceColors.append(QColor::fromHsl(hue, sat, light));
+//        }
+//    }
+    auto stylePie = [&](QChart *chart) {
+        if (!chart) return;
+        chart->setBackgroundBrush(QBrush(QColor(bg)));
+        chart->setTitleBrush(QBrush(QColor(textColor)));
+        // legend labels
+        for (auto marker : chart->legend()->markers()) {
+            marker->setLabelBrush(QBrush(QColor(textColor)));
+        }
+        // style pie slices
+        for (auto s : chart->series()) {
+            if (auto pie = qobject_cast<QPieSeries*>(s)) {
+                int idx = 0;
+                for (auto slice : pie->slices()) {
+                    slice->setLabelBrush(QBrush(QColor(textColor)));
+                    slice->setPen(QPen(QColor(surface)));
+                    slice->setBrush(QBrush(sliceColors[idx++ % sliceColors.size()]));
+                }
+            }
+        }
+        // ensure legend shows full labels
+        auto legend = chart->legend();
+        if (auto ll = dynamic_cast<QGraphicsLinearLayout*>(legend->layout())) {
+            ll->setOrientation(Qt::Vertical);
+        }
+        QFontMetrics fm(legend->font());
+        int maxWidth = 0;
+        for (auto marker : legend->markers()) {
+            maxWidth = qMax(maxWidth, fm.horizontalAdvance(marker->label()));
+        }
+        legend->setMinimumSize(maxWidth + 20, 0);
+    };
+    stylePie(pieChartMem);
+    stylePie(pieChartProcState);
+    stylePie(pieChartProcPriority);
+    stylePie(pieChartDisk);
 }
 
 void MainWindow::onThemeChanged(const QString &themeName) {
