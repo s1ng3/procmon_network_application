@@ -103,6 +103,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     // auto-stretch columns to fill table width and avoid horizontal scroll
     ui->tableProcesses->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    ui->tableProcesses->setMinimumWidth(600);
+
     // restore column header labels
     ui->tableProcesses->setHorizontalHeaderLabels(QStringList() << "PID" << "Name" << "Memory" << "Threads" << "Status" << "User" << "Priority");
     ui->tableProcesses->hide(); // hide table initially
@@ -384,6 +387,7 @@ MainWindow::MainWindow(QWidget *parent)
         seriesState->append("Running", 1);
         seriesState->append("Sleeping", 1);
         seriesState->append("Stopped", 1);
+        seriesState->setLabelsVisible(false);
         seriesState->setPieSize(0.5);
         pieChartProcState->addSeries(seriesState);
         pieChartProcState->legend()->setFont(QFont("", 8));
@@ -401,6 +405,7 @@ MainWindow::MainWindow(QWidget *parent)
         seriesPrio->append("Above-Normal", 1);
         seriesPrio->append("High", 1);
         seriesPrio->append("Real-Time", 1);
+        seriesPrio->setLabelsVisible(false);
         seriesPrio->setPieSize(0.5);
         pieChartProcPriority->addSeries(seriesPrio);
         pieChartProcPriority->legend()->setFont(QFont("", 8));
@@ -438,6 +443,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Apply default theme after full UI initialization
     applyTheme(defaultThemeColors);
+    // Setup pie chart update timer for dynamic updates
+    pieTimer = new QTimer(this);
+    connect(pieTimer, &QTimer::timeout, this, &MainWindow::updatePieCharts);
+    pieTimer->start(1000);
+    updatePieCharts();
     // Stretch process-tab buttons to match stats panel width
     {
         int statsWidth = statsWidget->sizeHint().width();
@@ -1167,6 +1177,11 @@ void MainWindow::applyTheme(const QStringList &colors) {
             axis->setLabelsBrush(QBrush(QColor(textColor)));
             axis->setLinePen(QPen(QColor(accent)));
             axis->setGridLinePen(QPen(QColor(surface)));
+            axis->setTitleBrush(QBrush(QColor(textColor))); // ensure axis title ("CPU %" and "Time") is visible
+        }
+        // style legend marker label color (if legend is used)
+        for (auto marker : cpuChart->legend()->markers()) {
+            marker->setLabelBrush(QBrush(QColor(textColor)));
         }
         // Fix: set color for QLineSeries only
         for (auto s : cpuChart->series()) {
@@ -1183,6 +1198,7 @@ void MainWindow::applyTheme(const QStringList &colors) {
             axis->setLabelsBrush(QBrush(QColor(textColor)));
             axis->setLinePen(QPen(QColor(accent)));
             axis->setGridLinePen(QPen(QColor(surface)));
+            axis->setTitleBrush(QBrush(QColor(textColor)));  // ensure axis title uses correct color
         }
         // style legend marker label color
         for (auto marker : coreBarChart->legend()->markers()) {
@@ -1204,19 +1220,6 @@ void MainWindow::applyTheme(const QStringList &colors) {
     // Theme pie charts: generate distinguishable slice colors by varying hue of accent color
     QList<QColor> sliceColors = { QColor(primary), QColor(secondary), QColor(accent), QColor(textColor), QColor(surface) };
 
-//    QList<QColor> sliceColors;
-//    {
-//        QColor base(accent);
-//        int slices = 5;
-//        int baseHue = base.hue();
-//        int sat = base.saturation() > 0 ? base.saturation() : 150;
-//        int light = base.lightness();
-//        int step = 360 / slices;
-//        for (int i = 0; i < slices; ++i) {
-//            int hue = (baseHue + step * i) % 360;
-//            sliceColors.append(QColor::fromHsl(hue, sat, light));
-//        }
-//    }
     auto stylePie = [&](QChart *chart) {
         if (!chart) return;
         chart->setBackgroundBrush(QBrush(QColor(bg)));
@@ -1233,6 +1236,14 @@ void MainWindow::applyTheme(const QStringList &colors) {
                     slice->setLabelBrush(QBrush(QColor(textColor)));
                     slice->setPen(QPen(QColor(surface)));
                     slice->setBrush(QBrush(sliceColors[idx++ % sliceColors.size()]));
+                    if (chart == pieChartProcState || chart == pieChartProcPriority) {
+                        slice->setLabelVisible(false);
+                    } else {
+                        slice->setLabelPosition(QPieSlice::LabelOutside);
+                        slice->setLabelColor(QColor(textColor));
+                        slice->setLabelArmLengthFactor(0.2);
+                        slice->setLabelVisible(true);
+                    }
                 }
             }
         }
@@ -1262,3 +1273,135 @@ void MainWindow::onThemeChanged(const QString &themeName) {
     }
 }
 
+// Slot to update pie chart data dynamically
+void MainWindow::updatePieCharts()
+{
+    // Slice label names
+    const QString memNames[4] = {"Used", "Free", "Cached", "Paged"};
+    const QString diskNames[2] = {"Used (GB)", "Free (GB)"};
+
+    // Update Memory Usage pie
+    MEMORYSTATUSEX mem{sizeof(mem)};
+    GlobalMemoryStatusEx(&mem);
+    PERFORMANCE_INFORMATION pi{sizeof(pi)};
+    GetPerformanceInfo(&pi, sizeof(pi));
+    double usedMB = (mem.ullTotalPhys - mem.ullAvailPhys) / (1024.0*1024.0);
+    double freeMB = mem.ullAvailPhys / (1024.0*1024.0);
+    double cachedMB = (pi.SystemCache * pi.PageSize) / (1024.0*1024.0);
+    double pagedMB = mem.ullTotalPageFile / (1024.0*1024.0);
+    double totalMB = usedMB + freeMB + cachedMB + pagedMB;
+    if (pieChartMem) {
+        auto series = qobject_cast<QPieSeries*>(pieChartMem->series().first());
+        if (series) {
+            auto slices = series->slices();
+            auto markers = pieChartMem->legend()->markers();
+            double vals[4] = {usedMB, freeMB, cachedMB, pagedMB};
+            for (int i = 0; i < sizeof(memNames)/sizeof(memNames[0]) && i < slices.size() && i < markers.size(); ++i) {
+                slices.at(i)->setValue(vals[i]);
+                double pct = totalMB > 0 ? (vals[i] / totalMB) * 100.0 : 0.0;
+                slices.at(i)->setLabel(QString("%1%").arg(pct, 0, 'f', 1)); // Percentage on slice
+                slices.at(i)->setLabelVisible(true);
+                markers.at(i)->setLabel(memNames[i]); // Name in legend
+            }
+        }
+    }
+    // Update Disk Usage pie
+    ULARGE_INTEGER freeBytes, totalBytes, availBytes;
+    if (GetDiskFreeSpaceEx(nullptr, &freeBytes, &totalBytes, &availBytes)) {
+        double usedGB = (totalBytes.QuadPart - freeBytes.QuadPart) / (1024.0*1024.0*1024.0);
+        double freeGB = freeBytes.QuadPart / (1024.0*1024.0*1024.0);
+        double totalGB = usedGB + freeGB;
+        if (pieChartDisk) {
+            auto series = qobject_cast<QPieSeries*>(pieChartDisk->series().first());
+            if (series) {
+                auto slices = series->slices();
+                auto markers = pieChartDisk->legend()->markers();
+                double valsDisk[2] = {usedGB, freeGB};
+                for (int i = 0; i < sizeof(diskNames)/sizeof(diskNames[0]) && i < slices.size() && i < markers.size(); ++i) {
+                    slices.at(i)->setValue(valsDisk[i]);
+                    double pct = totalGB > 0 ? (valsDisk[i] / totalGB) * 100.0 : 0.0;
+                    slices.at(i)->setLabel(QString("%1%").arg(pct, 0, 'f', 1)); // Percentage on slice
+                    slices.at(i)->setLabelVisible(true);
+                    markers.at(i)->setLabel(diskNames[i]); // Name in legend
+                }
+            }
+        }
+    }
+    //TODO IT STARTS
+    // Update Process State pie
+    if (pieChartProcState) {
+        auto series = qobject_cast<QPieSeries*>(pieChartProcState->series().first());
+        if (series) {
+            int running=0, sleeping=0, stopped=0;
+            HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+            if (hSnap != INVALID_HANDLE_VALUE) {
+                PROCESSENTRY32 pe; pe.dwSize = sizeof(pe);
+                if (Process32First(hSnap, &pe)) {
+                    do {
+                        HANDLE hProc = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, pe.th32ProcessID);
+                        if (hProc) {
+                            DWORD exitCode=0;
+                            if (GetExitCodeProcess(hProc, &exitCode)) {
+                                if (exitCode == STILL_ACTIVE) running++;
+                                else stopped++;
+                            }
+                            CloseHandle(hProc);
+                        } else {
+                            sleeping++; // treat inaccessible as sleeping
+                        }
+                    } while (Process32Next(hSnap, &pe));
+                }
+                CloseHandle(hSnap);
+            }
+            QList<QPieSlice*> slices = series->slices();
+            int vals[3] = {running, sleeping, stopped};
+            auto markers = pieChartProcState->legend()->markers();
+            QStringList labels = {"Running", "Sleeping", "Stopped"};
+            for (int i = 0; i < 3 && i < slices.size(); ++i) {
+                slices[i]->setValue(vals[i]);
+                slices[i]->setLabel(QString::number(vals[i]));
+                slices[i]->setLabelVisible(true);
+                if (i < markers.size()) markers[i]->setLabel(labels[i]);
+            }
+        }
+    }
+    // Update Process Priorities pie
+    if (pieChartProcPriority) {
+        auto series = qobject_cast<QPieSeries*>(pieChartProcPriority->series().first());
+        if (series) {
+            QMap<DWORD,int> prioCount;
+            HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+            if (hSnap != INVALID_HANDLE_VALUE) {
+                PROCESSENTRY32 pe; pe.dwSize = sizeof(pe);
+                if (Process32First(hSnap, &pe)) {
+                    do {
+                        HANDLE hProc = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, pe.th32ProcessID);
+                        if (hProc) {
+                            DWORD pc = GetPriorityClass(hProc);
+                            prioCount[pc]++;
+                            CloseHandle(hProc);
+                        }
+                    } while (Process32Next(hSnap, &pe));
+                }
+                CloseHandle(hSnap);
+            }
+            QList<QPieSlice*> slices = series->slices();
+            int valsP[5] = {
+                prioCount.value(BELOW_NORMAL_PRIORITY_CLASS),
+                prioCount.value(NORMAL_PRIORITY_CLASS),
+                prioCount.value(ABOVE_NORMAL_PRIORITY_CLASS),
+                prioCount.value(HIGH_PRIORITY_CLASS),
+                prioCount.value(REALTIME_PRIORITY_CLASS)
+            };
+            auto markersP = pieChartProcPriority->legend()->markers();
+            QStringList prioLabels = {"Below-Normal", "Normal", "Above-Normal", "High", "Real-Time"};
+            for (int i = 0; i < 5 && i < slices.size(); ++i) {
+                slices[i]->setValue(valsP[i]);
+                slices[i]->setLabel(QString::number(valsP[i]));
+                slices[i]->setLabelVisible(true);
+                if (i < markersP.size()) markersP[i]->setLabel(prioLabels[i]);
+            }
+        }
+    }
+    //TODO IT ENDS
+}

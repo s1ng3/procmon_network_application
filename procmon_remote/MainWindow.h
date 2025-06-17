@@ -57,6 +57,7 @@ private slots:
     void onThemeChanged(const QString &themeName);
     void updateHardwareInfo(); // slot for real-time hardware info updates
     void updateCoreUsageBars(); // slot to update per-core CPU usage bars
+    void updatePieCharts(); // slot to update pie chart data
 
 private:
     void applyTheme(const QStringList &colors);
@@ -111,6 +112,7 @@ private:
     int socketCount;
     bool virtualizationEnabled;
     QTimer *hardwareInfoTimer; // timer to refresh hardware information
+    QTimer *pieTimer; // timer for pie chart updates
 
     // Default theme members
     QPalette defaultPalette; // store default application palette
