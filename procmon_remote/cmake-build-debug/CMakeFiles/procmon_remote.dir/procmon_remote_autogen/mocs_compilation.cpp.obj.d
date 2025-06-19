@@ -772,6 +772,10 @@ CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLineEdit \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QPushButton \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qtmochelpers.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qtmocconstants.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/q20algorithm.h \

@@ -670,7 +670,9 @@ C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/proie
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QInputDialog \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLabel \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLayout \
+  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLineEdit \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
+  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QPushButton \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QStyle \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidgetItem \
@@ -699,6 +701,7 @@ C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/proie
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
+  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h \

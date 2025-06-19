@@ -111,6 +111,34 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableProcesses->setHorizontalHeaderLabels(QStringList() << "PID" << "Name" << "Memory" << "Threads" << "Status" << "User" << "Priority");
     ui->tableProcesses->hide(); // hide table initially
 
+    // Handles/DLLs search widget setup
+    handlesWidget = new QWidget(this);
+    handlesWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored);
+    QVBoxLayout *handlesLayout = new QVBoxLayout(handlesWidget);
+    handlesLayout->setContentsMargins(0,0,0,0);
+    handlesLayout->setSpacing(4);
+    QHBoxLayout *searchLayout = new QHBoxLayout();
+    searchLineEdit = new QLineEdit(handlesWidget);
+    searchLineEdit->setPlaceholderText("Process name...");
+    btnFindHandles = new QPushButton("Find", handlesWidget);
+    searchLayout->addWidget(searchLineEdit);
+    searchLayout->addWidget(btnFindHandles);
+    handlesLayout->addLayout(searchLayout);
+    tableHandles = new QTableWidget(handlesWidget);
+    tableHandles->setColumnCount(4);
+    tableHandles->setHorizontalHeaderLabels(QStringList() << "Process" << "Type" << "Name" << "Handle");
+    tableHandles->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    tableHandles->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored);
+    handlesLayout->addWidget(tableHandles);
+    handlesWidget->hide();
+
+    // Insert handles widget between processes table and buttons
+    if (auto mainHL = ui->tabProcesses->findChild<QHBoxLayout*>("mainHorizontalLayout")) {
+        mainHL->insertWidget(1, handlesWidget);
+    }
+    // Connect Find button
+    connect(btnFindHandles, &QPushButton::clicked, this, &MainWindow::onFindHandlesDLLs);
+
     // Enable sorting and connect the header click signal
     ui->tableProcesses->horizontalHeader()->setSortIndicatorShown(true);
     connect(ui->tableProcesses->horizontalHeader(), &QHeaderView::sectionClicked, this, &MainWindow::onHeaderClicked);
@@ -475,6 +503,7 @@ void MainWindow::onProcessDisplay()
 {
     if (!processesVisible) {
         ui->tableProcesses->show();
+        handlesWidget->show();
         coreBarChartView->hide();
         // also hide pie charts when displaying process table
         pieChartViewMem->hide(); pieChartViewState->hide(); pieChartViewPriority->hide(); pieChartViewDisk->hide();
@@ -483,6 +512,7 @@ void MainWindow::onProcessDisplay()
         refreshProcesses();
     } else {
         ui->tableProcesses->hide();
+        handlesWidget->hide();
         coreBarChartView->show();
         // restore pie charts visibility
         pieChartViewMem->show(); pieChartViewState->show(); pieChartViewPriority->show(); pieChartViewDisk->show();
@@ -1186,7 +1216,56 @@ void MainWindow::onShowModules() {
     showModulesDialog(pid);
 }
 
-// Apply theme colors to the UI using palette and stylesheet
+// slot for Find Handles or DLLs
+void MainWindow::onFindHandlesDLLs() {
+    QString procName = searchLineEdit->text().trimmed();
+    if (procName.isEmpty()) return;
+    // find matching PIDs
+    QList<DWORD> pids;
+    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    PROCESSENTRY32 pe{ sizeof(pe) };
+    if (Process32First(snap, &pe)) {
+        do {
+            if (QString::fromLocal8Bit(pe.szExeFile).compare(procName, Qt::CaseInsensitive) == 0) {
+                pids.append(pe.th32ProcessID);
+            }
+        } while (Process32Next(snap, &pe));
+    }
+    CloseHandle(snap);
+    if (pids.isEmpty()) {
+        QMessageBox::warning(this, "Find Handles/DLLs", "Process not found.");
+        return;
+    }
+    tableHandles->setRowCount(0);
+    int row = 0;
+    for (DWORD pid : pids) {
+        // handles
+        std::vector<HandleInfo> handles;
+        if (HandleDLLInspection::getHandles(pid, handles)) {
+            for (auto &hi : handles) {
+                tableHandles->insertRow(row);
+                tableHandles->setItem(row, 0, new QTableWidgetItem(QString("%1(%2)").arg(procName).arg(pid)));
+                tableHandles->setItem(row, 1, new QTableWidgetItem(hi.type));
+                tableHandles->setItem(row, 2, new QTableWidgetItem(hi.name));
+                tableHandles->setItem(row, 3, new QTableWidgetItem(QString::number(hi.handle)));
+                ++row;
+            }
+        }
+        // modules (DLLs)
+        std::vector<ModuleInfo> modules;
+        if (HandleDLLInspection::getModules(pid, modules)) {
+            for (auto &mi : modules) {
+                tableHandles->insertRow(row);
+                tableHandles->setItem(row, 0, new QTableWidgetItem(QString("%1(%2)").arg(procName).arg(pid)));
+                tableHandles->setItem(row, 1, new QTableWidgetItem("DLL"));
+                tableHandles->setItem(row, 2, new QTableWidgetItem(mi.modulePath));
+                tableHandles->setItem(row, 3, new QTableWidgetItem(QString::number((qulonglong)mi.hModule)));
+                ++row;
+            }
+        }
+    }
+}
+
 void MainWindow::applyTheme(const QStringList &colors) {
     // colors: [primary, secondary, accent, background, surface]
     QString primary   = colors.value(0, "#222");

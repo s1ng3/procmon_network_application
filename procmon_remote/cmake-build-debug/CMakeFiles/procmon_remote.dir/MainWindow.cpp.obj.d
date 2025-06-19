@@ -773,6 +773,10 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLineEdit \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QPushButton \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
  C:/Users/Tudor/ONEDRI~1/Desktop/PROIEC~1/PROCMO~1/PROCMO~1/CMAKE-~1/PROCMO~1/include/ui_MainWindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QApplication \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -784,7 +788,6 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmenubar.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmenu.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QPushButton \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QSpacerItem \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QStatusBar \
@@ -821,7 +824,6 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMessageBox \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmessagebox.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QPushButton \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QRandomGenerator \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qrandom.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/random \

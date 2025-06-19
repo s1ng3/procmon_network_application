@@ -25,6 +25,8 @@
 #include <QDialog>
 #include <QTableWidget>
 #include <QVBoxLayout>
+#include <QLineEdit>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -65,6 +67,7 @@ private slots:
     void updateCoreUsageBars(); // slot to update per-core CPU usage bars
     void updatePieCharts(); // slot to update pie chart data
     void onProcessContextMenu(const QPoint &pos);
+    void onFindHandlesDLLs(); // slot for Find button
 
 private:
     void applyTheme(const QStringList &colors);
@@ -130,6 +133,12 @@ private:
     // Pie charts
     QChart *pieChartMem, *pieChartProcState, *pieChartProcPriority, *pieChartDisk;
     QChartView *pieChartViewMem, *pieChartViewState, *pieChartViewPriority, *pieChartViewDisk;
+
+    // Handles/DLLs search UI
+    QWidget *handlesWidget; // container for handles search and table
+    QLineEdit *searchLineEdit;
+    QPushButton *btnFindHandles;
+    QTableWidget *tableHandles;
 
     void showHandlesDialog(DWORD pid);
     void showModulesDialog(DWORD pid);
