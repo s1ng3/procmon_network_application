@@ -776,4 +776,9 @@ CMakeFiles/procmon_remote.dir/main.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLineEdit \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QPushButton \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\FileRegistryTrace.hpp \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QObject \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/thread \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/this_thread_sleep.h

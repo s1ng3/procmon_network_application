@@ -154,6 +154,30 @@ procmon_remote_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\procmon_remote_autogen.dir\build.make CMakeFiles/procmon_remote_autogen.dir/build
 .PHONY : procmon_remote_autogen/fast
 
+FileRegistryTrace.obj: FileRegistryTrace.cpp.obj
+.PHONY : FileRegistryTrace.obj
+
+# target to build an object file
+FileRegistryTrace.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\procmon_remote.dir\build.make CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj
+.PHONY : FileRegistryTrace.cpp.obj
+
+FileRegistryTrace.i: FileRegistryTrace.cpp.i
+.PHONY : FileRegistryTrace.i
+
+# target to preprocess a source file
+FileRegistryTrace.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\procmon_remote.dir\build.make CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.i
+.PHONY : FileRegistryTrace.cpp.i
+
+FileRegistryTrace.s: FileRegistryTrace.cpp.s
+.PHONY : FileRegistryTrace.s
+
+# target to generate assembly for a file
+FileRegistryTrace.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\procmon_remote.dir\build.make CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.s
+.PHONY : FileRegistryTrace.cpp.s
+
 HandleDLLInspection.obj: HandleDLLInspection.cpp.obj
 .PHONY : HandleDLLInspection.obj
 
@@ -333,6 +357,9 @@ help:
 	@echo ... procmon_remote_autogen
 	@echo ... procmon_remote_autogen_timestamp_deps
 	@echo ... procmon_remote
+	@echo ... FileRegistryTrace.obj
+	@echo ... FileRegistryTrace.i
+	@echo ... FileRegistryTrace.s
 	@echo ... HandleDLLInspection.obj
 	@echo ... HandleDLLInspection.i
 	@echo ... HandleDLLInspection.s

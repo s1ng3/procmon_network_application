@@ -777,6 +777,11 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QPushButton \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\FileRegistryTrace.hpp \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QObject \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/thread \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/this_thread_sleep.h \
  C:/Users/Tudor/ONEDRI~1/Desktop/PROIEC~1/PROCMO~1/PROCMO~1/CMAKE-~1/PROCMO~1/include/ui_MainWindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QApplication \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -894,4 +899,12 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsLinearLayout \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicslinearlayout.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicslayout.h
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicslayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QDir \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qdir.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qdirlisting.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qdatetime.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qcalendar.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qfile.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qfileinfo.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qtimezone.h

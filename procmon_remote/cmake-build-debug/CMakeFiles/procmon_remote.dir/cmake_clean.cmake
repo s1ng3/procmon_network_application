@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/procmon_remote_autogen.dir/AutogenUsed.txt"
   "CMakeFiles/procmon_remote_autogen.dir/ParseCache.txt"
   "procmon_remote_autogen"
+  "CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj"
+  "CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj.d"
   "CMakeFiles/procmon_remote.dir/HandleDLLInspection.cpp.obj"
   "CMakeFiles/procmon_remote.dir/HandleDLLInspection.cpp.obj.d"
   "CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj"

@@ -1,11 +1,11 @@
 CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj: \
  C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\cmake-build-debug\procmon_remote_autogen\mocs_compilation.cpp \
- C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\cmake-build-debug\procmon_remote_autogen\EWIEGA46WW/moc_MainWindow.cpp \
- C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/proiect\ incerc/procmon_network_application/procmon_remote/MainWindow.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qtguiglobal.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\cmake-build-debug\procmon_remote_autogen\EWIEGA46WW/moc_FileRegistryTrace.cpp \
+ C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/proiect\ incerc/procmon_network_application/procmon_remote/FileRegistryTrace.hpp \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QObject \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qobject.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qobjectdefs.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qnamespace.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qglobal.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -152,14 +152,6 @@ CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qtresource.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qttranslation.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qversiontagging.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qtgui-config.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qtguiexports.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qwidget.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qwindowdefs.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qobjectdefs.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qnamespace.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qcompare.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qstdlibdetection.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qcomparehelpers.h \
@@ -232,8 +224,6 @@ CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/auto_ptr.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qwindowdefs_win.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qobject.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qstring.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qchar.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qstringview.h \
@@ -332,196 +322,8 @@ CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qmargins.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/q23utility.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/q20utility.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qaction.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qkeysequence.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qicon.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qsize.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qpixmap.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qpaintdevice.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qrect.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qpoint.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qcolor.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qrgb.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qrgba64.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qshareddata.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qimage.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qpixelformat.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qtransform.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qpolygon.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qregion.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qspan.h \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/q20iterator.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qline.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qvariant.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qdebug.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qtextstream.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qcontiguouscache.h \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qsharedpointer.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qsharedpointer_impl.h \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multiset.h \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_set \
- F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qmap.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qshareddata_impl.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qset.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qhash.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qvarlengtharray.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qpalette.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qbrush.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qfont.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qendian.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qfontmetrics.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qfontinfo.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qfontvariableaxis.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qcursor.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qbitmap.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidgetItem \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtablewidget.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtableview.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractitemview.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qframe.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qitemselectionmodel.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qstyleoption.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qlocale.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qvalidator.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qregularexpression.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qslider.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractslider.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qstyle.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtabbar.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QToolButton \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtoolbutton.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QStyle \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qstyle.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QChartView \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qchartview.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QAbstractAxis \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qabstractaxis.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QChartGlobal \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qchartglobal.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qtcharts-config.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qtchartsexports.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/QPen \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qpen.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/QFont \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qfont.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QVariant \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qvariant.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QObject \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qobject.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QAbstractSeries \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qabstractseries.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QChart \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qchart.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QLegend \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qlegend.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsWidget \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicswidget.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicslayoutitem.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qevent.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qcoreevent.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qbasictimer.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qeventloop.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qdeadlinetimer.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qelapsedtimer.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qiodevice.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qurl.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qeventpoint.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qvector2d.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qvectornd.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qpointingdevice.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qinputdevice.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qscreen.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QList \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qlist.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QRect \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qrect.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QSize \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qsize.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QSizeF \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/QTransform \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qtransform.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qnativeinterface.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qscreen_platform.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qguiapplication.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qcoreapplication.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qinputmethod.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qguiapplication_platform.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qpainterpath.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/QBrush \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qbrush.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QMargins \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qmargins.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsView \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsview.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qpainter.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextoption.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qpen.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QLineSeries \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qlineseries.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QXYSeries \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qxyseries.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/QImage \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qimage.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QBarSeries \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qbarseries.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QAbstractBarSeries \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qabstractbarseries.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QStringList \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qstringlist.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QBarSet \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qbarset.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qchartglobal.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QBarCategoryAxis \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qbarcategoryaxis.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/QValueAxis \
- F:/Qt3/6.9.0/mingw_64/include/QtCharts/qvalueaxis.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QTimer \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qtimer.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QFormLayout \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qformlayout.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLayout \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLabel \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qpicture.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextdocument.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QComboBox \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QMap \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qmap.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/QPalette \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qpalette.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QString \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qstring.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/QVector \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qvector.h \
- F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pdh.h \
- F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/_mingw_unicode.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/windows.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sdkddkver.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/excpt.h \
@@ -533,6 +335,7 @@ CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/concurrencysal.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/driverspecs.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winnt.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/_mingw_unicode.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/apiset.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/basetsd.h \
@@ -761,6 +564,213 @@ CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winsvc.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mcx.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/imm.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/thread \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/this_thread_sleep.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qtmochelpers.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qtmocconstants.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/q20algorithm.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/q23type_traits.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\cmake-build-debug\procmon_remote_autogen\EWIEGA46WW/moc_MainWindow.cpp \
+ C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/proiect\ incerc/procmon_network_application/procmon_remote/MainWindow.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qtguiglobal.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qtgui-config.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qtguiexports.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qwidget.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qwindowdefs.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qobject.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qmargins.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/q23utility.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/q20utility.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qaction.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qkeysequence.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qicon.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qsize.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpixmap.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpaintdevice.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qrect.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qpoint.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qcolor.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qrgb.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qrgba64.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qshareddata.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qimage.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpixelformat.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qtransform.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpolygon.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qregion.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qspan.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/q20iterator.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qline.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qvariant.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qdebug.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qtextstream.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qcontiguouscache.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qsharedpointer.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qsharedpointer_impl.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multiset.h \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_set \
+ F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qmap.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qshareddata_impl.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qset.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qhash.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qvarlengtharray.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpalette.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qbrush.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qfont.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qendian.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qfontmetrics.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qfontinfo.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qfontvariableaxis.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qcursor.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qbitmap.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidgetItem \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtablewidget.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtableview.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractitemview.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qframe.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qitemselectionmodel.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qstyleoption.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qlocale.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qvalidator.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qregularexpression.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qslider.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractslider.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qstyle.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtabbar.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QToolButton \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtoolbutton.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QStyle \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qstyle.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QChartView \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qchartview.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QAbstractAxis \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qabstractaxis.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QChartGlobal \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qchartglobal.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qtcharts-config.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qtchartsexports.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/QPen \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpen.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/QFont \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qfont.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QVariant \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qvariant.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QObject \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QAbstractSeries \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qabstractseries.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QChart \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qchart.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QLegend \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qlegend.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsWidget \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicswidget.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicslayoutitem.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qevent.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qcoreevent.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qbasictimer.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qeventloop.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qdeadlinetimer.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qelapsedtimer.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qiodevice.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qurl.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qeventpoint.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qvector2d.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qvectornd.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpointingdevice.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qinputdevice.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qscreen.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QList \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qlist.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QRect \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qrect.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QSize \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qsize.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QSizeF \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/QTransform \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qtransform.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qnativeinterface.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qscreen_platform.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qguiapplication.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qcoreapplication.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qinputmethod.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpainterpath.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/QBrush \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qbrush.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QMargins \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qmargins.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsView \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsview.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpainter.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextoption.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpen.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QLineSeries \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qlineseries.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QXYSeries \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qxyseries.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/QImage \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qimage.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QBarSeries \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qbarseries.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QAbstractBarSeries \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qabstractbarseries.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QStringList \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qstringlist.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QBarSet \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qbarset.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qchartglobal.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QBarCategoryAxis \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qbarcategoryaxis.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/QValueAxis \
+ F:/Qt3/6.9.0/mingw_64/include/QtCharts/qvalueaxis.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QTimer \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qtimer.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QFormLayout \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qformlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLayout \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLabel \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpicture.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextdocument.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QComboBox \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QMap \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qmap.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/QPalette \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qpalette.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/QVector \
+ F:/Qt3/6.9.0/mingw_64/include/QtCore/qvector.h \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pdh.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QInputDialog \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qinputdialog.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
@@ -776,7 +786,4 @@ CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QPushButton \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qtmochelpers.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/qtmocconstants.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/q20algorithm.h \
- F:/Qt3/6.9.0/mingw_64/include/QtCore/q23type_traits.h
+ C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/proiect\ incerc/procmon_network_application/procmon_remote/FileRegistryTrace.hpp

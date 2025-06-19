@@ -36,6 +36,8 @@ add_executable(procmon_remote main.cpp ProcessInfo.cpp
         MainWindow.ui
         HandleDLLInspection.cpp
         HandleDLLInspection.hpp
+        FileRegistryTrace.cpp
+        FileRegistryTrace.hpp
 )
 
 # Link the libssh library

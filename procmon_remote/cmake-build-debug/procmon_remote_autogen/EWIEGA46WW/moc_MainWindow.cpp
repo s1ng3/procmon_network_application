@@ -72,7 +72,14 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "updatePieCharts",
         "onProcessContextMenu",
         "pos",
-        "onFindHandlesDLLs"
+        "onFindHandlesDLLs",
+        "onFileEvent",
+        "action",
+        "path",
+        "onRegistryEvent",
+        "key",
+        "value",
+        "onStartTrace"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -138,6 +145,16 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         }}),
         // Slot 'onFindHandlesDLLs'
         QtMocHelpers::SlotData<void()>(33, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onFileEvent'
+        QtMocHelpers::SlotData<void(const QString &, const QString &)>(34, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 35 }, { QMetaType::QString, 36 },
+        }}),
+        // Slot 'onRegistryEvent'
+        QtMocHelpers::SlotData<void(const QString &, const QString &, const QString &)>(37, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 35 }, { QMetaType::QString, 38 }, { QMetaType::QString, 39 },
+        }}),
+        // Slot 'onStartTrace'
+        QtMocHelpers::SlotData<void()>(40, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -188,6 +205,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 24: _t->updatePieCharts(); break;
         case 25: _t->onProcessContextMenu((*reinterpret_cast< std::add_pointer_t<QPoint>>(_a[1]))); break;
         case 26: _t->onFindHandlesDLLs(); break;
+        case 27: _t->onFileEvent((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 28: _t->onRegistryEvent((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3]))); break;
+        case 29: _t->onStartTrace(); break;
         default: ;
         }
     }
@@ -212,14 +232,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 27)
+        if (_id < 30)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 27;
+        _id -= 30;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 27)
+        if (_id < 30)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 27;
+        _id -= 30;
     }
     return _id;
 }

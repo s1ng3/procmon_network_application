@@ -367,6 +367,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/FileRegistryTrace.hpp",
+			"MU",
+			"EWIEGA46WW/moc_FileRegistryTrace.cpp",
+			null
+		],
+		[
 			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/HandleDLLInspection.hpp",
 			"MU",
 			"EWIEGA46WW/moc_HandleDLLInspection.cpp",
@@ -476,6 +482,11 @@
 	"SETTINGS_FILE" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/cmake-build-debug/CMakeFiles/procmon_remote_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/FileRegistryTrace.cpp",
+			"MU",
+			null
+		],
 		[
 			"C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/HandleDLLInspection.cpp",
 			"MU",

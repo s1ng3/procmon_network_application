@@ -39,6 +39,7 @@
 #include <QtCharts/QPieSlice>
 #include <QGridLayout>
 #include <QGraphicsLinearLayout>
+#include <QDir>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -129,6 +130,8 @@ MainWindow::MainWindow(QWidget *parent)
     tableHandles->setHorizontalHeaderLabels(QStringList() << "Process" << "Type" << "Name" << "Handle");
     tableHandles->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     tableHandles->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored);
+    tableHandles->setMinimumWidth(480); // ensure DLL table is wider to display full paths
+    //TODO: arrange tableHandles to show handles in a more readable format
     handlesLayout->addWidget(tableHandles);
     handlesWidget->hide();
 
@@ -492,6 +495,24 @@ MainWindow::MainWindow(QWidget *parent)
                                         ui->btnResetAffinity, ui->btnVerifyIntegrity, ui->btnExit };
         for (auto b : procBtns) if (b) b->setFixedWidth(statsWidth);
     }
+
+    // Setup File and Registry Trace tab
+    QWidget *traceTab = new QWidget(this);
+    QVBoxLayout *traceLayout = new QVBoxLayout(traceTab);
+    tableTrace = new QTableWidget(traceTab);
+    tableTrace->setColumnCount(4);
+    tableTrace->setHorizontalHeaderLabels(QStringList() << "Type" << "Action" << "Name" << "Value");
+    tableTrace->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    traceLayout->addWidget(tableTrace);
+    ui->tabWidget->addTab(traceTab, "Trace");
+    // Initialize file/registry trace
+    m_trace = new FileRegistryTrace(this);
+    connect(m_trace, &FileRegistryTrace::fileEvent, this, &MainWindow::onFileEvent);
+    connect(m_trace, &FileRegistryTrace::registryEvent, this, &MainWindow::onRegistryEvent);
+    // Button to start file trace for all drives
+    btnStartTrace = new QPushButton("Start Trace", traceTab);
+    traceLayout->insertWidget(0, btnStartTrace);
+    connect(btnStartTrace, &QPushButton::clicked, this, &MainWindow::onStartTrace);
 }
 
 MainWindow::~MainWindow()
@@ -1247,7 +1268,7 @@ void MainWindow::onFindHandlesDLLs() {
                 tableHandles->setItem(row, 0, new QTableWidgetItem(QString("%1(%2)").arg(procName).arg(pid)));
                 tableHandles->setItem(row, 1, new QTableWidgetItem(hi.type));
                 tableHandles->setItem(row, 2, new QTableWidgetItem(hi.name));
-                tableHandles->setItem(row, 3, new QTableWidgetItem(QString::number(hi.handle)));
+                tableHandles->setItem(row, 3, new QTableWidgetItem(QString("0x%1").arg(QString::number(hi.handle, 16).toUpper())));
                 ++row;
             }
         }
@@ -1259,7 +1280,7 @@ void MainWindow::onFindHandlesDLLs() {
                 tableHandles->setItem(row, 0, new QTableWidgetItem(QString("%1(%2)").arg(procName).arg(pid)));
                 tableHandles->setItem(row, 1, new QTableWidgetItem("DLL"));
                 tableHandles->setItem(row, 2, new QTableWidgetItem(mi.modulePath));
-                tableHandles->setItem(row, 3, new QTableWidgetItem(QString::number((qulonglong)mi.hModule)));
+                tableHandles->setItem(row, 3, new QTableWidgetItem(QString("0x%1").arg(QString::number((qulonglong)mi.hModule, 16).toUpper())));
                 ++row;
             }
         }
@@ -1489,7 +1510,6 @@ void MainWindow::updatePieCharts()
             }
         }
     }
-    //TODO IT STARTS
     // Update Process State pie
     if (pieChartProcState) {
         auto series = qobject_cast<QPieSeries*>(pieChartProcState->series().first());
@@ -1565,7 +1585,26 @@ void MainWindow::updatePieCharts()
             }
         }
     }
-    //TODO IT ENDS
+}
+
+void MainWindow::onFileEvent(const QString &action, const QString &path) {
+    int row = tableTrace->rowCount();
+    tableTrace->insertRow(row);
+    tableTrace->setItem(row, 0, new QTableWidgetItem("File"));
+    tableTrace->setItem(row, 1, new QTableWidgetItem(action));
+    tableTrace->setItem(row, 2, new QTableWidgetItem(path));
+    tableTrace->setItem(row, 3, new QTableWidgetItem(QString()));
+    tableTrace->scrollToBottom();
+}
+
+void MainWindow::onRegistryEvent(const QString &action, const QString &key, const QString &value) {
+    int row = tableTrace->rowCount();
+    tableTrace->insertRow(row);
+    tableTrace->setItem(row, 0, new QTableWidgetItem("Registry"));
+    tableTrace->setItem(row, 1, new QTableWidgetItem(action));
+    tableTrace->setItem(row, 2, new QTableWidgetItem(key + "/" + value));
+    tableTrace->setItem(row, 3, new QTableWidgetItem(value));
+    tableTrace->scrollToBottom();
 }
 
 // Implement the missing onToggleHardwareInfo slot and hide the hardware info text widget by default
@@ -1583,3 +1622,32 @@ void MainWindow::onToggleHardwareInfo()
     }
 }
 
+// Implement Start Trace slot
+void MainWindow::onStartTrace()
+{
+    if (btnStartTrace->text() == "Start Trace") {
+        // clear table and stop any existing traces
+        tableTrace->setRowCount(0);
+        for (auto t : m_fileTraces) { t->stopTrace(); delete t; }
+        m_fileTraces.clear();
+        // start registry trace
+        m_trace->startRegistryTrace(HKEY_CURRENT_USER, QStringLiteral("Software"));
+        // start file traces for all drives
+        auto drives = QDir::drives();
+        for (const auto &drive : drives) {
+            auto path = drive.absolutePath();
+            FileRegistryTrace *t = new FileRegistryTrace(this);
+            m_fileTraces.append(t);
+            connect(t, &FileRegistryTrace::fileEvent, this, &MainWindow::onFileEvent);
+            t->startFileTrace(path);
+        }
+        btnStartTrace->setText("Stop Trace");
+    } else {
+        // stop all traces
+        for (auto t : m_fileTraces) { t->stopTrace(); delete t; }
+        m_fileTraces.clear();
+        // stop registry trace
+        m_trace->stopTrace();
+        btnStartTrace->setText("Start Trace");
+    }
+}

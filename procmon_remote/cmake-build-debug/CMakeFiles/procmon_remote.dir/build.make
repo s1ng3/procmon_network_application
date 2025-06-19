@@ -180,6 +180,21 @@ CMakeFiles/procmon_remote.dir/HandleDLLInspection.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/procmon_remote.dir/HandleDLLInspection.cpp.s"
 	F:\JetBrains\CLion\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote\HandleDLLInspection.cpp" -o CMakeFiles\procmon_remote.dir\HandleDLLInspection.cpp.s
 
+CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj: CMakeFiles/procmon_remote.dir/flags.make
+CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj: CMakeFiles/procmon_remote.dir/includes_CXX.rsp
+CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj: C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/proiect\ incerc/procmon_network_application/procmon_remote/FileRegistryTrace.cpp
+CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj: CMakeFiles/procmon_remote.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj"
+	F:\JetBrains\CLion\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj -MF CMakeFiles\procmon_remote.dir\FileRegistryTrace.cpp.obj.d -o CMakeFiles\procmon_remote.dir\FileRegistryTrace.cpp.obj -c "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote\FileRegistryTrace.cpp"
+
+CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.i"
+	F:\JetBrains\CLion\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote\FileRegistryTrace.cpp" > CMakeFiles\procmon_remote.dir\FileRegistryTrace.cpp.i
+
+CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.s"
+	F:\JetBrains\CLion\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote\FileRegistryTrace.cpp" -o CMakeFiles\procmon_remote.dir\FileRegistryTrace.cpp.s
+
 # Object files for target procmon_remote
 procmon_remote_OBJECTS = \
 "CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj" \
@@ -188,7 +203,8 @@ procmon_remote_OBJECTS = \
 "CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj" \
 "CMakeFiles/procmon_remote.dir/RaspberryProcesses.cpp.obj" \
 "CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj" \
-"CMakeFiles/procmon_remote.dir/HandleDLLInspection.cpp.obj"
+"CMakeFiles/procmon_remote.dir/HandleDLLInspection.cpp.obj" \
+"CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj"
 
 # External object files for target procmon_remote
 procmon_remote_EXTERNAL_OBJECTS =
@@ -200,6 +216,7 @@ procmon_remote.exe: CMakeFiles/procmon_remote.dir/ServerClient.cpp.obj
 procmon_remote.exe: CMakeFiles/procmon_remote.dir/RaspberryProcesses.cpp.obj
 procmon_remote.exe: CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj
 procmon_remote.exe: CMakeFiles/procmon_remote.dir/HandleDLLInspection.cpp.obj
+procmon_remote.exe: CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj
 procmon_remote.exe: CMakeFiles/procmon_remote.dir/build.make
 procmon_remote.exe: F:/Qt3/6.9.0/mingw_64/lib/libQt6Charts.a
 procmon_remote.exe: F:/VCPKG/vcpkg/installed/x64-windows/debug/lib/ssh.lib
@@ -211,7 +228,7 @@ procmon_remote.exe: F:/Qt3/6.9.0/mingw_64/lib/libQt6Core.a
 procmon_remote.exe: CMakeFiles/procmon_remote.dir/linkLibs.rsp
 procmon_remote.exe: CMakeFiles/procmon_remote.dir/objects1.rsp
 procmon_remote.exe: CMakeFiles/procmon_remote.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable procmon_remote.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable procmon_remote.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\procmon_remote.dir\link.txt --verbose=$(VERBOSE)
 	F:\Qt3\6.9.0\mingw_64\lib\cmake\Qt6\..\..\..\bin\windeployqt.exe --qmldir "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote" "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote.exe"
 	F:\JetBrains\CLion\bin\cmake\win\x64\bin\cmake.exe -E copy_if_different F:/VCPKG/vcpkg/installed/x64-windows/debug/bin/ssh.dll "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/cmake-build-debug/libssh-4.dll"

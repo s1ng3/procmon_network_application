@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "procmon_remote_autogen/timestamp" "custom" "procmon_remote_autogen/deps"
+  "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/FileRegistryTrace.cpp" "CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/FileRegistryTrace.cpp.obj.d"
   "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/HandleDLLInspection.cpp" "CMakeFiles/procmon_remote.dir/HandleDLLInspection.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/HandleDLLInspection.cpp.obj.d"
   "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/MainWindow.cpp" "CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj.d"
   "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/ProcessInfo.cpp" "CMakeFiles/procmon_remote.dir/ProcessInfo.cpp.obj" "gcc" "CMakeFiles/procmon_remote.dir/ProcessInfo.cpp.obj.d"

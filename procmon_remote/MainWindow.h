@@ -27,6 +27,7 @@
 #include <QVBoxLayout>
 #include <QLineEdit>
 #include <QPushButton>
+#include "FileRegistryTrace.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -68,6 +69,9 @@ private slots:
     void updatePieCharts(); // slot to update pie chart data
     void onProcessContextMenu(const QPoint &pos);
     void onFindHandlesDLLs(); // slot for Find button
+    void onFileEvent(const QString &action, const QString &path);
+    void onRegistryEvent(const QString &action, const QString &key, const QString &value);
+    void onStartTrace();
 
 private:
     void applyTheme(const QStringList &colors);
@@ -139,6 +143,14 @@ private:
     QLineEdit *searchLineEdit;
     QPushButton *btnFindHandles;
     QTableWidget *tableHandles;
+
+    // Trace instances
+    QList<FileRegistryTrace*> m_fileTraces;
+    QPushButton *btnStartTrace;
+
+    // File and Registry trace
+    FileRegistryTrace *m_trace;
+    QTableWidget *tableTrace;
 
     void showHandlesDialog(DWORD pid);
     void showModulesDialog(DWORD pid);
