@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "procmon_remote",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "procmon_remote::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-procmon_remote-Debug-8e67cd8c8ef904ff8dee.json",
+					"name" : "procmon_remote",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "procmon_remote_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-procmon_remote_autogen-Debug-20744c16833cc688445f.json",
+					"name" : "procmon_remote_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "procmon_remote_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-procmon_remote_autogen_timestamp_deps-Debug-b1f51aa41fb4db94cc7e.json",
+					"name" : "procmon_remote_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/cmake-build-debug",
+		"source" : "C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

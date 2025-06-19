@@ -40,14 +40,16 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "MainWindow",
-        "onProcessDisplay",
+        "onShowHandles",
         "",
+        "onShowModules",
+        "onProcessDisplay",
         "refreshProcesses",
         "onProcessLog",
         "onProcessSearch",
         "onKillProcess",
         "onOpenProcess",
-        "onDisplayHardwareInfo",
+        "onToggleHardwareInfo",
         "onGetProcessMemoryUsage",
         "onGetProcessPath",
         "onFastLimitRAM",
@@ -67,62 +69,72 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "themeName",
         "updateHardwareInfo",
         "updateCoreUsageBars",
-        "updatePieCharts"
+        "updatePieCharts",
+        "onProcessContextMenu",
+        "pos"
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Slot 'onProcessDisplay'
+        // Slot 'onShowHandles'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'refreshProcesses'
+        // Slot 'onShowModules'
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onProcessLog'
+        // Slot 'onProcessDisplay'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onProcessSearch'
+        // Slot 'refreshProcesses'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onKillProcess'
+        // Slot 'onProcessLog'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onOpenProcess'
+        // Slot 'onProcessSearch'
         QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onDisplayHardwareInfo'
+        // Slot 'onKillProcess'
         QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onGetProcessMemoryUsage'
+        // Slot 'onOpenProcess'
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onGetProcessPath'
+        // Slot 'onToggleHardwareInfo'
         QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onFastLimitRAM'
+        // Slot 'onGetProcessMemoryUsage'
         QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onLimitJobObjects'
+        // Slot 'onGetProcessPath'
         QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onLimitLogicalProcessors'
+        // Slot 'onFastLimitRAM'
         QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onOptimizePerformance'
+        // Slot 'onLimitJobObjects'
         QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onResetAffinity'
+        // Slot 'onLimitLogicalProcessors'
         QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onVerifyIntegrity'
+        // Slot 'onOptimizePerformance'
         QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onResetAffinity'
+        QtMocHelpers::SlotData<void()>(17, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onVerifyIntegrity'
+        QtMocHelpers::SlotData<void()>(18, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'onProcessSelected'
-        QtMocHelpers::SlotData<void(QTableWidgetItem *)>(17, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 18, 19 },
+        QtMocHelpers::SlotData<void(QTableWidgetItem *)>(19, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 20, 21 },
         }}),
         // Slot 'onHeaderClicked'
-        QtMocHelpers::SlotData<void(int)>(20, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 21 },
+        QtMocHelpers::SlotData<void(int)>(22, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 23 },
         }}),
         // Slot 'updateCpuUsage'
-        QtMocHelpers::SlotData<void()>(22, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(24, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'updateStats'
-        QtMocHelpers::SlotData<void()>(23, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(25, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'onThemeChanged'
-        QtMocHelpers::SlotData<void(const QString &)>(24, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 25 },
+        QtMocHelpers::SlotData<void(const QString &)>(26, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 27 },
         }}),
         // Slot 'updateHardwareInfo'
-        QtMocHelpers::SlotData<void()>(26, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'updateCoreUsageBars'
-        QtMocHelpers::SlotData<void()>(27, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'updatePieCharts'
         QtMocHelpers::SlotData<void()>(28, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'updateCoreUsageBars'
+        QtMocHelpers::SlotData<void()>(29, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'updatePieCharts'
+        QtMocHelpers::SlotData<void()>(30, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onProcessContextMenu'
+        QtMocHelpers::SlotData<void(const QPoint &)>(31, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QPoint, 32 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -146,29 +158,32 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     auto *_t = static_cast<MainWindow *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->onProcessDisplay(); break;
-        case 1: _t->refreshProcesses(); break;
-        case 2: _t->onProcessLog(); break;
-        case 3: _t->onProcessSearch(); break;
-        case 4: _t->onKillProcess(); break;
-        case 5: _t->onOpenProcess(); break;
-        case 6: _t->onDisplayHardwareInfo(); break;
-        case 7: _t->onGetProcessMemoryUsage(); break;
-        case 8: _t->onGetProcessPath(); break;
-        case 9: _t->onFastLimitRAM(); break;
-        case 10: _t->onLimitJobObjects(); break;
-        case 11: _t->onLimitLogicalProcessors(); break;
-        case 12: _t->onOptimizePerformance(); break;
-        case 13: _t->onResetAffinity(); break;
-        case 14: _t->onVerifyIntegrity(); break;
-        case 15: _t->onProcessSelected((*reinterpret_cast< std::add_pointer_t<QTableWidgetItem*>>(_a[1]))); break;
-        case 16: _t->onHeaderClicked((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 17: _t->updateCpuUsage(); break;
-        case 18: _t->updateStats(); break;
-        case 19: _t->onThemeChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 20: _t->updateHardwareInfo(); break;
-        case 21: _t->updateCoreUsageBars(); break;
-        case 22: _t->updatePieCharts(); break;
+        case 0: _t->onShowHandles(); break;
+        case 1: _t->onShowModules(); break;
+        case 2: _t->onProcessDisplay(); break;
+        case 3: _t->refreshProcesses(); break;
+        case 4: _t->onProcessLog(); break;
+        case 5: _t->onProcessSearch(); break;
+        case 6: _t->onKillProcess(); break;
+        case 7: _t->onOpenProcess(); break;
+        case 8: _t->onToggleHardwareInfo(); break;
+        case 9: _t->onGetProcessMemoryUsage(); break;
+        case 10: _t->onGetProcessPath(); break;
+        case 11: _t->onFastLimitRAM(); break;
+        case 12: _t->onLimitJobObjects(); break;
+        case 13: _t->onLimitLogicalProcessors(); break;
+        case 14: _t->onOptimizePerformance(); break;
+        case 15: _t->onResetAffinity(); break;
+        case 16: _t->onVerifyIntegrity(); break;
+        case 17: _t->onProcessSelected((*reinterpret_cast< std::add_pointer_t<QTableWidgetItem*>>(_a[1]))); break;
+        case 18: _t->onHeaderClicked((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 19: _t->updateCpuUsage(); break;
+        case 20: _t->updateStats(); break;
+        case 21: _t->onThemeChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 22: _t->updateHardwareInfo(); break;
+        case 23: _t->updateCoreUsageBars(); break;
+        case 24: _t->updatePieCharts(); break;
+        case 25: _t->onProcessContextMenu((*reinterpret_cast< std::add_pointer_t<QPoint>>(_a[1]))); break;
         default: ;
         }
     }
@@ -193,14 +208,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 23)
+        if (_id < 26)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 26;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 23)
+        if (_id < 26)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 23;
+        _id -= 26;
     }
     return _id;
 }

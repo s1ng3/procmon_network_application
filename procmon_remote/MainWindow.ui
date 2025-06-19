@@ -205,7 +205,17 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="btnDisplayHardwareInfo">
+         <spacer name="verticalSpacerHardware">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnToggleHardwareInfo">
           <property name="text">
            <string>Display Hardware Info</string>
           </property>

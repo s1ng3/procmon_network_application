@@ -1,6 +1,6 @@
-F:\JetBrains\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S "F:\JetBrains Projects\CLion Projects\procmon_network_application\procmon_network_application\procmon_remote" -B "F:\JetBrains Projects\CLion Projects\procmon_network_application\procmon_network_application\procmon_remote\cmake-build-debug"
+F:\JetBrains\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote" -B "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote\cmake-build-debug"
 -- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
 -- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
--- Configuring done (18.6s)
--- Generating done (1.0s)
--- Build files have been written to: F:/JetBrains Projects/CLion Projects/procmon_network_application/procmon_network_application/procmon_remote/cmake-build-debug
+-- Configuring done (1.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/Tudor/OneDrive - Technical University of Cluj-Napoca/Desktop/proiect incerc/procmon_network_application/procmon_remote/cmake-build-debug

@@ -1,7 +1,7 @@
 CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj: \
- F:\JetBrains\ Projects\CLion\ Projects\procmon_network_application\procmon_network_application\procmon_remote\cmake-build-debug\procmon_remote_autogen\mocs_compilation.cpp \
- F:\JetBrains\ Projects\CLion\ Projects\procmon_network_application\procmon_network_application\procmon_remote\cmake-build-debug\procmon_remote_autogen\EWIEGA46WW/moc_MainWindow.cpp \
- F:/JetBrains\ Projects/CLion\ Projects/procmon_network_application/procmon_network_application/procmon_remote/MainWindow.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\cmake-build-debug\procmon_remote_autogen\mocs_compilation.cpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\cmake-build-debug\procmon_remote_autogen\EWIEGA46WW/moc_MainWindow.cpp \
+ C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/proiect\ incerc/procmon_network_application/procmon_remote/MainWindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -761,8 +761,17 @@ CMakeFiles/procmon_remote.dir/procmon_remote_autogen/mocs_compilation.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winsvc.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mcx.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/imm.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QInputDialog \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qinputdialog.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextcursor.h \
  F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextformat.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QDialog \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qtmochelpers.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qtmocconstants.h \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/q20algorithm.h \

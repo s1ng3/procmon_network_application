@@ -1,5 +1,5 @@
-F:/JetBrains\ Projects/CLion\ Projects/procmon_network_application/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/EWIEGA46WW/moc_MainWindow.cpp: F:/JetBrains\ Projects/CLion\ Projects/procmon_network_application/procmon_network_application/procmon_remote/MainWindow.h \
-  F:/JetBrains\ Projects/CLion\ Projects/procmon_network_application/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/moc_predefs.h \
+C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/proiect\ incerc/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/EWIEGA46WW/moc_MainWindow.cpp: C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/proiect\ incerc/procmon_network_application/procmon_remote/MainWindow.h \
+  C:/Users/Tudor/OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca/Desktop/proiect\ incerc/procmon_network_application/procmon_remote/cmake-build-debug/procmon_remote_autogen/moc_predefs.h \
   F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/adxintrin.h \
   F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/ammintrin.h \
   F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxbf16intrin.h \
@@ -649,7 +649,9 @@ F:/JetBrains\ Projects/CLion\ Projects/procmon_network_application/procmon_netwo
   F:/Qt3/6.9.0/mingw_64/include/QtGui/qrgba64.h \
   F:/Qt3/6.9.0/mingw_64/include/QtGui/qscreen.h \
   F:/Qt3/6.9.0/mingw_64/include/QtGui/qscreen_platform.h \
+  F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextcursor.h \
   F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextdocument.h \
+  F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextformat.h \
   F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextoption.h \
   F:/Qt3/6.9.0/mingw_64/include/QtGui/qtgui-config.h \
   F:/Qt3/6.9.0/mingw_64/include/QtGui/qtguiexports.h \
@@ -661,15 +663,19 @@ F:/JetBrains\ Projects/CLion\ Projects/procmon_network_application/procmon_netwo
   F:/Qt3/6.9.0/mingw_64/include/QtGui/qwindowdefs.h \
   F:/Qt3/6.9.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QComboBox \
+  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QDialog \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QFormLayout \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsView \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QGraphicsWidget \
+  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QInputDialog \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLabel \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QLayout \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QStyle \
+  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidgetItem \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QToolButton \
+  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractitemview.h \
@@ -678,6 +684,7 @@ F:/JetBrains\ Projects/CLion\ Projects/procmon_network_application/procmon_netwo
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qcombobox.h \
+  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qformlayout.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qframe.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
@@ -686,9 +693,11 @@ F:/JetBrains\ Projects/CLion\ Projects/procmon_network_application/procmon_netwo
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicsview.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgraphicswidget.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
+  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qinputdialog.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qrubberband.h \
   F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h \

@@ -1,5 +1,5 @@
 CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
- F:\JetBrains\ Projects\CLion\ Projects\procmon_network_application\procmon_network_application\procmon_remote\MainWindow.cpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\MainWindow.cpp \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/winsock2.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/_mingw_unicode.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/windows.h \
@@ -274,7 +274,7 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/ws2def.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_wsa_errnos.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/qos.h \
- F:\JetBrains\ Projects\CLion\ Projects\procmon_network_application\procmon_network_application\procmon_remote\MainWindow.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\MainWindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -762,11 +762,21 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QVector \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qvector.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/pdh.h \
- F:/JETBRA~2/CLIONP~1/PROCMO~2/PROCMO~1/PROCMO~1/CMAKE-~1/PROCMO~1/include/ui_MainWindow.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QInputDialog \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qinputdialog.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextcursor.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextformat.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QDialog \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
+ F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Users/Tudor/ONEDRI~1/Desktop/PROIEC~1/PROCMO~1/PROCMO~1/CMAKE-~1/PROCMO~1/include/ui_MainWindow.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QApplication \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qapplication.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QHeaderView \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qheaderview.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
@@ -784,12 +794,10 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTextEdit \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qtextedit.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextcursor.h \
- F:/Qt3/6.9.0/mingw_64/include/QtGui/qtextformat.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QWidget \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qwidget.h \
- F:\JetBrains\ Projects\CLion\ Projects\procmon_network_application\procmon_network_application\procmon_remote\ProcessInfo.hpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\ProcessInfo.hpp \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sys/stat.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/io.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/tlhelp32.h \
@@ -799,7 +807,7 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/in6addr.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/mstcpip.h \
- F:\JetBrains\ Projects\CLion\ Projects\procmon_network_application\procmon_network_application\procmon_remote\RaspberryProcesses.hpp \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\RaspberryProcesses.hpp \
  F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/libssh.h \
  F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/libssh_version.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/unistd.h \
@@ -808,13 +816,11 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/VCPKG/vcpkg/installed/x64-windows/include/libssh/legacy.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/conio.h \
  F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/sec_api/conio_s.h \
+ C:\Users\Tudor\OneDrive\ -\ Technical\ University\ of\ Cluj-Napoca\Desktop\proiect\ incerc\procmon_network_application\procmon_remote\HandleDLLInspection.hpp \
+ F:/JetBrains/CLion/bin/mingw/x86_64-w64-mingw32/include/windows.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QMessageBox \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qmessagebox.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QInputDialog \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qinputdialog.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qlineedit.h \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QPushButton \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QRandomGenerator \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qrandom.h \
@@ -823,9 +829,6 @@ CMakeFiles/procmon_remote.dir/MainWindow.cpp.obj: \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/opt_random.h \
  F:/JetBrains/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/random.tcc \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QStringList \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QDialog \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/qdialog.h \
- F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QTableWidget \
  F:/Qt3/6.9.0/mingw_64/include/QtWidgets/QHeaderView \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/QPair \
  F:/Qt3/6.9.0/mingw_64/include/QtCore/qpair.h \

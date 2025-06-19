@@ -21,6 +21,10 @@
 #include <QString>
 #include <QVector>  // Added for per-core usage
 #include <pdh.h>    // PDH for per-core CPU counters
+#include <QInputDialog>
+#include <QDialog>
+#include <QTableWidget>
+#include <QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -35,13 +39,15 @@ public:
     ~MainWindow() override;
 
 private slots:
+    void onShowHandles();
+    void onShowModules();
     void onProcessDisplay();
     void refreshProcesses();
     void onProcessLog();
     void onProcessSearch();
     void onKillProcess();
     void onOpenProcess();
-    void onDisplayHardwareInfo();
+    void onToggleHardwareInfo();
     void onGetProcessMemoryUsage();
     void onGetProcessPath();
     void onFastLimitRAM();
@@ -58,6 +64,7 @@ private slots:
     void updateHardwareInfo(); // slot for real-time hardware info updates
     void updateCoreUsageBars(); // slot to update per-core CPU usage bars
     void updatePieCharts(); // slot to update pie chart data
+    void onProcessContextMenu(const QPoint &pos);
 
 private:
     void applyTheme(const QStringList &colors);
@@ -123,6 +130,9 @@ private:
     // Pie charts
     QChart *pieChartMem, *pieChartProcState, *pieChartProcPriority, *pieChartDisk;
     QChartView *pieChartViewMem, *pieChartViewState, *pieChartViewPriority, *pieChartViewDisk;
+
+    void showHandlesDialog(DWORD pid);
+    void showModulesDialog(DWORD pid);
 };
 
 #endif // MAINWINDOW_H

@@ -3,6 +3,7 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "ProcessInfo.hpp"
+#include "HandleDLLInspection.hpp"
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QPushButton>
@@ -129,9 +130,10 @@ MainWindow::MainWindow(QWidget *parent)
     if (!connect(ui->btnOpenProcess, &QPushButton::clicked, this, &MainWindow::onOpenProcess)) {
         QMessageBox::critical(this, "Error", "Failed to connect btnOpenProcess signal.");
     }
-    if (!connect(ui->btnDisplayHardwareInfo, &QPushButton::clicked, this, &MainWindow::onDisplayHardwareInfo)) {
-        QMessageBox::critical(this, "Error", "Failed to connect btnDisplayHardwareInfo signal.");
+    if (!connect(ui->btnToggleHardwareInfo, &QPushButton::clicked, this, &MainWindow::onToggleHardwareInfo)) {
+        QMessageBox::critical(this, "Error", "Failed to connect toggle hardware info signal.");
     }
+    ui->textHardwareInfo->hide(); // hide hardware info initially
     // initialize hardware info timer for real-time updates
     hardwareInfoTimer = new QTimer(this);
     connect(hardwareInfoTimer, &QTimer::timeout, this, &MainWindow::updateHardwareInfo);
@@ -175,6 +177,10 @@ MainWindow::MainWindow(QWidget *parent)
     if (!connect(ui->tableProcesses, &QTableWidget::itemClicked, this, &MainWindow::onProcessSelected)) {
         QMessageBox::critical(this, "Error", "Failed to connect tableProcesses itemClicked signal.");
     }
+    // Setup context menu for process table
+    ui->tableProcesses->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->tableProcesses, &QWidget::customContextMenuRequested,
+            this, &MainWindow::onProcessContextMenu);
 
     // Add refresh button in top-right corner
     btnRefresh = new QToolButton(this);
@@ -581,14 +587,6 @@ void MainWindow::onKillProcess()
     }
 }
 
-void MainWindow::onDisplayHardwareInfo()
-{
-    // perform immediate update and start periodic refresh
-    updateHardwareInfo();
-    hardwareInfoTimer->start(1000);
-}
-
-// new method for updating hardware info periodically
 void MainWindow::updateHardwareInfo()
 {
     SYSTEM_INFO sysInfo;
@@ -1103,6 +1101,91 @@ void MainWindow::updateCoreUsageBars()
     }
 }
 
+// Context menu for process table
+void MainWindow::onProcessContextMenu(const QPoint &pos) {
+    QModelIndex idx = ui->tableProcesses->indexAt(pos);
+    if (!idx.isValid()) return;
+    int row = idx.row();
+    QString pidStr = ui->tableProcesses->item(row, 0)->text();
+    DWORD pid = pidStr.toUInt();
+    QMenu menu(this);
+    QAction *actHandles = menu.addAction("Show Handles");
+    QAction *actModules = menu.addAction("Show Modules");
+    QAction *act = menu.exec(ui->tableProcesses->viewport()->mapToGlobal(pos));
+    if (act == actHandles) showHandlesDialog(pid);
+    else if (act == actModules) showModulesDialog(pid);
+}
+
+// Display handles for a given PID
+void MainWindow::showHandlesDialog(DWORD pid) {
+    std::vector<HandleInfo> handles;
+    if (!HandleDLLInspection::getHandles(pid, handles)) {
+        QMessageBox::warning(this, "Handles", "Failed to retrieve handles.");
+        return;
+    }
+    QDialog dlg(this);
+    dlg.setWindowTitle(QString("Handles for PID %1").arg(pid));
+    QVBoxLayout *layout = new QVBoxLayout(&dlg);
+    QTableWidget *table = new QTableWidget(&dlg);
+    table->setColumnCount(3);
+    table->setHorizontalHeaderLabels(QStringList{"Handle", "Type", "Name"});
+    table->setRowCount(static_cast<int>(handles.size()));
+    for (int i = 0; i < static_cast<int>(handles.size()); ++i) {
+        const auto &hi = handles[i];
+        table->setItem(i, 0, new QTableWidgetItem(QString::number(hi.handle)));
+        table->setItem(i, 1, new QTableWidgetItem(hi.type));
+        table->setItem(i, 2, new QTableWidgetItem(hi.name));
+    }
+    table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    layout->addWidget(table);
+    dlg.resize(600, 400);
+    dlg.exec();
+}
+
+// Display loaded modules for a given PID
+void MainWindow::showModulesDialog(DWORD pid) {
+    std::vector<ModuleInfo> modules;
+    if (!HandleDLLInspection::getModules(pid, modules)) {
+        QMessageBox::warning(this, "Modules", "Failed to retrieve modules.");
+        return;
+    }
+    QDialog dlg(this);
+    dlg.setWindowTitle(QString("Modules for PID %1").arg(pid));
+    QVBoxLayout *layout = new QVBoxLayout(&dlg);
+    QTableWidget *table = new QTableWidget(&dlg);
+    table->setColumnCount(2);
+    table->setHorizontalHeaderLabels(QStringList{"Module Name", "Path"});
+    table->setRowCount(static_cast<int>(modules.size()));
+    for (int i = 0; i < static_cast<int>(modules.size()); ++i) {
+        const auto &mi = modules[i];
+        table->setItem(i, 0, new QTableWidgetItem(mi.moduleName));
+        table->setItem(i, 1, new QTableWidgetItem(mi.modulePath));
+    }
+    table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    layout->addWidget(table);
+    dlg.resize(800, 500);
+    dlg.exec();
+}
+
+// Implement onShowHandles and onShowModules
+void MainWindow::onShowHandles() {
+    int row = ui->tableProcesses->currentRow();
+    if (row < 0) return;
+    QString pidStr = ui->tableProcesses->item(row, 0)->text();
+    if (pidStr.isEmpty()) return;
+    DWORD pid = pidStr.toUInt();
+    showHandlesDialog(pid);
+}
+
+void MainWindow::onShowModules() {
+    int row = ui->tableProcesses->currentRow();
+    if (row < 0) return;
+    QString pidStr = ui->tableProcesses->item(row, 0)->text();
+    if (pidStr.isEmpty()) return;
+    DWORD pid = pidStr.toUInt();
+    showModulesDialog(pid);
+}
+
 // Apply theme colors to the UI using palette and stylesheet
 void MainWindow::applyTheme(const QStringList &colors) {
     // colors: [primary, secondary, accent, background, surface]
@@ -1405,3 +1488,19 @@ void MainWindow::updatePieCharts()
     }
     //TODO IT ENDS
 }
+
+// Implement the missing onToggleHardwareInfo slot and hide the hardware info text widget by default
+void MainWindow::onToggleHardwareInfo()
+{
+    if (hardwareInfoTimer->isActive()) {
+        hardwareInfoTimer->stop();
+        ui->textHardwareInfo->hide();
+        ui->btnToggleHardwareInfo->setText("Display Hardware Info");
+    } else {
+        ui->textHardwareInfo->show();
+        updateHardwareInfo();
+        hardwareInfoTimer->start(1000);
+        ui->btnToggleHardwareInfo->setText("Hide Hardware Info");
+    }
+}
+

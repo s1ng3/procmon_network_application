@@ -55,7 +55,8 @@ public:
     QWidget *tabHardware;
     QVBoxLayout *hardwareLayout;
     QTextEdit *textHardwareInfo;
-    QPushButton *btnDisplayHardwareInfo;
+    QSpacerItem *verticalSpacerHardware;
+    QPushButton *btnToggleHardwareInfo;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -185,10 +186,14 @@ public:
 
         hardwareLayout->addWidget(textHardwareInfo);
 
-        btnDisplayHardwareInfo = new QPushButton(tabHardware);
-        btnDisplayHardwareInfo->setObjectName("btnDisplayHardwareInfo");
+        verticalSpacerHardware = new QSpacerItem(0, 0, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
-        hardwareLayout->addWidget(btnDisplayHardwareInfo);
+        hardwareLayout->addItem(verticalSpacerHardware);
+
+        btnToggleHardwareInfo = new QPushButton(tabHardware);
+        btnToggleHardwareInfo->setObjectName("btnToggleHardwareInfo");
+
+        hardwareLayout->addWidget(btnToggleHardwareInfo);
 
         tabWidget->addTab(tabHardware, QString());
 
@@ -237,7 +242,7 @@ public:
         btnVerifyIntegrity->setText(QCoreApplication::translate("MainWindow", "Verify Integrity", nullptr));
         btnExit->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabProcesses), QCoreApplication::translate("MainWindow", "Processes", nullptr));
-        btnDisplayHardwareInfo->setText(QCoreApplication::translate("MainWindow", "Display Hardware Info", nullptr));
+        btnToggleHardwareInfo->setText(QCoreApplication::translate("MainWindow", "Display Hardware Info", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabHardware), QCoreApplication::translate("MainWindow", "Hardware Info", nullptr));
     } // retranslateUi
 

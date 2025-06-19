@@ -56,10 +56,10 @@ RM = F:\JetBrains\CLion\bin\cmake\win\x64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "F:\JetBrains Projects\CLion Projects\procmon_network_application\procmon_network_application\procmon_remote"
+CMAKE_SOURCE_DIR = "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "F:\JetBrains Projects\CLion Projects\procmon_network_application\procmon_network_application\procmon_remote\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "F:\JetBrains Projects\CLion Projects\procmon_network_application\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles" "F:\JetBrains Projects\CLion Projects\procmon_network_application\procmon_network_application\procmon_remote\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles" "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "F:\JetBrains Projects\CLion Projects\procmon_network_application\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Tudor\OneDrive - Technical University of Cluj-Napoca\Desktop\proiect incerc\procmon_network_application\procmon_remote\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -153,6 +153,30 @@ procmon_remote_autogen: cmake_check_build_system
 procmon_remote_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\procmon_remote_autogen.dir\build.make CMakeFiles/procmon_remote_autogen.dir/build
 .PHONY : procmon_remote_autogen/fast
+
+HandleDLLInspection.obj: HandleDLLInspection.cpp.obj
+.PHONY : HandleDLLInspection.obj
+
+# target to build an object file
+HandleDLLInspection.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\procmon_remote.dir\build.make CMakeFiles/procmon_remote.dir/HandleDLLInspection.cpp.obj
+.PHONY : HandleDLLInspection.cpp.obj
+
+HandleDLLInspection.i: HandleDLLInspection.cpp.i
+.PHONY : HandleDLLInspection.i
+
+# target to preprocess a source file
+HandleDLLInspection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\procmon_remote.dir\build.make CMakeFiles/procmon_remote.dir/HandleDLLInspection.cpp.i
+.PHONY : HandleDLLInspection.cpp.i
+
+HandleDLLInspection.s: HandleDLLInspection.cpp.s
+.PHONY : HandleDLLInspection.s
+
+# target to generate assembly for a file
+HandleDLLInspection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\procmon_remote.dir\build.make CMakeFiles/procmon_remote.dir/HandleDLLInspection.cpp.s
+.PHONY : HandleDLLInspection.cpp.s
 
 MainWindow.obj: MainWindow.cpp.obj
 .PHONY : MainWindow.obj
@@ -309,6 +333,9 @@ help:
 	@echo ... procmon_remote_autogen
 	@echo ... procmon_remote_autogen_timestamp_deps
 	@echo ... procmon_remote
+	@echo ... HandleDLLInspection.obj
+	@echo ... HandleDLLInspection.i
+	@echo ... HandleDLLInspection.s
 	@echo ... MainWindow.obj
 	@echo ... MainWindow.i
 	@echo ... MainWindow.s
